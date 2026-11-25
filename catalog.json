@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "lastChecked": "2026-11-25"
+  },
+  "tools": [
+    {
+      "id": "chatgpt",
+      "addedAt": "2025-06-01",
+      "bestFor": "All-round everyday help",
+      "cat": "chat",
+      "desc": "The most widely used AI assistant. Answers questions, writes, makes images, searches the web and talks out loud.",
+      "maker": "OpenAI",
+      "name": "ChatGPT",
+      "price": "Free plan + paid",
+      "start": "Sign up free, then ask it to explain something you've always wondered about.",
+      "url": "https://chatgpt.com"
+    },
+    {
+      "id": "claude",
+      "addedAt": "2025-06-01",
+      "bestFor": "Writing and long documents",
+      "cat": "chat",
+      "desc": "AI assistant known for careful, natural writing and for reading long documents. Strong at coding and analysis.",
+      "maker": "Anthropic",
+      "name": "Claude",
+      "price": "Free plan + paid",
+      "start": "Upload a long PDF and ask for the five most important points.",
+      "url": "https://claude.ai"
+    },
+    {
+      "id": "gemini",
+      "addedAt": "2025-06-01",
+      "bestFor": "People who use Google apps",
+      "cat": "chat",
+      "desc": "Google's AI assistant. Works with Gmail, Docs and Maps, makes images and video, and has a live voice mode.",
+      "maker": "Google",
+      "name": "Gemini",
+      "price": "Free plan + paid",
+      "start": "Ask it to plan a day out near you, using Google Maps.",
+      "url": "https://gemini.google.com"
+    },
+    {
+      "id": "copilot",
+      "addedAt": "2025-06-01",
+      "bestFor": "Windows and Office users",
+      "cat": "chat",
+      "desc": "Microsoft's AI assistant, built into Windows, Edge and Microsoft 365 apps like Word, Excel and Outlook.",
+      "maker": "Microsoft",
+      "name": "Microsoft Copilot",
+      "price": "Free plan + paid",
+      "start": "Open Copilot in Windows and ask it to summarize a web page you're reading.",
+      "url": "https://copilot.com"
+    },
+    {
+      "id": "perplexity",
+      "addedAt": "2025-06-01",
+      "bestFor": "Research with sources",
+      "cat": "search",
+      "desc": "An AI search engine that answers in plain language and shows a numbered source for every claim.",
+      "maker": "Perplexity AI",
+      "name": "Perplexity",
+      "price": "Free plan + paid",
+      "start": "Ask a question you'd normally search for, then click the sources to check them.",
+      "url": "https://www.perplexity.ai"
+    },
+    {
+      "id": "notebooklm",
+      "addedAt": "2025-06-01",
+      "bestFor": "Studying your own material",
+      "cat": "learning",
+      "desc": "Upload your own notes, PDFs or videos and ask questions about them, or turn them into a podcast-style audio summary. Called NotebookLM until July 2026.",
+      "maker": "Google",
+      "name": "Gemini Notebook",
+      "price": "Free plan + paid",
+      "start": "Upload a document you need to understand and generate an audio overview.",
+      "url": "https://notebook.google.com"
+    },
+    {
+      "id": "grammarly",
+      "addedAt": "2025-06-01",
+      "bestFor": "Polishing everyday writing",
+      "cat": "writing",
+      "desc": "Checks spelling, grammar and tone as you type in email, documents and websites, and can rewrite sentences.",
+      "maker": "Grammarly",
+      "name": "Grammarly",
+      "price": "Free plan + paid",
+      "start": "Install the browser extension and write an email as usual.",
+      "url": "https://www.grammarly.com"
+    },
+    {
+      "id": "notion-ai",
+      "addedAt": "2025-06-01",
+      "bestFor": "Notes and team documents",
+      "cat": "writing",
+      "desc": "AI inside the Notion notes app. Summarizes notes, drafts pages and pulls action items from meeting notes.",
+      "maker": "Notion",
+      "name": "Notion AI",
+      "price": "Paid add-on",
+      "start": "Paste meeting notes into a page and ask for a list of action items.",
+      "url": "https://www.notion.com/product/ai"
+    },
+    {
+      "id": "otter",
+      "addedAt": "2025-06-01",
+      "bestFor": "Meeting notes",
+      "cat": "writing",
+      "desc": "Records meetings and calls, writes a transcript as people talk, and produces a summary afterwards.",
+      "maker": "Otter.ai",
+      "name": "Otter.ai",
+      "price": "Free plan + paid",
+      "start": "Record your next video call and read the summary afterwards.",
+      "url": "https://otter.ai"
+    },
+    {
+      "id": "midjourney",
+      "addedAt": "2025-06-01",
+      "bestFor": "Artistic, stylish images",
+      "cat": "image",
+      "desc": "Creates striking, artistic images from a description. Popular with designers and illustrators.",
+      "maker": "Midjourney",
+      "name": "Midjourney",
+      "price": "Paid",
+      "start": "Describe a scene with a style and lighting, then try small changes.",
+      "url": "https://www.midjourney.com"
+    },
+    {
+      "id": "ideogram",
+      "addedAt": "2025-06-01",
+      "bestFor": "Posters, cards, logos",
+      "cat": "image",
+      "desc": "Image generator that's especially good at putting readable words into pictures, such as posters and logos.",
+      "maker": "Ideogram",
+      "name": "Ideogram",
+      "price": "Free plan + paid",
+      "start": "Make a birthday card with the person's name written on it.",
+      "url": "https://ideogram.ai"
+    },
+    {
+      "id": "firefly",
+      "addedAt": "2025-06-01",
+      "bestFor": "Business and marketing images",
+      "cat": "image",
+      "desc": "Adobe's image and video generator, trained on licensed content so it's designed to be safe for commercial use.",
+      "maker": "Adobe",
+      "name": "Adobe Firefly",
+      "price": "Free plan + paid",
+      "start": "Generate a product background, then edit it in Photoshop or Adobe Express.",
+      "url": "https://firefly.adobe.com"
+    },
+    {
+      "id": "canva",
+      "addedAt": "2025-06-01",
+      "bestFor": "Quick, polished designs",
+      "cat": "image",
+      "desc": "Easy design app with built-in AI that writes text, generates images and resizes designs for you.",
+      "maker": "Canva",
+      "name": "Canva",
+      "price": "Free plan + paid",
+      "start": "Pick a social post template and ask the AI to write the caption.",
+      "url": "https://www.canva.com"
+    },
+    {
+      "id": "runway",
+      "addedAt": "2025-06-01",
+      "bestFor": "Creative video",
+      "cat": "video",
+      "desc": "AI video studio: turn text or a photo into short clips, remove backgrounds and edit with AI.",
+      "maker": "Runway",
+      "name": "Runway",
+      "price": "Free plan + paid",
+      "start": "Upload a still photo and ask it to animate the scene.",
+      "url": "https://runway.com"
+    },
+    {
+      "id": "kling",
+      "addedAt": "2025-06-01",
+      "bestFor": "Trying video AI for free",
+      "cat": "video",
+      "desc": "Generates realistic short video clips from a description or an image, with a daily free allowance.",
+      "maker": "Kuaishou",
+      "name": "Kling",
+      "price": "Free plan + paid",
+      "start": "Describe a five-second scene, like waves at sunset with birds flying past.",
+      "url": "https://kling.ai"
+    },
+    {
+      "id": "suno",
+      "addedAt": "2025-06-01",
+      "bestFor": "Making music for fun",
+      "cat": "audio",
+      "desc": "Makes complete songs, with singing and instruments, from a short description or your own lyrics.",
+      "maker": "Suno",
+      "name": "Suno",
+      "price": "Free plan + paid",
+      "start": "Ask for an upbeat folk song about your pet.",
+      "url": "https://suno.com"
+    },
+    {
+      "id": "elevenlabs",
+      "addedAt": "2025-06-01",
+      "bestFor": "Voiceovers and narration",
+      "cat": "audio",
+      "desc": "Turns text into very natural speech in many voices and languages. Used for audiobooks, videos and accessibility.",
+      "maker": "ElevenLabs",
+      "name": "ElevenLabs",
+      "price": "Free plan + paid",
+      "start": "Paste a paragraph and listen to it in three different voices.",
+      "url": "https://elevenlabs.io"
+    },
+    {
+      "id": "cursor",
+      "addedAt": "2025-06-01",
+      "bestFor": "Building software faster",
+      "cat": "code",
+      "desc": "A code editor with AI built in. Describe a change in plain English and it edits the code across your project.",
+      "maker": "Anysphere",
+      "name": "Cursor",
+      "price": "Free plan + paid",
+      "start": "Open a small project and ask it to explain what the code does.",
+      "url": "https://cursor.com"
+    },
+    {
+      "id": "github-copilot",
+      "addedAt": "2025-06-01",
+      "bestFor": "Developers in VS Code and GitHub",
+      "cat": "code",
+      "desc": "AI coding assistant inside popular code editors. Suggests code as you type and can take on whole tasks.",
+      "maker": "GitHub (Microsoft)",
+      "name": "GitHub Copilot",
+      "price": "Free plan + paid",
+      "start": "Install it in VS Code and write a comment describing a function you need.",
+      "url": "https://github.com/features/copilot"
+    },
+    {
+      "id": "claude-code",
+      "addedAt": "2025-06-01",
+      "bestFor": "Larger coding tasks",
+      "cat": "code",
+      "desc": "A coding agent that reads your project, plans changes, writes and tests code, and explains what it did.",
+      "maker": "Anthropic",
+      "name": "Claude Code",
+      "price": "Paid",
+      "start": "Ask it to add a small feature to a project and review its plan first.",
+      "url": "https://claude.com/product/claude-code"
+    }
+  ],
+  "models": [
+    {
+      "id": "transformer",
+      "current": false,
+      "desc": "Not a product but a design, published in the paper \"Attention Is All You Need\". Almost every modern language model is built on it.",
+      "kind": "Foundational",
+      "maker": "Google researchers",
+      "name": "The Transformer",
+      "year": 2017
+    },
+    {
+      "id": "bert",
+      "current": false,
+      "desc": "Read text in both directions at once and greatly improved how well computers understood language. It quickly made Google Search better.",
+      "kind": "Milestone",
+      "maker": "Google",
+      "name": "BERT",
+      "year": 2018
+    },
+    {
+      "id": "gpt-2",
+      "current": false,
+      "desc": "Wrote surprisingly fluent paragraphs. OpenAI first held back the full version over worries about misuse.",
+      "kind": "Milestone",
+      "maker": "OpenAI",
+      "name": "GPT-2",
+      "year": 2019
+    },
+    {
+      "id": "gpt-3",
+      "current": false,
+      "desc": "175 billion parameters. The first model that could write, translate, answer questions and code from simple instructions.",
+      "kind": "Breakthrough",
+      "maker": "OpenAI",
+      "name": "GPT-3",
+      "year": 2020
+    },
+    {
+      "id": "alphafold-2",
+      "current": false,
+      "desc": "Predicted the 3D shape of proteins, a 50-year-old problem in biology. Its creators shared the 2024 Nobel Prize in Chemistry.",
+      "kind": "Science",
+      "maker": "Google DeepMind",
+      "name": "AlphaFold 2",
+      "year": 2020
+    },
+    {
+      "id": "dall-e",
+      "current": false,
+      "desc": "Showed that AI could draw pictures from a written description, starting the AI image boom.",
+      "kind": "Image",
+      "maker": "OpenAI",
+      "name": "DALL·E",
+      "year": 2021
+    },
+    {
+      "id": "codex",
+      "current": false,
+      "desc": "Turned plain-English requests into working code and powered the first GitHub Copilot.",
+      "kind": "Coding",
+      "maker": "OpenAI",
+      "name": "Codex",
+      "year": 2021
+    },
+    {
+      "id": "stable-diffusion",
+      "current": false,
+      "desc": "A free, downloadable image generator that anyone could run and adapt, which sparked a huge community of tools.",
+      "kind": "Open model",
+      "maker": "Stability AI",
+      "name": "Stable Diffusion",
+      "year": 2022
+    },
+    {
+      "id": "chatgpt-launch",
+      "current": false,
+      "desc": "Reached 100 million users in about two months and made AI chatbots part of everyday life.",
+      "kind": "Breakthrough",
+      "maker": "OpenAI",
+      "name": "ChatGPT launches",
+      "year": 2022
+    },
+    {
+      "id": "gpt-4",
+      "current": false,
+      "desc": "Could read images as well as text and scored highly on professional exams like the bar exam.",
+      "kind": "Milestone",
+      "maker": "OpenAI",
+      "name": "GPT-4",
+      "year": 2023
+    },
+    {
+      "id": "claude-1-2",
+      "current": false,
+      "desc": "Built with a strong focus on safety, and among the first to read very long documents in one go.",
+      "kind": "Milestone",
+      "maker": "Anthropic",
+      "name": "Claude and Claude 2",
+      "year": 2023
+    },
+    {
+      "id": "llama-2",
+      "current": false,
+      "desc": "A capable language model released for anyone to download and build on, bringing chatbot technology to researchers and small companies.",
+      "kind": "Open model",
+      "maker": "Meta",
+      "name": "Llama 2",
+      "year": 2023
+    },
+    {
+      "id": "gemini-1",
+      "current": false,
+      "desc": "Google's first model designed from the start to handle text, images, audio and video together.",
+      "kind": "Milestone",
+      "maker": "Google",
+      "name": "Gemini 1.0",
+      "year": 2023
+    },
+    {
+      "id": "claude-3",
+      "current": false,
+      "desc": "Introduced the Haiku, Sonnet and Opus sizes. Claude 3.5 Sonnet became a favorite for coding and writing.",
+      "kind": "Milestone",
+      "maker": "Anthropic",
+      "name": "Claude 3 and 3.5",
+      "year": 2024
+    },
+    {
+      "id": "gpt-4o",
+      "current": false,
+      "desc": "Held natural, real-time voice conversations and could see through your camera. The \"o\" stands for \"omni\".",
+      "kind": "Multimodal",
+      "maker": "OpenAI",
+      "name": "GPT-4o",
+      "year": 2024
+    },
+    {
+      "id": "o1",
+      "current": false,
+      "desc": "The first widely used reasoning model. It thinks step by step before answering, and is much better at math and logic.",
+      "kind": "Reasoning",
+      "maker": "OpenAI",
+      "name": "o1",
+      "year": 2024
+    },
+    {
+      "id": "llama-3",
+      "current": false,
+      "desc": "Free-to-download models that came close to the best paid models of the time.",
+      "kind": "Open model",
+      "maker": "Meta",
+      "name": "Llama 3",
+      "year": 2024
+    },
+    {
+      "id": "sora",
+      "current": false,
+      "desc": "Generated realistic video clips from a text description, a big step for AI video.",
+      "kind": "Video",
+      "maker": "OpenAI",
+      "name": "Sora",
+      "year": 2024
+    },
+    {
+      "id": "deepseek-r1",
+      "current": false,
+      "desc": "A free, downloadable reasoning model from a Chinese lab that matched top paid models at a fraction of the cost.",
+      "kind": "Open model",
+      "maker": "DeepSeek",
+      "name": "DeepSeek-R1",
+      "year": 2025
+    },
+    {
+      "id": "veo-3",
+      "current": false,
+      "desc": "Generated video with matching sound, dialogue and music, all from one description.",
+      "kind": "Video",
+      "maker": "Google DeepMind",
+      "name": "Veo 3",
+      "year": 2025
+    },
+    {
+      "id": "claude-4",
+      "current": false,
+      "desc": "Claude Opus 4 and Sonnet 4 could work on coding and agent tasks for hours at a stretch.",
+      "kind": "Milestone",
+      "maker": "Anthropic",
+      "name": "Claude 4",
+      "year": 2025
+    },
+    {
+      "id": "gemini-2-5",
+      "current": false,
+      "desc": "Google's first models with built-in thinking, able to read about a million tokens of text at once.",
+      "kind": "Reasoning",
+      "maker": "Google",
+      "name": "Gemini 2.5",
+      "year": 2025
+    },
+    {
+      "id": "gpt-5",
+      "current": false,
+      "desc": "Combined fast answers and deeper reasoning in one system that decides how long to think.",
+      "kind": "Milestone",
+      "maker": "OpenAI",
+      "name": "GPT-5",
+      "year": 2025
+    },
+    {
+      "id": "claude-5",
+      "current": true,
+      "desc": "Anthropic's current models: Haiku, Sonnet and Opus 5.5, plus Claude Fable 5.2, released November 2026, its most capable model.",
+      "kind": "Flagship",
+      "maker": "Anthropic",
+      "name": "Claude 5 family",
+      "year": 2026
+    },
+    {
+      "id": "gpt-6",
+      "current": true,
+      "desc": "OpenAI's current generation. In November 2026 it released GPT-6.2 Astra, its most capable model for hard projects, and GPT-6.2 Sol, a cheaper model for everyday work. ChatGPT's free plan uses GPT-6 Luna.",
+      "kind": "Flagship",
+      "maker": "OpenAI",
+      "name": "GPT-6 family",
+      "year": 2026
+    },
+    {
+      "id": "gemini-4",
+      "current": true,
+      "desc": "Google's current generation, introduced in October 2026 with Gemini 4 Argon as its frontier model. Carbon, Neon (added November 2026 as a faster, cheaper middle option) and Hydrogen cover everyday tasks across Gemini and Google's products.",
+      "kind": "Flagship",
+      "maker": "Google",
+      "name": "Gemini 4 family",
+      "year": 2026
+    }
+  ]
+}
