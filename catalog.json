@@ -281,13 +281,13 @@
     },
     {
       "id": "lexis-plus-ai",
-      "name": "Lexis+ AI",
+      "name": "Lexis+ with Protégé",
       "maker": "LexisNexis",
       "cat": "legal",
       "price": "Paid",
-      "url": "https://www.lexisnexis.com/ai",
+      "url": "https://www.lexisnexis.com/en-us/products/lexis-plus-protege.page",
       "addedAt": "2026-11-25",
-      "desc": "AI research and drafting inside the LexisNexis legal research service. Answers link to cases and statutes in its database, and it can check citations with Shepard's.",
+      "desc": "The LexisNexis legal research service with Protégé, its AI assistant. It answers research questions with links to cases and statutes, helps with drafting and can check citations with Shepard's. It was called Lexis+ AI until February 2026.",
       "bestFor": "Legal research with sources",
       "start": "Ask a research question you already know the answer to, then read every case it cites."
     },
@@ -527,7 +527,7 @@
     {
       "id": "claude-5",
       "current": true,
-      "desc": "Anthropic's current models. They include Haiku 5.5, Sonnet 5.5 and Opus 5.5, plus Claude Fable 5.2, its most capable model, released in November 2026.",
+      "desc": "Anthropic's current models. They include Haiku 5.5, Sonnet 5.5 and Opus 5.5, plus Claude Fable 5.2, its most capable public model, released in November 2026. Claude Mythos 5.2 is the same model without some of Fable's safety limits for cybersecurity and biology, and only approved organizations can use it.",
       "kind": "Flagship",
       "maker": "Anthropic",
       "name": "Claude 5 family",
