@@ -2,42 +2,43 @@
 {
   "slug": "building-with-ai",
   "title": "Building with AI",
-  "intro": "Apps use AI models behind the scenes. This lesson covers the main methods programmers use.",
+  "intro": "Legal AI tools are built from a few common parts. Knowing them helps you judge a tool and talk to vendors.",
   "tryIt": {
     "tool": "ChatGPT, Claude or Gemini",
-    "prompt": "Write a system prompt for a customer support assistant at a small bakery. Include its tone and what it must never do. Say which questions it should answer only from a menu and policy document I provide, and when it should hand the chat to a person."
+    "prompt": "Write a system prompt for an assistant that answers staff questions about a law firm's own written policies. Include its tone, what it must never do, that it must answer only from the policy documents provided and quote the section it relied on, and when it should send the question to a person."
   },
   "quiz": {
-    "q": "What does retrieval-augmented generation (RAG) do?",
+    "q": "What does retrieval-augmented generation (RAG) do in a legal research tool?",
     "opts": [
-      "It retrains the model every night on new documents",
-      "It makes the model answer faster by skipping steps",
-      "It saves every conversation forever",
-      "It finds the right parts of your documents and adds them to the prompt, so the answer is based on them"
+      "It retrains the model every night on new cases",
+      "It finds relevant passages from a database of real legal sources and gives them to the model to answer from",
+      "It guarantees the answer is correct",
+      "It makes the tool work without the internet"
     ],
-    "correct": 3,
-    "feedback": "RAG looks up the most useful parts of your documents and gives them to the model with the question. The answers then come from your own information, and the model does not need retraining."
+    "correct": 1,
+    "feedback": "RAG looks up relevant sources first and gives them to the model with your question. That reduces made-up answers, but it does not guarantee correct ones."
   }
 }
 -->
 <h2>An API call</h2>
 <p>Apps talk to models through an <strong>API</strong>, which is a set of rules that lets one program ask another program for something. Your code sends instructions and messages, and it gets a reply back. A typical request looks like this. The details differ from company to company.</p>
-<pre class="code" data-say="The page shows a short example request. It names the model, gives a system prompt that asks for a friendly tutor, adds the question, and sets the longest answer allowed."><code>{
+<pre class="code" data-say="The page shows a short example request. It names the model, gives a system prompt that says to answer only from the provided policy and to cite the section, adds the question, and sets the longest answer allowed."><code>{
   "model": "a-model-name",
-  "system": "You are a friendly tutor for beginners. Answer in under 100 words.",
+  "system": "Answer only from the firm policy provided. Quote the section you relied on. If the policy does not cover it, say so.",
   "messages": [
-    { "role": "user", "content": "What is a context window?" }
+    { "role": "user", "content": "Can I use my personal laptop for client work?" }
   ],
   "max_tokens": 300
 }</code></pre>
-<p>The <strong>system prompt</strong> sets the model's role, tone and rules for the whole conversation. Two things make results much more reliable. One is putting one or two worked examples in the prompt, which is called few-shot prompting. The other is asking for a fixed format, such as JSON.</p>
+<p>The <strong>system prompt</strong> sets the model's role, tone and rules for the whole conversation. Results get much more reliable when you include one or two worked examples and ask for a fixed format.</p>
 <h2>Retrieval-augmented generation (RAG)</h2>
-<p>A model never saw your own documents in training. RAG lets it answer from them anyway. It works in three steps.</p>
+<p>A model never saw your firm's documents in training. RAG lets it answer from them anyway. Most legal research tools work this way, using a database of cases and statutes. It works in three steps.</p>
 <ol class="steps">
 <li>Split the documents into short chunks. Turn each chunk into an <strong>embedding</strong>, which is a list of numbers that captures its meaning.</li>
 <li>When a question comes in, turn it into an embedding too. Then find the chunks whose meaning is closest.</li>
 <li>Put those chunks into the prompt. Ask the model to answer only from them and to say which chunks it used.</li>
 </ol>
+<p>If the search step finds the wrong passages, the answer will be wrong too, even with real citations attached. That is one reason legal research tools still make mistakes.</p>
 <h2>Prompting, RAG or fine-tuning</h2>
-<p>Start with a good prompt. Add RAG when the answers depend on your own information or on information that changes often. Think about fine-tuning, which means extra training on your own examples, only when you need the same style or format at a large scale and a prompt can't get you there.</p>
-<div class="callout"><p class="label">Two safety basics</p><p>Keep API keys on a server. Never put them in a web page or app that users can look inside. Also, do not trust documents and web pages. Text inside them can try to give the model orders. This is called <strong>prompt injection</strong>.</p></div>
+<p>Start with a good prompt. Add RAG when answers depend on your own documents or on law that changes. Think about <strong>fine-tuning</strong>, which means extra training on your own examples, only when you need the same style at a large scale and a prompt cannot get you there.</p>
+<div class="callout"><p class="label">Two safety basics</p><p>Keep API keys on a server, never in a web page users can look inside. And do not trust incoming documents. Text hidden in a document, such as a file produced by the other side, can try to give the model orders. This is called <strong>prompt injection</strong>.</p></div>

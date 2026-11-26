@@ -2,21 +2,21 @@
 {
   "slug": "how-models-are-trained",
   "title": "How models are trained",
-  "intro": "A chatbot goes through several stages of training to turn raw text into a helpful assistant.",
+  "intro": "A chatbot goes through several stages of training to turn raw text into a helpful assistant. Each stage explains a strength or a weakness.",
   "tryIt": {
     "tool": "ChatGPT, Claude or Gemini",
-    "prompt": "What is your knowledge cutoff date? What do you do when I ask about something that happened after it? How can I tell whether your answer used a web search?"
+    "prompt": "What is your knowledge cutoff date? If I ask about a court decision or a statute change from after that date, what will you do? How can I tell whether your answer used a web search?"
   },
   "quiz": {
-    "q": "What does pretraining mainly teach a model?",
+    "q": "Why might a chatbot not know about a court decision from last month?",
     "opts": [
-      "To follow a company's safety rules",
-      "To search the web for answers",
-      "To predict the next token across a huge amount of text",
-      "To decide which of two answers is better"
+      "Courts block AI from reading decisions",
+      "Its training data stops at a knowledge cutoff, so newer events must come from a search or from documents you give it",
+      "It only learns about state courts",
+      "It forgets everything each night"
     ],
-    "correct": 2,
-    "feedback": "Pretraining is next-token prediction on a huge scale. Following instructions and matching what people prefer come from the later training stages."
+    "correct": 1,
+    "feedback": "A model only knows what was in its training data. Anything newer has to come from a web search, a connected legal database or documents you provide."
   }
 }
 -->
@@ -25,9 +25,9 @@
 <h2>Stage 2: Learning from example chats</h2>
 <p>Next, the base model trains on many example conversations that show helpful answers. This teaches it to act as an assistant. It learns to follow instructions, answer questions and use a steady format.</p>
 <h2>Stage 3: Learning from feedback</h2>
-<p>People compare pairs of answers and pick the better one. The model is then trained to give the kind of answers people picked. This is called <strong>reinforcement learning from human feedback</strong>, or RLHF. Anthropic also uses a written set of principles, which it calls a "constitution," along with feedback written by AI.</p>
+<p>People compare pairs of answers and pick the better one. The model is then trained to give the kind of answers people picked. This is called <strong>reinforcement learning from human feedback</strong>, or RLHF. It makes answers more helpful and polite. It can also make the model eager to please, so it may give an answer when it should say "I don't know."</p>
 <h2>Stage 4: Learning to reason</h2>
-<p>Thinking models get extra training on problems with answers that can be checked, such as math and code. They are rewarded when the final answer is correct. Over time, this teaches them to work through problems step by step.</p>
-<div class="callout"><p class="label">Knowledge cutoff</p><p>A model only knows what was in its training data. That data stops at a date called the <strong>knowledge cutoff</strong>. Anything newer has to come from a web search or from documents you give it.</p></div>
+<p>Thinking models get extra training on problems with answers that can be checked, such as math and code. They are rewarded when the final answer is correct. This helps with multi-step problems. Legal answers are harder to check automatically, so this training helps less with legal judgment.</p>
+<div class="callout"><p class="label">Knowledge cutoff</p><p>A model only knows what was in its training data. That data stops at a date called the <strong>knowledge cutoff</strong>. A new statute, rule change or appeals decision after that date has to come from a search, a legal database or documents you give it.</p></div>
 <h2>Open and closed models</h2>
-<p>Some companies publish the trained settings of their models, called <strong>weights</strong>. Anyone can then run and change those models. These are called open-weight models. Llama, Mistral, DeepSeek and Qwen are examples. Other companies only let people use their models through their own apps and APIs.</p>
+<p>Some companies publish the trained settings of their models, called <strong>weights</strong>. Anyone can then run and change those models. These are called open-weight models, such as Llama, Mistral, DeepSeek and Qwen. An organization can run them on its own computers, which keeps client data inside. Other companies only offer their models through their own apps and services.</p>

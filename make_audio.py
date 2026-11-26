@@ -35,6 +35,8 @@ def lesson_scripts():
         if not os.path.exists(page):
             continue
         m = re.search(r'<script type="application/json" id="read-data">(.*?)</script>', open(page, encoding="utf-8").read(), re.S)
+        if not m:  # redirect pages for old addresses
+            continue
         out[slug] = [b["t"] for b in json.loads(m.group(1).replace("<\\/", "</"))["blocks"]]
     return out
 

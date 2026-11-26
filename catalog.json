@@ -242,6 +242,78 @@
       "price": "Paid",
       "start": "Ask it to add a small feature to a project, and read its plan before it starts.",
       "url": "https://claude.com/product/claude-code"
+    },
+    {
+      "id": "cocounsel-legal",
+      "name": "CoCounsel Legal",
+      "maker": "Thomson Reuters",
+      "cat": "legal",
+      "price": "Paid",
+      "url": "https://legal.thomsonreuters.com",
+      "addedAt": "2026-11-25",
+      "desc": "Thomson Reuters' AI assistant for lawyers. It draws on Westlaw and Practical Law content for research, and it can review documents and draft.",
+      "bestFor": "Research and drafting with Westlaw",
+      "start": "Ask it to sum up a case you have already read, and compare its summary with the case."
+    },
+    {
+      "id": "everlaw-ai",
+      "name": "EverlawAI",
+      "maker": "Everlaw",
+      "cat": "legal",
+      "price": "Paid",
+      "url": "https://www.everlaw.com",
+      "addedAt": "2026-11-25",
+      "desc": "AI features in the Everlaw e-discovery platform. It can sum up batches of documents, suggest coding and help draft from the evidence.",
+      "bestFor": "E-discovery and case building",
+      "start": "Ask it to sum up a small set of documents, then check each summary against the documents."
+    },
+    {
+      "id": "harvey",
+      "name": "Harvey",
+      "maker": "Harvey",
+      "cat": "legal",
+      "price": "Paid",
+      "url": "https://www.harvey.ai",
+      "addedAt": "2026-11-25",
+      "desc": "An AI platform built for law firms and legal departments. It helps with research, drafting and reviewing large sets of documents.",
+      "bestFor": "Firm-wide legal AI",
+      "start": "Try it on a closed matter or made-up documents during a trial, and check its answers against your own work."
+    },
+    {
+      "id": "lexis-plus-ai",
+      "name": "Lexis+ AI",
+      "maker": "LexisNexis",
+      "cat": "legal",
+      "price": "Paid",
+      "url": "https://www.lexisnexis.com/ai",
+      "addedAt": "2026-11-25",
+      "desc": "AI research and drafting inside the LexisNexis legal research service. Answers link to cases and statutes in its database, and it can check citations with Shepard's.",
+      "bestFor": "Legal research with sources",
+      "start": "Ask a research question you already know the answer to, then read every case it cites."
+    },
+    {
+      "id": "relativity-air",
+      "name": "Relativity aiR",
+      "maker": "Relativity",
+      "cat": "legal",
+      "price": "Paid",
+      "url": "https://www.relativity.com/data-solutions/air/review",
+      "addedAt": "2026-11-25",
+      "desc": "AI for e-discovery. It uses language models to predict which documents are relevant to a lawsuit and explains why.",
+      "bestFor": "Document review in lawsuits",
+      "start": "Compare its relevance calls with a sample your team has already reviewed by hand."
+    },
+    {
+      "id": "spellbook",
+      "name": "Spellbook",
+      "maker": "Spellbook",
+      "cat": "legal",
+      "price": "Paid",
+      "url": "https://spellbook.com",
+      "addedAt": "2026-11-25",
+      "desc": "Contract drafting and review inside Microsoft Word. It suggests clauses, flags risky terms and proposes changes.",
+      "bestFor": "Contract drafting and review",
+      "start": "Open a made-up contract in Word and ask it to list unusual or one-sided terms."
     }
   ],
   "models": [

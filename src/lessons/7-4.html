@@ -2,37 +2,37 @@
 {
   "slug": "agents-tools-and-testing",
   "title": "Agents, tools and testing",
-  "intro": "AI agents use tools over and over until a job is done. Teams also need a way to check that an AI system works.",
+  "intro": "AI agents use tools over and over until a job is done. Legal teams also need a way to check that an AI system works before they rely on it.",
   "tryIt": {
     "tool": "ChatGPT, Claude or Gemini",
-    "prompt": "Design a simple AI agent that sorts my email into urgent, later and newsletters. List the tools it needs and which actions should need my approval. Then write five test emails I could use to check that it works."
+    "prompt": "Design a simple AI agent that sorts a law firm's incoming emails into new client inquiries, court notices and everything else. List the tools it needs, which actions need a person's approval, and five made-up test emails I could use to check it, including one tricky court notice."
   },
   "quiz": {
     "q": "When a model uses a tool, what runs the tool?",
     "opts": [
       "The model runs it inside its own settings",
-      "The person using the app runs it by hand each time",
       "Your app's code runs it and sends the result back to the model",
-      "The AI company runs every tool on its own computers"
+      "The client runs it by hand",
+      "The court's computer runs it"
     ],
-    "correct": 2,
+    "correct": 1,
     "feedback": "The model only asks for a tool to be used. Your code decides whether to run it, runs it and sends back the result. That is also where safety limits belong."
   }
 }
 -->
 <h2>Tools</h2>
-<p>You describe tools to the model. Each description gives the tool's name, what it does and what information it needs. Two examples are <em>search_flights</em> and <em>create_calendar_event</em>. When a tool would help, the model replies with a request to use it. <strong>Your code runs the tool</strong> and sends the result back. Then the model carries on.</p>
+<p>You describe tools to the model. Each description gives the tool's name, what it does and what information it needs. Legal examples are <em>search_case_law</em>, <em>open_matter_file</em> and <em>calculate_deadline</em>. When a tool would help, the model replies with a request to use it. <strong>Your code runs the tool</strong> and sends the result back. Then the model carries on.</p>
 <h2>The agent loop</h2>
 <ol class="flow">
 <li>Goal</li><li>Plan the next step</li><li>Use a tool</li><li>Read the result</li><li>Repeat or finish</li>
 </ol>
-<p>An agent is this loop running until the goal is met. <strong>MCP</strong>, short for Model Context Protocol, is an open standard that Anthropic introduced in 2024. Many companies now support it. It lets AI apps connect to tools and information in one standard way, so each connection does not need custom work.</p>
+<p>An agent is this loop running until the goal is met. <strong>MCP</strong>, short for Model Context Protocol, is an open standard that Anthropic introduced in 2024. Many companies now support it. It lets AI apps connect to tools and information in one standard way.</p>
 <h2>Safety limits</h2>
 <ul>
-<li>Give each agent only the access it needs.</li>
-<li>Have a person approve actions that spend money, send messages or delete things.</li>
+<li>Give each agent only the access it needs. Respect ethical walls between matters.</li>
+<li>Have a person approve anything that is filed, sent to a client or paid.</li>
 <li>Keep a record of every tool the agent uses, and set limits on time and spending.</li>
 </ul>
 <h2>Testing</h2>
-<p>Before you launch, build a set of test cases, called an <strong>evaluation set</strong>. Each test case is a real example plus a description of a good answer. Check the answers automatically where you can. You can use exact checks, or have a model grade answers against a list of rules. People should also check a sample by hand. Run the tests again every time you change the prompt, the model or the tools. Small changes often have surprising effects.</p>
-<div class="callout"><p class="label">Choosing a model in practice</p><p>Pick the smallest, cheapest model that passes your tests. Move up a size only for the tasks that need it.</p></div>
+<p>Before you rely on an AI system, build a set of test cases, called an <strong>evaluation set</strong>. Each test case is a real task plus a description of a good answer. For legal research, that might be 50 questions where you already know the right cases. Check the answers automatically where you can, and have lawyers check a sample by hand. Run the tests again every time the tool, the model or your prompts change. Small changes often have surprising effects.</p>
+<div class="callout"><p class="label">Ask vendors for this</p><p>Ask any legal AI vendor how they test accuracy, on what kinds of questions, and how often their citations are wrong. Then run a small test of your own on your kind of work.</p></div>

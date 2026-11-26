@@ -2,32 +2,32 @@
 {
   "slug": "how-ai-learns",
   "title": "How AI learns",
-  "intro": "Nobody gives AI a list of rules. It learns from examples, a bit like you did as a child.",
+  "intro": "Nobody gives AI a full set of rules. It learns from examples, much like a new associate learns from marked-up drafts.",
   "tryIt": {
     "tool": "ChatGPT, Claude or Gemini",
-    "prompt": "Explain how an AI learns to tell cats from dogs. Talk to me as if I were a curious 10-year-old, and use one comparison from everyday life."
+    "prompt": "Explain how a document review tool learns to spot relevant emails in a lawsuit. Talk to me like a first-year law student who has never studied computers, and use one comparison from everyday life."
   },
   "quiz": {
     "q": "What is training data?",
     "opts": [
       "The examples an AI learns from",
-      "A guide that teaches people how to use AI",
-      "Private data that AI is never allowed to see",
+      "A guide that teaches lawyers how to use AI",
+      "Client data that AI is never allowed to see",
       "How fast an AI works"
     ],
     "correct": 0,
-    "feedback": "Training data is the set of examples an AI learns from. Good examples from many different places usually make a better AI."
+    "feedback": "Training data is the set of examples an AI learns from. If the examples are poor or one-sided, the AI's answers will be too."
   },
-  "tech": "Training tries to make a number called the <strong>loss</strong> as small as possible. The loss measures how wrong the model's guesses are. A method called <strong>gradient descent</strong> works out which way to nudge each setting to lower the loss, using a step called backpropagation. It then nudges all the settings a little, one small batch of examples at a time. Engineers keep some examples aside for testing. This shows whether the model learned the pattern or only memorized the answers, which is called <strong>overfitting</strong>. Supervised, unsupervised and reinforcement learning differ in what kind of feedback the model learns from."
+  "tech": "Training tries to make a number called the <strong>loss</strong> as small as possible. The loss measures how wrong the model's guesses are. A method called <strong>gradient descent</strong> works out which way to nudge each setting to lower the loss, using a step called backpropagation. It then nudges all the settings a little, one small batch of examples at a time. Engineers keep some examples aside for testing. This shows whether the model learned the pattern or only memorized the answers, which is called <strong>overfitting</strong>. In e-discovery, the same idea appears as measuring <strong>recall</strong> (how many relevant documents were found) and <strong>precision</strong> (how many of the documents found were relevant) on a test sample."
 }
 -->
 <h2>Learning from examples</h2>
-<p>A normal computer program follows rules that a person writes. For example, "If the room is warmer than 30 degrees, turn on the fan." Someone has to think of every rule ahead of time.</p>
-<p>AI works another way. You give it thousands of examples instead of rules. You might show it 10,000 photos of cats and 10,000 photos of other things. The AI then works out for itself what makes a cat look like a cat.</p>
-<div class="callout"><p class="label">Think of it this way</p><p>Nobody gave you a rule book for reading handwriting. You saw the letter A written in many different ways, and your brain learned what an A looks like. AI learns in a similar way.</p></div>
+<p>A normal computer program follows rules that a person writes. For example, "If a deadline falls on a Saturday, move it to Monday." Someone has to think of every rule ahead of time.</p>
+<p>AI works another way. You give it thousands of examples instead of rules. You might show it 5,000 contracts where a lawyer has marked each clause that limits liability. The AI then works out for itself what a limitation-of-liability clause tends to look like.</p>
+<div class="callout"><p class="label">Think of it this way</p><p>Nobody gave you a rule book for spotting a weak argument. You read many briefs, saw what worked and got feedback. Over time you learned the patterns. AI learns in a similar way, but from far more examples and with no real understanding.</p></div>
 <h2>Training data</h2>
-<p>The examples an AI learns from are called <strong>training data</strong>. Their quality matters a lot. An AI that learned mostly from English text will be better at English than at other languages. An AI that learned from photos of people in one part of the world may be worse at recognizing faces from other places.</p>
-<p>This is how AI can become <strong>biased</strong>, which means unfair to some groups of people. If the examples are unfair or one-sided, the AI learns that too. Data made by people often is one-sided.</p>
+<p>The examples an AI learns from are called <strong>training data</strong>. Their quality matters a lot. An AI that learned mostly from federal court opinions may be weaker on state law or on the law of other countries. An AI that learned from old contracts may miss newer clauses.</p>
+<p>This is also how AI can become <strong>biased</strong>, which means unfair to some groups of people. If the examples are unfair or one-sided, the AI learns that too. You will see real legal examples in the lesson <a href="lesson:when-ai-is-unfair">When AI is unfair</a>.</p>
 <h2>Practice, millions of times</h2>
 <p>During <strong>training</strong>, the AI makes a guess and checks whether it was right. Then it changes itself a tiny bit and tries again. It does this millions of times. Each small fix makes the next guess a little better. Nobody writes the rules. They grow out of all that practice.</p>
-<div class="example"><p class="label">Example</p><p>The AI in a self-driving car studies millions of hours of driving videos. It learns to slow down when a person steps off the curb. No programmer wrote that rule. The AI picked it up from the examples.</p></div>
+<div class="example"><p class="label">Example</p><p>In a large lawsuit, a lawyer reviews a few thousand documents and marks each one relevant or not. The review tool learns from those marks. It then ranks the other million documents, so people read the most likely relevant ones first.</p></div>

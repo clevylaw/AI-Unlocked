@@ -2,29 +2,36 @@
 {
   "slug": "when-ai-is-unfair",
   "title": "When AI is unfair",
-  "intro": "AI can treat some people unfairly even when nobody meant it to. This lesson explains why and why it matters.",
+  "intro": "AI can treat some people unfairly even when nobody meant it to. In law, that can affect bail, sentencing and hiring.",
   "tryIt": {
     "tool": "ChatGPT, Claude or Gemini",
-    "prompt": "I think an AI system was part of the decision to turn down my loan or job application. Give me three questions I could ask the company about it."
+    "prompt": "My client thinks an AI tool screened out her job application. Give me a list of questions to ask the employer about the tool, and explain in plain language what a bias audit is."
   },
   "quiz": {
-    "q": "Why do AI systems become biased?",
+    "q": "In State v. Loomis (2016), what did the Wisconsin Supreme Court decide about COMPAS risk scores?",
     "opts": [
-      "Programmers add bias on purpose",
-      "Broken computer parts cause random mistakes",
-      "Biased answers use less computer power",
-      "They learn from data made by people, and that data can be unfair"
+      "Judges may never see them",
+      "Judges must follow them exactly",
+      "Judges may consider them along with other factors, with written warnings about their limits",
+      "Only juries may see them"
     ],
-    "correct": 3,
-    "feedback": "Bias comes mostly from the training data. The AI learns whatever patterns it is shown, fair or not."
+    "correct": 2,
+    "feedback": "The court allowed judges to consider the score as one factor, but not as the deciding factor, and required written warnings about its limits."
   },
-  "tech": "Researchers have several exact definitions of fairness. One is equal accuracy for every group. Another is equal rates of false alarms. A third is that a score of 70 percent should mean the same thing for every group. These definitions usually cannot all be true at once, so teams must choose one and explain why. A <strong>bias audit</strong> breaks a model's test results down by group to spot gaps. Fixes include rebalancing the training data, changing the score needed for a yes, and adjusting the results afterward. The EU AI Act sorts AI systems by risk. Uses like hiring and lending have the strictest rules."
+  "tech": "Researchers have several exact definitions of fairness. One is equal accuracy for every group. Another is equal rates of false alarms, such as being wrongly labeled high risk. A third is that a given score should mean the same thing for every group. These definitions usually cannot all be true at once, which is part of why COMPAS was so hotly debated. A <strong>bias audit</strong> breaks a tool's results down by group, for example by comparing selection rates by sex and race, to spot gaps.",
+  "sources": [
+    {"title": "ProPublica: Wisconsin court says warning labels are needed for scores rating risk of future crime (2016)", "url": "https://www.propublica.org/article/wisconsin-court-warning-labels-needed-scores-rating-risk-future-crime"},
+    {"title": "Harvard Law Review: State v. Loomis, 130 Harv. L. Rev. 1530 (2017)", "url": "https://harvardlawreview.org/print/vol-130/state-v-loomis/"},
+    {"title": "NYC Department of Consumer and Worker Protection: Automated Employment Decision Tools FAQ", "url": "https://www.nyc.gov/assets/dca/downloads/pdf/about/DCWP-AEDT-FAQ.pdf"}
+  ]
 }
 -->
 <h2>Where bias comes from</h2>
 <p>AI learns from data made by people. That data reflects our history, including the unfair parts. If an AI learns from one-sided examples, it picks up the same slant. Then it repeats that slant for many people at once.</p>
-<div class="example"><p class="label">Real examples</p><p>One hiring tool learned from a company's past hiring. It favored men for tech jobs, because the company had hired more men before. Some face recognition tools made more mistakes with people who have darker skin. They had learned mostly from photos of people with lighter skin.</p></div>
-<h2>Why it matters</h2>
-<p>AI now helps decide who gets a job interview, a loan or medical care. If the AI is biased, real people get hurt. It can also be harder to argue with than a person, because you can't always see how it made its decision.</p>
-<h2>What people are doing about it</h2>
-<p>Researchers test AI for unfair results and look for ways to fix them. New laws, like the European Union's AI Act, require extra checks when AI is used for big decisions about people. If AI played a part in an important decision about you, you can often ask how the decision was made.</p>
+<h2>Risk scores in criminal cases</h2>
+<p>Some courts use software that scores how likely a defendant is to commit another crime. One tool is called COMPAS. In 2016, the news group ProPublica analyzed COMPAS scores and reported that Black defendants were more often wrongly labeled high risk than white defendants. The tool's maker disputed the analysis.</p>
+<div class="example"><p class="label">State v. Loomis (Wisconsin, 2016)</p><p>A defendant argued that using a COMPAS score at his sentencing violated his right to due process. The Wisconsin Supreme Court disagreed, but it set limits. Judges may consider the score as one factor, not the deciding one. They must also get written warnings about the tool's limits. The U.S. Supreme Court declined to hear the case.</p></div>
+<h2>Hiring tools</h2>
+<p>Employers use AI to screen résumés and rank candidates. If a tool learned from a company's past hiring, it can copy past unfairness. New York City's Local Law 144 requires employers that use these tools for hiring or promotion to have a yearly independent bias audit and to publish a summary of the results. The city began enforcing it in July 2023.</p>
+<h2>Why it matters for lawyers</h2>
+<p>AI now plays a part in decisions about bail, sentencing, jobs, loans and benefits. Lawyers may need to question how a tool works, ask for its testing results and argue about whether it treated their client fairly. Laws such as the European Union's AI Act require extra checks for these high-risk uses.</p>

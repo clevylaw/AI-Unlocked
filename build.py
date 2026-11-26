@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the AI Unlocked website from the files in src/.
+"""Build the AI for Legal Work website from the files in src/.
 
 Usage:  python3 build.py
 
@@ -17,11 +17,12 @@ from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
-SITE_NAME = "AI Unlocked"
+SITE_NAME = "AI for Legal Work"
 SITE_URL = "https://clevylaw.github.io/AI-Unlocked/"
 BASE_PATH = "/AI-Unlocked/"          # used only by 404.html, which can be served at any depth
-TAGLINE = "A free course that explains AI in plain English"
+TAGLINE = "A free course on AI for legal work, in plain English"
 VOICE_ID, VOICE_NAME, TTS_MODEL = "harper_32", "Harper", "simba-3.5"
+REDIRECTS = {"ai-in-everyday-life": "ai-in-legal-work", "using-generative-ai-responsibly": "copyright-and-deepfakes", "ai-for-writing": "ai-for-legal-writing", "ai-for-learning": "ai-for-law-school", "ai-and-jobs": "ai-and-legal-jobs"}
 GENERATED = ["path", "certificate", "lessons", "modules", "tools", "models", "glossary", "about"]
 
 esc = lambda s: html.escape(str(s), quote=True)
@@ -50,7 +51,7 @@ def load_course():
     for mm in course["modules"]:
         for l in mm["lessons"]:
             words = lambda h: len([w for w in re.sub(r"<[^>]+>", " ", h or "").split() if re.search(r"[A-Za-z0-9]", w)])
-            l["read"] = max(1, round((words(l["body"]) + words(l["intro"])) / 200))
+            l["read"] = max(1, -(-(words(l["body"]) + words(l["intro"])) // 160))  # about 160 words a minute, rounded up
             l["practice"] = (1 if l.get("quiz") else 0) + (2 if l.get("tryIt") else 0)
             l["time"] = l["read"] + l["practice"]
     return course
@@ -249,7 +250,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="logo" href="{root}"{logo_cur}>AI <span>Unlocked</span></a>
+    <a class="logo" href="{root}"{logo_cur}>AI for <span>Legal Work</span></a>
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main"><ul>{nav}</ul></nav>
   </div>
@@ -258,8 +259,8 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div>
-      <a class="logo" href="{root}">AI <span>Unlocked</span></a>
-      <p>A free course that explains AI in plain English. Your progress is saved only in this browser.</p>
+      <a class="logo" href="{root}">AI for <span>Legal Work</span></a>
+      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Your progress is saved only in this browser.</p>
       <div class="reset">
         <button class="link-btn" type="button" data-reset>Start over</button>
         <div class="reset-confirm" id="reset-confirm" hidden>
@@ -345,6 +346,11 @@ def lesson_page(course, l, flat, manifest):
                      f'<p class="label">Check what you learned</p><h2 id="quiz-h">{esc(q["q"])}</h2><div class="quiz-options">'
                      + "".join(f'<button class="quiz-opt" type="button" data-opt="{i}"><span class="opt-letter" aria-hidden="true">{chr(65 + i)}</span><span>{esc(o)}</span></button>' for i, o in enumerate(opts))
                      + f'</div><p class="quiz-feedback" role="status" aria-live="polite" data-feedback="{esc(q["feedback"])}"></p></section>')
+    sources_html = ""
+    if l.get("sources"):
+        sources_html = ('<section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>'
+                        + "".join(f'<li><a href="{esc(x["url"])}" target="_blank" rel="noopener">{esc(x["title"])}<span class="sr-only"> (opens in a new tab)</span></a></li>' for x in l["sources"])
+                        + '</ul><p class="muted">Links go to other websites. Some may need a subscription. Check the original documents before relying on them.</p></section>')
     # Link recordings whose text still matches what the page says.
     have = manifest.get("files", {})
     for i, b in enumerate(blocks):
@@ -370,6 +376,7 @@ def lesson_page(course, l, flat, manifest):
 {tech_html}
 {try_html}
 {quiz_html}
+{sources_html}
 <div class="lesson-end">
   <p class="done-note" id="done-note" hidden>{icon("check", "ico-sm")} You finished this lesson.</p>
   <a class="btn-main" id="done-btn" href="{after}">{after_label} →</a>
@@ -408,14 +415,14 @@ def build_pages(course):
     # Home
     hero = f'''<section class="hero" aria-labelledby="page-title"><div class="wrap hero-inner">
 <p class="eyebrow">Free course · No account needed</p>
-<h1 id="page-title" tabindex="-1">Learn what AI is and how to use it well</h1>
-<p class="hero-lead">Short lessons in plain English, for anyone. You don't need any technical skills.</p>
+<h1 id="page-title" tabindex="-1">Learn to use AI well in legal work</h1>
+<p class="hero-lead">Short lessons in plain English for law students, lawyers, paralegals and anyone who works in law. You don't need any technical skills.</p>
 <div id="home-action"><a class="btn-hero" href="path/">Start the course →</a></div>
 <p class="hero-sub" id="home-sub">Or go straight to <a href="lessons/{flat[0]["slug"]}/">the first lesson</a>.</p>
 </div></section>'''
     body = f'''<div class="home-grid">
 <section class="card" aria-labelledby="who-h"><h2 id="who-h">Who it's for</h2>
-<p>Anyone who is curious about AI. Maybe you have never used a chatbot. Maybe you use one every day and want to understand it better. The lessons start simple. An extra module covers the technical side.</p></section>
+<p>Law students, lawyers, paralegals, legal staff and legal technologists. Maybe you have never used a chatbot. Maybe you use one every day and want to use it safely with client work. The lessons start simple, use real legal examples and build up to your professional duties.</p></section>
 <section class="card" aria-labelledby="how-h"><h2 id="how-h">How it works</h2><ol class="steps-list">
 <li><strong>Answer 4 short questions</strong>We suggest the lessons that fit you, in order.</li>
 <li><strong>Read or listen to each lesson</strong>Each one takes about {avg} minutes.</li>
@@ -423,7 +430,7 @@ def build_pages(course):
 </ol></section>
 </div>'''
     out[""] = page("", key="home", title=SITE_NAME, hero=hero, body=body,
-                   desc=f"{TAGLINE}. {total_lessons} short lessons, 4 learning paths, read-aloud, certificates and a weekly guide to AI tools. Free, with no account.")
+                   desc=f"{TAGLINE}. {total_lessons} short lessons with real legal examples, covering ethics duties, confidentiality, fake citations and legal AI tools. Free, with no account.")
 
     # Your path
     body = '''<div class="panel" id="path-box" aria-live="polite"><noscript><p>This page needs JavaScript to suggest a path. You can still read every lesson from the <a href="../lessons/">Lessons</a> page.</p></noscript></div>'''
@@ -436,15 +443,15 @@ def build_pages(course):
     out["certificate/"] = page("certificate/", key="path", title="Your certificate", body=body, wide=False,
                                crumbs=[("Home", ""), ("Your path", "path/"), ("Certificate", None)],
                                intro="Type your name as you want it to appear, then save the certificate as a picture.",
-                               desc="View and save your AI Unlocked certificate.")
+                               desc=f"View and save your {SITE_NAME} certificate.")
 
     # Lessons map
     root = "../"
     body = (f'<div class="actions" id="lessons-action" style="margin-bottom:28px"></div>'
             f'<div class="modules-grid">{"".join(module_card(m, root) for m in course["modules"])}</div>')
     out["lessons/"] = page("lessons/", key="lessons", title="Lessons", body=body,
-                           intro=f"{total_lessons} lessons in {len(course['modules'])} modules. Modules 1 to 6 build on each other. Module 7 is extra, for technical readers.",
-                           desc=f"All {total_lessons} lessons of {SITE_NAME}, a free course about AI in plain English.")
+                           intro=f"{total_lessons} lessons in {len(course['modules'])} modules. Modules 1 to 6 build on each other. Module 7 is for technical readers. Modules 8 and 9 cover professional duties, legal tools and AI law.",
+                           desc=f"All {total_lessons} lessons of {SITE_NAME}, a free course on AI for legal work, in plain English.")
 
     # Modules and reviews
     root = "../../"
@@ -494,8 +501,8 @@ def build_pages(course):
     body = '''<div class="filters" id="tools-filter" role="group" aria-label="Show tools of one kind"></div>
 <div class="tools-grid" id="tools-grid"><p class="empty">Loading the list of tools…</p></div>'''
     out["tools/"] = page("tools/", key="tools", title="AI tools", body=body,
-                         intro='Popular AI tools, what each one is good for, what it costs and something to try first. <span class="status-pill catalog-status"></span>',
-                         desc="A plain-English guide to popular AI tools: what each is good for, what it costs and a first thing to try. Checked every week.")
+                         intro='AI tools built for legal work, plus popular general tools. Each one shows what it is good for, what it costs and something to try first. A listing is not a recommendation. Use only tools your employer or school has approved for client or graded work. <span class="status-pill catalog-status"></span>',
+                         desc="A plain-English guide to legal AI tools and popular general AI tools: what each is good for, what it costs and a first thing to try. Checked every week.")
     body = '''<div id="models-timeline"><p class="empty">Loading the list of models…</p></div>'''
     out["models/"] = page("models/", key="models", title="AI models", body=body,
                           intro=f'A model is the AI system inside an app. These are the models that shaped AI, from 2017 to today. The lesson <a href="../lessons/choosing-an-ai-model/">Choosing an AI model</a> explains how they differ. <span class="status-pill catalog-status"></span>',
@@ -515,7 +522,7 @@ def build_pages(course):
     # About
     body = f'''<div class="prose">
 <h2>What this site is</h2>
-<p>{SITE_NAME} is a free course about artificial intelligence. It has {total_lessons} short lessons in {len(course["modules"])} modules. Each lesson has a prompt to try in a real AI tool and one question to check what you learned. There is no account, no fee and no advertising.</p>
+<p>{SITE_NAME} is a free course about artificial intelligence for legal work. It is for law students, lawyers, paralegals, legal staff and legal technologists. It has {total_lessons} short lessons in {len(course["modules"])} modules, with real legal examples such as court sanctions for fake AI citations and the American Bar Association's ethics opinion on AI. Each lesson has a prompt to try in a real AI tool and one question to check what you learned. There is no account, no fee and no advertising.</p>
 <p>You can follow one of 4 learning paths, or read the lessons in any order. A short placement check lets you skip lessons you already know. When you finish a path, or the whole course, you can save a certificate.</p>
 <h2>How it stays up to date</h2>
 <p>Every week, the lists on the <a href="../tools/">AI tools</a> and <a href="../models/">AI models</a> pages are checked for new releases and changes. Each change has to be confirmed by the company's own announcement or by two trusted news sites. The "last checked" date on those pages shows when the last check happened. <span class="status-pill catalog-status"></span></p>
@@ -526,8 +533,11 @@ def build_pages(course):
 <p>The fonts on this site come from Google Fonts, so your browser asks Google's servers for them. Links to AI tools take you to other companies' websites, which have their own privacy rules.</p>
 <h2>Listening to lessons</h2>
 <p>Every lesson has a Listen button. The recorded voice ({VOICE_NAME}) was made with Speechify, a text-to-speech service. You can also choose one of the voices built into your device. Voices with names like Natural, Neural, Premium, Enhanced or Siri usually sound the most human.</p>
-<h2>Accuracy</h2>
-<p>The lessons explain general ideas. They are not legal, medical or financial advice. AI changes quickly, so check important details with the company that makes a tool.</p>
+<h2>Not legal advice</h2>
+<p>The lessons are general education. They are not legal advice, and they do not create a lawyer-client relationship. Most examples come from the United States. Ethics rules, court rules and AI laws differ by country, state and court, and they change often. Check the current rules that apply to you.</p>
+<p>Completing the course does not earn continuing legal education (CLE) credit.</p>
+<h2>Sources</h2>
+<p>Lessons that describe court cases, ethics opinions, laws or studies end with a list of sources. Some sources need a subscription. Check the original documents before relying on them.</p>
 </div>'''
     out["about/"] = page("about/", key="about", title="About this site", body=body, wide=False,
                          intro=f"What {SITE_NAME} is, how it stays up to date, and what happens to your progress.",
@@ -566,6 +576,14 @@ def main():
     pages = build_pages(course)
     for rel, text in pages.items():
         write("404.html" if rel == "404" else rel + "index.html", text)
+    # Lesson addresses that changed when the course was refocused on legal work. Old links keep working.
+    for old, new in REDIRECTS.items():
+        write(f"lessons/{old}/index.html", f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>This lesson has moved</title>
+<meta name="robots" content="noindex"><link rel="canonical" href="{SITE_URL}lessons/{new}/">
+<meta http-equiv="refresh" content="0; url=../{new}/"><script>location.replace("../{new}/" + location.hash)</script></head>
+<body><p>This lesson has moved to <a href="../{new}/">a new address</a>.</p></body></html>
+''')
     flat = [l for m in course["modules"] for l in m["lessons"]]
     print(f"built {len(pages)} pages: {len(flat)} lessons, {len(course['modules'])} modules")
     return course

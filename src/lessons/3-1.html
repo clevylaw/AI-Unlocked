@@ -5,30 +5,30 @@
   "intro": "ChatGPT, Claude and Gemini run on large language models. A language model writes by guessing the next word, again and again.",
   "tryIt": {
     "tool": "ChatGPT, Claude or Gemini",
-    "prompt": "Finish this sentence in five different ways. Start with the most expected ending and end with the most surprising one: \"When I opened the fridge, I found...\""
+    "prompt": "Finish this sentence in five different ways. Start with the most expected ending and end with the most surprising one: \"The court granted the motion because...\""
   },
   "quiz": {
     "q": "What does a language model do, at the most basic level?",
     "opts": [
-      "It looks up answers in a database",
+      "It looks up answers in a database of court opinions",
       "It guesses which word should come next, again and again",
       "It copies sentences from websites",
-      "It turns everything into computer code first"
+      "It checks each answer against the law before replying"
     ],
     "correct": 1,
-    "feedback": "A language model guesses the next word, or part of a word, adds it, and repeats. Chats, essays and computer code all come from doing that very well."
+    "feedback": "A language model guesses the next word, or part of a word, adds it, and repeats. Unless it is connected to a database, it is not looking anything up."
   },
-  "tech": "Chat models are a kind of <strong>Transformer</strong>. Each layer uses a step called <strong>self-attention</strong> to let every word piece look at the others, then passes the result through a small network. The last layer gives a probability for every possible next piece. A model's list of pieces, its vocabulary, usually holds about 100,000 to 200,000 of them. The model writes one piece at a time and saves its earlier work in a cache, so it does not redo it. Many large models use \"mixture of experts\" layers, which switch on only part of the model for each piece."
+  "tech": "Chat models are a kind of <strong>Transformer</strong>. Each layer uses a step called <strong>self-attention</strong> to let every word piece look at the others, then passes the result through a small network. The last layer gives a probability for every possible next piece. A model's list of pieces, its vocabulary, usually holds about 100,000 to 200,000 of them. The model writes one piece at a time. Legal research tools add a search step before the model writes, which is covered in the lesson <a href=\"lesson:building-with-ai\">Building with AI</a>."
 }
 -->
 <h2>Guessing the next word</h2>
-<p>A language model does one main job. It looks at some text and guesses which word comes next. Then it adds that word and guesses again. In training, it practices this billions of times on a huge amount of writing. After all that practice, it gets good at writing useful text.</p>
+<p>A language model does one main job. It looks at some text and guesses which word comes next. Then it adds that word and guesses again. In training, it practices this billions of times on a huge amount of writing. After all that practice, it gets good at writing text that reads well.</p>
 <p>You can try it below. The bars show how likely the model thinks each next word is.</p>
 <div data-demo="nextword" data-say="The page has a small demo here. Click a word to add it to the sentence, and see what the model guesses next."></div>
-<div class="callout"><p class="label">Think of it this way</p><p>Your phone's keyboard suggests the next word as you type. A large language model does the same thing on a much bigger scale. It learned from a huge amount of writing, and it keeps the whole conversation in mind as it writes.</p></div>
+<div class="callout"><p class="label">Why this matters for lawyers</p><p>A chatbot writes what <em>sounds</em> likely. A case name that sounds right, with a citation in the right format, is exactly the kind of thing it can produce, whether or not the case exists. The lesson <a href="lesson:when-chatbots-get-it-wrong">When chatbots get it wrong</a> shows what happened when lawyers forgot this.</p></div>
 <h2>What "large" means</h2>
-<p>A model stores what it learned as billions of numbers that training adjusts. These numbers are called <strong>parameters</strong>. The biggest models have hundreds of billions of them or more. Companies rarely say the exact number. More parameters usually means more knowledge and skill. It also costs more to run.</p>
+<p>A model stores what it learned as billions of numbers that training adjusts. These numbers are called <strong>parameters</strong>. The biggest models have hundreds of billions of them or more. More parameters usually means more knowledge and skill. It also costs more to run.</p>
 <h2>What they learn from</h2>
-<p>Language models learn from books, websites, encyclopedias, computer code, science papers and online discussion boards. That is why chatbots know a little about almost everything.</p>
+<p>Language models learn from books, websites, computer code and other writing, which can include court opinions and statutes that are online. That is why a chatbot can explain a legal idea well. It does not mean it knows the current law where you practice.</p>
 <h2>How much they understand</h2>
-<p>Researchers still argue about how much these models understand. For you, one point matters most. Chatbots write text that <em>sounds</em> right, based on patterns. Usually that text is helpful, and sometimes it is wrong. So your own judgment still matters.</p>
+<p>Researchers still argue about how much these models understand. For you, one point matters most. Usually the text is helpful, and sometimes it is wrong in ways that are hard to spot. Your own judgment still decides what goes to a client or a court.</p>

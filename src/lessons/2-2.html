@@ -1,31 +1,31 @@
 <!--
 {
   "slug": "how-ai-makes-pictures",
-  "title": "How AI makes pictures",
-  "intro": "You type \"a golden retriever in sunglasses on a beach\" and a picture appears. This lesson explains the steps in between.",
+  "title": "How AI makes pictures and video",
+  "intro": "AI can now make photos and videos that look real. Knowing how it works helps you judge evidence.",
   "tryIt": {
     "tool": "ChatGPT or Gemini (both can make pictures for free)",
-    "prompt": "Make a picture of a cozy reading corner by a rainy window, with warm lamp light, in watercolor style. Then make a second version that looks like a 1950s travel poster."
+    "prompt": "Make a simple, clearly labeled diagram of a four-way intersection with two cars, for a training slide about how to describe a car accident. Then tell me three reasons a court might not accept an AI-made picture as evidence of what happened."
   },
   "quiz": {
     "q": "How does a diffusion picture tool make an image?",
     "opts": [
-      "It finds a matching picture online and copies it",
-      "It traces over a painting that already exists",
+      "It finds a matching photo online and copies it",
+      "It traces over a picture that already exists",
       "It starts with random dots and cleans them up step by step to match your description",
       "It glues two photos together"
     ],
     "correct": 2,
-    "feedback": "Diffusion tools start with random dots, like TV static. They clean up the dots a little at a time, guided by your words, until a picture appears."
+    "feedback": "Diffusion tools start with random dots, like TV static. They clean up the dots a little at a time, guided by your words, until a picture appears. The result can look like a real photo even though nothing in it happened."
   },
-  "tech": "Most picture models run diffusion in a squeezed-down version of the image, called a <strong>latent space</strong>, instead of on every pixel. A text encoder turns your words into lists of numbers called <strong>embeddings</strong>. At each clean-up step, a part of the model called cross-attention uses those numbers to steer the picture. A guidance setting trades off how closely the picture follows your words against how varied the results are. Newer tricks cut the number of steps, so pictures can appear in about a second."
+  "tech": "Most picture models run diffusion in a squeezed-down version of the image, called a <strong>latent space</strong>, instead of on every pixel. A text encoder turns your words into lists of numbers called <strong>embeddings</strong>. At each clean-up step, those numbers steer the picture. A standard called <strong>C2PA</strong> can attach signed \"content credentials\" to a file to record how it was made and edited. Some companies also hide invisible watermarks in AI-made media. Tools that claim to detect AI pictures are unreliable, so treat their answers as one clue, never as proof."
 }
 -->
 <h2>From static to a picture</h2>
 <p>Most picture tools use a method called <strong>diffusion</strong>. In training, the AI takes real pictures and adds random dots, like the static on an old TV. It keeps adding dots until nothing is left but static. Then it practices the opposite. It turns static back into a clear picture, a little at a time.</p>
 <div class="callout"><p class="label">Think of it this way</p><p>Picture a sandcastle washing away in the waves, one frame at a time. Now imagine watching that film millions of times. In the end, you could play it backwards and build a castle out of loose sand. Picture AI learned to build pictures out of static in a similar way.</p></div>
 <h2>Where your words come in</h2>
-<p>When you type a description, another AI turns your words into directions. The picture AI then cleans up the static step by step. At each step, it moves closer to a picture that matches your words. The result is new, but it is shaped by the millions of pictures the AI studied.</p>
-<h2>A different picture every time</h2>
-<p>Each try starts from different random static. So the same words give you a different picture each time. That helps when you are exploring ideas. Make a few versions and keep the one you like best.</p>
-<div class="example"><p class="label">Tip for describing a picture</p><p>Say what is in the picture. Then add the style, the light and the mood. "A quiet waterfall in a thick Japanese forest, early morning light, watercolor style" gets a much better result than "a waterfall."</p></div>
+<p>When you type a description, another AI turns your words into directions. The picture AI then cleans up the static step by step, moving closer to a picture that matches your words. Video tools do the same thing across many frames.</p>
+<h2>Why this matters for evidence</h2>
+<p>The result can look exactly like a real photo, voice recording or video. A <strong>deepfake</strong> is a fake photo, voice or video of a real person, made with AI. Deepfakes can appear in court as fake evidence. A party may also claim that real evidence is a deepfake, to cast doubt on it.</p>
+<div class="example"><p class="label">What careful lawyers do</p><p>They ask where a file came from and who has handled it. They look for the original file and its details, such as when and on what device it was made. They check for a content label that says how the file was made. When the stakes are high, they hire an expert to examine the file.</p></div>

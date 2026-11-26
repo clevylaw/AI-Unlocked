@@ -2,29 +2,31 @@
 {
   "slug": "ai-that-sees-and-hears",
   "title": "AI that sees and hears",
-  "intro": "Today's AI can work with photos, voices and video as well as text.",
+  "intro": "Today's AI can read scanned pages, photos and handwriting, and it can turn speech into text. That helps with evidence and with recording rules.",
   "tryIt": {
     "tool": "The ChatGPT, Gemini or Claude app on your phone",
-    "prompt": "Take a photo of something near you, such as a plant, a label or a gadget. Then ask: \"What is this, and what is one interesting fact about it?\""
+    "prompt": "Take a photo of a printed page that has nothing private on it, such as a public notice or a page from a library book. Ask: \"Type out this text exactly, then list anything you could not read clearly.\" Compare its version with the page."
   },
   "quiz": {
-    "q": "What does \"multimodal AI\" mean?",
+    "q": "Before you use AI to record and transcribe a call with a client, what should you check?",
     "opts": [
-      "AI that runs on many computers",
-      "AI that speaks many languages",
-      "AI with more than one personality",
-      "AI that works with several kinds of information, like text, pictures and sound"
+      "Only whether the transcript will be accurate",
+      "Whether recording is allowed, whether everyone has agreed, and whether the tool is approved for confidential information",
+      "Whether the call is shorter than an hour",
+      "Nothing, since AI transcription is always allowed"
     ],
-    "correct": 3,
-    "feedback": "Multimodal AI works with text, pictures, sound and video. So you can show it a photo and ask about it, or talk to it out loud."
+    "correct": 1,
+    "feedback": "Some places require everyone on a call to agree before it is recorded. The tool also receives confidential information, so it must be approved for that use."
   },
-  "tech": "Pictures are cut into small squares, and each square becomes a token. That lets pictures and text go through the same Transformer. Newer voice models work on sound tokens directly. Older systems chained three steps together: turning speech into text, answering in text, and turning the answer back into speech. Working on sound directly is faster and keeps the tone of voice. AlphaFold 2 combines attention-based networks with information about how proteins evolved and how their parts fit in space."
+  "tech": "Pictures are cut into small squares, and each square becomes a token, so pictures and text can go through the same model. Speech-to-text models turn sound into text and can label who is speaking, though they make more mistakes with accents, cross-talk and legal terms. Reading text from scans is called <strong>optical character recognition</strong>, or OCR. Modern AI does it better than older tools, but it can still misread numbers, which matters in contracts and financial records."
 }
 -->
 <h2>Multimodal AI</h2>
-<p><strong>Multimodal</strong> means working with several kinds of information at once. That includes text, pictures, sound and video. Most of the leading AI models are now multimodal.</p>
-<div class="example"><p class="label">Try these with your phone's camera</p><p>Take a photo of a math problem and ask for an explanation, step by step. Take a photo of the inside of your fridge and ask what you could cook. Take a photo of a confusing form or bill and ask what it means.</p></div>
+<p><strong>Multimodal</strong> means working with several kinds of information at once, such as text, pictures and sound. Most of the leading AI models are now multimodal.</p>
+<h2>Reading documents</h2>
+<p>AI can read scanned pages, photos of documents and some handwriting. It can turn a box of scanned records into searchable text or pull dates and amounts into a table. It can misread numbers and names, so check anything important against the original page.</p>
+<h2>Turning speech into text</h2>
+<p>AI can transcribe meetings, interviews and voicemails and then sum them up. Before you record anyone, check the law. In some U.S. states, everyone on a call must agree to it being recorded. Recording tools also receive confidential information, so they must be approved for that use.</p>
+<div class="callout"><p class="label">Not a court reporter</p><p>An AI transcript is a working draft. It can mishear legal terms, names and numbers. Do not treat it as an official record of a deposition or hearing.</p></div>
 <h2>Talking out loud</h2>
-<p>Voice modes in ChatGPT, Gemini and other apps let you talk with the AI out loud. It answers in about a second, and you can interrupt it, as you would a person. Some can also see through your phone's camera while you talk.</p>
-<h2>AI in science</h2>
-<p>Some of AI's biggest effects are in research. Proteins are tiny parts of every living thing, and their shape decides what they do. DeepMind's AlphaFold predicted the shapes of hundreds of millions of proteins. That work earned a share of the 2024 Nobel Prize in Chemistry. AI is now speeding up the search for new medicines and new materials. It is also helping with weather forecasts.</p>
+<p>Voice modes in ChatGPT, Gemini and other apps let you talk with the AI out loud and get an answer in about a second. That can help you rehearse an opening statement or practice explaining a point to a client. Keep confidential details out of these conversations unless the tool is approved for them.</p>

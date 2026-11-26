@@ -1,6 +1,6 @@
-# AI Unlocked
+# AI for Legal Work
 
-A free course that explains AI in plain English: https://clevylaw.github.io/AI-Unlocked/
+A free course on AI for legal work, in plain English. The site was called AI Unlocked until November 2026, and its address is unchanged: https://clevylaw.github.io/AI-Unlocked/
 
 ## How the site is made
 

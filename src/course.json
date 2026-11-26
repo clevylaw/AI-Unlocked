@@ -1,158 +1,489 @@
 {
   "modules": [
     {
-      "id": 1, "slug": "what-is-ai", "icon": "bulb", "color": "violet", "level": "Beginner",
+      "id": 1,
+      "slug": "what-is-ai",
+      "icon": "bulb",
+      "color": "violet",
+      "level": "Beginner",
       "title": "What AI is",
-      "desc": "What artificial intelligence is, what it can and can't do, and why it is suddenly everywhere.",
+      "desc": "What artificial intelligence is, how it learns, and where lawyers already meet it.",
       "recap": [
         "AI is software that learns patterns from examples. Nobody writes all its rules by hand.",
-        "AI makes predictions and choices. It has no feelings or opinions, and it is not aware of itself.",
-        "AI, machine learning, deep learning and generative AI fit inside each other like boxes."
+        "Courts have accepted some AI for years, such as technology-assisted review in e-discovery.",
+        "AI has no duties and cannot be disciplined. The lawyer stays responsible for the work."
       ]
     },
     {
-      "id": 2, "slug": "generative-ai", "icon": "sparkles", "color": "magenta", "level": "Beginner",
+      "id": 2,
+      "slug": "generative-ai",
+      "icon": "sparkles",
+      "color": "magenta",
+      "level": "Beginner",
       "title": "Generative AI",
-      "desc": "AI that makes text, pictures, sound and video. How picture AI works, and how to use generative AI responsibly.",
+      "desc": "AI that drafts, sums up and makes pictures and voices. What it means for evidence, copyright and fraud.",
       "recap": [
-        "Generative AI makes new text, pictures, sound, video and code from a description.",
-        "Picture AI starts with random static and cleans it up, step by step, to match your words.",
-        "Read a tool's terms before using its work in a business. Say when you used AI. Check pictures before you share them."
+        "Generative AI makes new text, pictures, sound and video. A fast draft is only useful once someone checks it.",
+        "AI can make fake photos, voices and videos that look real. Ask where any file came from before relying on it.",
+        "Courts are still deciding who owns AI-made work and what AI may train on. Confirm payment changes by calling a number you already have."
       ]
     },
     {
-      "id": 3, "slug": "chatbots", "icon": "chat", "color": "berry", "level": "Beginner",
+      "id": 3,
+      "slug": "chatbots",
+      "icon": "chat",
+      "color": "berry",
+      "level": "Beginner",
       "title": "Chatbots and AI models",
-      "desc": "How ChatGPT, Claude and Gemini work, how to ask them good questions, when not to trust them, and how to pick a model.",
+      "desc": "How chatbots work, how to ask good legal questions, why they invent cases, and how to pick a tool.",
       "recap": [
-        "A language model writes by guessing the next word, over and over.",
-        "Clear, detailed prompts with some background get much better answers.",
-        "Chatbots can state wrong facts and sound sure, so check anything important.",
-        "Different models suit different jobs. Large ones are for hard problems, and small ones are for quick tasks."
+        "A language model writes by guessing the next word, so it can produce cases that sound real but are not.",
+        "Good prompts give your role, the place, the task and the format, and leave client details out.",
+        "Lawyers have been sanctioned for filing fake AI citations. Read every case you cite.",
+        "Legal research tools are better than general chatbots for finding authority, but they still make mistakes."
       ]
     },
     {
-      "id": 4, "slug": "using-ai", "icon": "wrench", "color": "coral", "level": "Everyday use",
-      "title": "Using AI day to day",
-      "desc": "Ways to use AI for writing, learning and work, with prompts you can copy and try right away.",
+      "id": 4,
+      "slug": "using-ai",
+      "icon": "wrench",
+      "color": "coral",
+      "level": "Practical",
+      "title": "AI in legal work",
+      "desc": "Using AI for legal writing, for law school and at a legal job, within the rules.",
       "recap": [
-        "Let AI write a draft, then rewrite it in your own words.",
-        "Ask AI to explain things at your level and to quiz you.",
-        "At work, check your employer's rules before you paste in anything private."
+        "Let AI write a first draft, then check every fact and legal point and rewrite it in your own words.",
+        "In law school, follow your school's rules and use AI to test yourself, not to skip the reading.",
+        "At work, use only approved tools for client information, bill honestly and supervise others' AI use."
       ]
     },
     {
-      "id": 5, "slug": "safety-and-fairness", "icon": "shield", "color": "crimson", "level": "Going further",
-      "title": "Fairness, privacy and jobs",
-      "desc": "The real worries about AI, explained honestly. Covers unfair results, your privacy and the future of work.",
+      "id": 5,
+      "slug": "safety-and-fairness",
+      "icon": "shield",
+      "color": "crimson",
+      "level": "Going further",
+      "title": "Fairness, privacy and legal jobs",
+      "desc": "Bias in AI used for bail, sentencing and hiring, what happens to what you type, and how legal jobs are changing.",
       "recap": [
-        "AI can repeat unfair patterns from its training data. This matters most when AI helps make decisions about people.",
-        "Never share passwords, ID numbers or other people's private information with a chatbot. Check your privacy settings.",
-        "AI is changing everyday computer tasks the most. Work that needs judgment, care and creativity is changing the least."
+        "AI can repeat unfair patterns. Courts and lawmakers have set limits on tools like risk scores and hiring screens.",
+        "AI chats may be saved, read or handed over. A court has held a client's own AI chats were not privileged.",
+        "Routine review and drafting are changing most. Judgment, advocacy and client care matter more."
       ]
     },
     {
-      "id": 6, "slug": "whats-next", "icon": "compass", "color": "plum", "level": "Going further",
+      "id": 6,
+      "slug": "whats-next",
+      "icon": "compass",
+      "color": "plum",
+      "level": "Going further",
       "title": "What's next in AI",
-      "desc": "AI agents that do tasks for you, AI that sees and hears, AI in science, and how to keep up.",
+      "desc": "AI agents that carry out tasks, AI that reads scans and transcribes speech, and how to keep up with the rules.",
       "recap": [
-        "AI agents carry out tasks with many steps, so check what they are allowed to do.",
-        "Multimodal AI works with text, pictures, sound and video together.",
-        "To keep up, use the tools and follow one or two sources you trust."
+        "AI agents carry out tasks with many steps, so your duty to supervise covers their work.",
+        "AI can read scans and transcribe speech. Check recording laws and treat transcripts as drafts.",
+        "Keep up by knowing your bar's guidance, your courts' rules and your employer's policy."
       ]
     },
     {
-      "id": 7, "slug": "how-ai-works-inside", "icon": "code", "color": "violet", "level": "Technical",
+      "id": 7,
+      "slug": "how-ai-works-inside",
+      "icon": "code",
+      "color": "violet",
+      "level": "Technical",
       "title": "How AI works inside",
-      "desc": "An extra module for technical readers. Covers tokens, how models are trained, building apps with AI, agents and testing.",
+      "desc": "An extra module for technical readers and legal technologists. Covers tokens, training, how legal AI tools are built, agents and testing.",
       "recap": [
-        "Models read and write tokens. They only see what fits in the context window, and they pick each token by chance from a list of likely ones.",
-        "Pretraining gives a model its knowledge. Later training on example chats and feedback makes it a helpful assistant, and training on checkable problems teaches it to reason.",
-        "Most AI products combine a prompt, looked-up information and tools. Build a set of tests and run them after every change."
+        "Models read and write tokens, only see what fits in the context window, and pick each token by chance.",
+        "Training gives a model knowledge up to a cutoff date. Feedback training makes it helpful, and sometimes too eager to answer.",
+        "Most legal AI tools combine a model with search over real legal sources. Test them on your own kind of work."
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "professional-duties",
+      "icon": "shield",
+      "color": "berry",
+      "level": "For legal professionals",
+      "title": "Your professional duties",
+      "desc": "How the ethics rules apply to AI: competence, confidentiality and privilege, courts and candor, and checking AI research.",
+      "recap": [
+        "ABA Formal Opinion 512 and state bar guidance apply the existing ethics rules to AI. Check your own state's rules.",
+        "Get informed consent when required before putting client information into an AI tool, and read the tool's terms.",
+        "Check the court's local rules and the judge's standing orders on AI before every filing.",
+        "Find, read and check every authority yourself. Never ask the AI to check itself."
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "legal-tools-and-law",
+      "icon": "compass",
+      "color": "plum",
+      "level": "For legal professionals",
+      "title": "Legal AI tools and AI law",
+      "desc": "The main kinds of legal AI tools, how to choose one, and the laws that regulate AI.",
+      "recap": [
+        "Legal AI tools ground answers in real sources and protect data better, but they still make mistakes.",
+        "Choose a tool for a specific task, get data promises in the contract and test it on your own work.",
+        "The EU AI Act sorts AI by risk. U.S. rules come from existing laws, states, cities, courts and bars."
       ]
     }
   ],
   "questions": [
     {
-      "id": "use", "q": "How often do you use AI tools like ChatGPT, Claude or Gemini?",
-      "opts": ["Never, or I'm not sure if I have", "I've tried one a few times", "Every week", "Every day, or I build things with them"],
-      "phrase": ["are new to AI tools", "have tried AI a few times", "use AI every week", "use AI every day"]
+      "id": "use",
+      "q": "How often do you use AI tools like ChatGPT, Claude or Gemini?",
+      "opts": [
+        "Never, or I'm not sure if I have",
+        "I've tried one a few times",
+        "Every week",
+        "Every day, or I build things with them"
+      ],
+      "phrase": [
+        "are new to AI tools",
+        "have tried AI a few times",
+        "use AI every week",
+        "use AI every day"
+      ]
     },
     {
-      "id": "tech", "q": "How much do you know about technology?",
-      "opts": ["Not much. I use the basics on my computer and phone.", "I'm comfortable with computers and apps.", "I have some technical skills, like spreadsheet formulas or a little coding.", "A lot. I write code or work in IT, data or engineering."],
-      "phrase": ["prefer simple explanations", "are comfortable with computers", "have some technical skills", "have a technical background"]
+      "id": "tech",
+      "q": "How much do you know about technology?",
+      "opts": [
+        "Not much. I use the basics on my computer and phone.",
+        "I'm comfortable with computers and apps.",
+        "I have some technical skills, like spreadsheet formulas or a little coding.",
+        "A lot. I write code or work in IT, data or engineering."
+      ],
+      "phrase": [
+        "prefer simple explanations",
+        "are comfortable with computers",
+        "have some technical skills",
+        "have a technical background"
+      ]
     },
     {
-      "id": "goal", "q": "What do you most want from this course?",
-      "opts": ["To understand what AI is and why it matters", "To use AI with confidence in everyday life", "To use AI to do my job better", "To learn how AI works inside, or to build things with it"],
-      "phrase": ["understand what AI is", "use AI in everyday life", "use AI at work", "learn how AI works or build with it"]
+      "id": "goal",
+      "q": "What do you most want from this course?",
+      "opts": [
+        "To understand what AI is and why it matters for law",
+        "To use AI well in law school or while studying law",
+        "To use AI safely in legal practice",
+        "To understand how legal AI tools work, or help choose and build them"
+      ],
+      "phrase": [
+        "understand what AI is and why it matters for law",
+        "use AI well while studying law",
+        "use AI safely in legal practice",
+        "understand how legal AI tools work"
+      ]
     },
     {
-      "id": "time", "q": "How much time do you usually have when you sit down to learn?",
-      "opts": ["About 10 minutes", "About 20 minutes", "45 minutes or more"],
-      "minutes": [10, 20, 45]
+      "id": "time",
+      "q": "How much time do you usually have when you sit down to learn?",
+      "opts": [
+        "About 10 minutes",
+        "About 20 minutes",
+        "45 minutes or more"
+      ],
+      "minutes": [
+        10,
+        20,
+        45
+      ]
     }
   ],
   "paths": {
     "starter": {
       "name": "Starting from zero",
-      "summary": "The full beginner course, in order. Every idea is explained from the start.",
-      "steps": ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3", "3-1", "3-2", "3-3", "3-4", "4-1", "4-2", "4-3", "5-1", "5-2", "5-3", "6-1", "6-2", "6-3"]
+      "summary": "The core course in order, for anyone new to AI. Every idea is explained from the start, with legal examples.",
+      "steps": [
+        "1-1",
+        "1-2",
+        "1-3",
+        "2-1",
+        "2-3",
+        "3-1",
+        "3-2",
+        "3-3",
+        "3-4",
+        "4-1",
+        "4-3",
+        "5-2",
+        "8-1",
+        "8-2",
+        "8-3",
+        "8-4",
+        "9-1"
+      ]
     },
     "everyday": {
-      "name": "Everyday AI",
-      "summary": "Skips the basics. Focuses on using chatbots and other AI tools well and safely in daily life.",
-      "steps": ["1-3", "2-1", "2-2", "2-3", "3-1", "3-2", "3-3", "3-4", "4-1", "4-2", "5-2", "6-1", "6-2", "6-3"]
+      "name": "Law students",
+      "summary": "For law students. Using AI to study within your school's rules, avoiding fake citations, and the duties you will have in practice.",
+      "steps": [
+        "1-3",
+        "3-1",
+        "3-2",
+        "3-3",
+        "4-2",
+        "4-1",
+        "2-3",
+        "5-1",
+        "5-2",
+        "8-1",
+        "8-3",
+        "8-4",
+        "5-3",
+        "6-3"
+      ]
     },
     "work": {
-      "name": "AI at work",
-      "summary": "Practical skills for your job. Covers getting good answers, choosing tools, writing with AI and following your employer's rules.",
-      "steps": ["1-3", "3-1", "3-2", "3-3", "3-4", "4-1", "4-3", "2-1", "2-3", "5-1", "5-2", "5-3", "6-1"]
+      "name": "Legal practice",
+      "summary": "For lawyers, paralegals and legal staff. Your duties, client confidentiality, courts' AI rules, checking research and choosing tools.",
+      "steps": [
+        "1-3",
+        "3-1",
+        "3-2",
+        "3-3",
+        "8-1",
+        "8-2",
+        "8-3",
+        "8-4",
+        "4-1",
+        "4-3",
+        "5-2",
+        "9-1",
+        "9-2",
+        "6-1",
+        "9-3"
+      ]
     },
     "builder": {
-      "name": "How AI works",
-      "summary": "For technical learners. Covers how models work and are trained, and how to build with APIs, RAG, tools and agents.",
-      "steps": ["1-3", "3-1", "7-1", "7-2", "3-4", "3-2", "7-3", "6-1", "7-4", "3-3", "5-1", "5-2", "6-3"]
+      "name": "Legal tech and innovation",
+      "summary": "For legal technologists and technical learners. How models and legal AI tools are built, tested and chosen, and the laws that regulate AI.",
+      "steps": [
+        "1-3",
+        "3-1",
+        "7-1",
+        "7-2",
+        "3-4",
+        "3-2",
+        "7-3",
+        "9-1",
+        "9-2",
+        "6-1",
+        "7-4",
+        "3-3",
+        "8-2",
+        "9-3",
+        "5-1"
+      ]
     }
   },
   "glossary": [
-    {"term": "Artificial intelligence (AI)", "def": "Computer systems that do jobs that usually need human thinking, like understanding speech, making choices or writing text."},
-    {"term": "AI model", "def": "The trained AI system inside an app that does the work. ChatGPT is an app. The GPT models are the models inside it."},
-    {"term": "Machine learning", "def": "A way of building AI where the computer learns from examples. Nobody writes all its rules by hand. More good examples usually make it better."},
-    {"term": "Deep learning", "def": "A strong kind of machine learning. It uses neural networks with many layers to find complicated patterns."},
-    {"term": "Neural network", "def": "Layers of simple math, loosely inspired by the brain. Together they turn an input, like a photo, into an output, like the word \"cat.\""},
-    {"term": "Large language model (LLM)", "def": "An AI trained on a huge amount of text. It can write, sum up, translate and hold conversations. Chatbots run on these models."},
-    {"term": "Chatbot", "def": "An app you can talk to in everyday language, such as ChatGPT, Claude, Gemini or Copilot."},
-    {"term": "Generative AI", "def": "AI that makes new things, such as text, pictures, sound, video or code. Older AI mostly sorted or checked things that already existed."},
-    {"term": "Prompt", "def": "The message or instructions you give an AI. Clear, detailed prompts with some background get better results."},
-    {"term": "Hallucination", "def": "When an AI states something false as if it were true. Examples are a made-up source or a wrong date."},
-    {"term": "Training data", "def": "The examples an AI learns from. How good and how varied they are shapes what the AI knows and how fair it is."},
-    {"term": "Training", "def": "How an AI learns from its training data. It guesses, checks the answer and adjusts itself, millions of times."},
-    {"term": "Parameters", "def": "The numbers inside a model that store what it learned. Training adjusts them. Large models have billions of them."},
-    {"term": "Token", "def": "A chunk of text, about a word or part of a word. Language models read and write tokens. Usage limits are often counted in tokens."},
-    {"term": "Context window", "def": "How much text an AI can consider at once, including your conversation and any documents. A bigger window can handle longer material."},
-    {"term": "Thinking model", "def": "A model, or a setting in a chatbot, that works through a problem step by step before it answers. It is slower and better at hard tasks. Also called a reasoning model."},
-    {"term": "Multimodal AI", "def": "AI that works with several kinds of information, such as text, pictures, sound and video, often at the same time."},
-    {"term": "AI agent", "def": "An AI that takes actions to reach a goal. It might browse the web, fill in forms or write code, as well as reply with text."},
-    {"term": "Diffusion model", "def": "The kind of AI behind most picture and video tools. It starts with random static and cleans it up into a picture that matches your description."},
-    {"term": "Transformer", "def": "The design behind almost all modern language models. Google researchers introduced it in 2017. It lets a model compare every word with every other word."},
-    {"term": "Fine-tuning", "def": "Extra training for a model that already exists, using special examples. It makes the model better at one task or style."},
-    {"term": "Open model", "def": "A model whose trained settings are published, so anyone can download, run and change it. Examples are Meta's Llama and models from Mistral and DeepSeek. Also called an open-weight model."},
-    {"term": "Retrieval-augmented generation (RAG)", "def": "A method where the AI first looks up useful documents and then writes its answer from them. It cuts down on made-up facts."},
-    {"term": "Temperature", "def": "A setting that controls how predictable an AI's answers are. A low setting gives steady answers. A high setting gives more varied and surprising ones."},
-    {"term": "AI bias", "def": "When an AI gives unfair results for some groups of people. It usually happens because the training data was one-sided."},
-    {"term": "Deepfake", "def": "A realistic fake photo, video or voice recording of a real person, made with AI."},
-    {"term": "Content credentials", "def": "A label attached to a file that records whether and how AI was used to make or change it. Some cameras, apps and websites show it."},
-    {"term": "AGI (artificial general intelligence)", "def": "An AI that could do any thinking task as well as a person. It does not exist yet, and experts disagree about whether or when it will."},
-    {"term": "API", "def": "A set of rules that lets one program ask another program for something. Apps send requests to an AI model's API and get replies back."},
-    {"term": "System prompt", "def": "Instructions given to a model before the conversation starts. They set its role, its tone and its rules."},
-    {"term": "Embedding", "def": "A list of numbers that stands for the meaning of a piece of text. It lets a computer quickly find texts with similar meanings."},
-    {"term": "RLHF (reinforcement learning from human feedback)", "def": "Training a model to give the kinds of answers that people rated as better."},
-    {"term": "Tool use", "def": "When a model asks an app to run a tool, such as a search or a calculator, and then uses the result in its answer. Also called function calling."},
-    {"term": "MCP (Model Context Protocol)", "def": "An open standard for connecting AI apps to tools and information in one standard way."},
-    {"term": "Evaluation set", "def": "A set of test examples used to measure how well an AI system works. Teams run it again after every change. Also called evals."},
-    {"term": "Prompt injection", "def": "Hidden or harmful instructions inside a document, email or web page. They try to make an AI do something it shouldn't."},
-    {"term": "Knowledge cutoff", "def": "The date a model's training data ends. The model knows nothing after that date unless it searches the web or you give it documents."}
+    {
+      "term": "Artificial intelligence (AI)",
+      "def": "Computer systems that do jobs that usually need human thinking, like understanding speech, making choices or writing text."
+    },
+    {
+      "term": "AI model",
+      "def": "The trained AI system inside an app that does the work. ChatGPT is an app. The GPT models are the models inside it."
+    },
+    {
+      "term": "Machine learning",
+      "def": "A way of building AI where the computer learns from examples. Nobody writes all its rules by hand. More good examples usually make it better."
+    },
+    {
+      "term": "Deep learning",
+      "def": "A strong kind of machine learning. It uses neural networks with many layers to find complicated patterns."
+    },
+    {
+      "term": "Neural network",
+      "def": "Layers of simple math, loosely inspired by the brain. Together they turn an input, like a photo, into an output, like the word \"cat.\""
+    },
+    {
+      "term": "Large language model (LLM)",
+      "def": "An AI trained on a huge amount of text. It can write, sum up, translate and hold conversations. Chatbots run on these models."
+    },
+    {
+      "term": "Chatbot",
+      "def": "An app you can talk to in everyday language, such as ChatGPT, Claude, Gemini or Copilot."
+    },
+    {
+      "term": "Generative AI",
+      "def": "AI that makes new things, such as text, pictures, sound, video or code. Older AI mostly sorted or checked things that already existed."
+    },
+    {
+      "term": "Prompt",
+      "def": "The message or instructions you give an AI. Clear, detailed prompts with some background get better results."
+    },
+    {
+      "term": "Hallucination",
+      "def": "When an AI states something false as if it were true, such as a made-up case, a wrong citation or an invented quote."
+    },
+    {
+      "term": "Training data",
+      "def": "The examples an AI learns from. How good and how varied they are shapes what the AI knows and how fair it is."
+    },
+    {
+      "term": "Training",
+      "def": "How an AI learns from its training data. It guesses, checks the answer and adjusts itself, millions of times."
+    },
+    {
+      "term": "Parameters",
+      "def": "The numbers inside a model that store what it learned. Training adjusts them. Large models have billions of them."
+    },
+    {
+      "term": "Token",
+      "def": "A chunk of text, about a word or part of a word. Language models read and write tokens. Usage limits are often counted in tokens."
+    },
+    {
+      "term": "Context window",
+      "def": "How much text an AI can consider at once, including your conversation and any documents. A bigger window can handle longer material."
+    },
+    {
+      "term": "Thinking model",
+      "def": "A model, or a setting in a chatbot, that works through a problem step by step before it answers. It is slower and better at hard tasks. Also called a reasoning model."
+    },
+    {
+      "term": "Multimodal AI",
+      "def": "AI that works with several kinds of information, such as text, pictures, sound and video, often at the same time."
+    },
+    {
+      "term": "AI agent",
+      "def": "An AI that takes actions to reach a goal. It might browse the web, fill in forms or write code, as well as reply with text."
+    },
+    {
+      "term": "Diffusion model",
+      "def": "The kind of AI behind most picture and video tools. It starts with random static and cleans it up into a picture that matches your description."
+    },
+    {
+      "term": "Transformer",
+      "def": "The design behind almost all modern language models. Google researchers introduced it in 2017. It lets a model compare every word with every other word."
+    },
+    {
+      "term": "Fine-tuning",
+      "def": "Extra training for a model that already exists, using special examples. It makes the model better at one task or style."
+    },
+    {
+      "term": "Open model",
+      "def": "A model whose trained settings are published, so anyone can download, run and change it. Examples are Meta's Llama and models from Mistral and DeepSeek. Also called an open-weight model."
+    },
+    {
+      "term": "Retrieval-augmented generation (RAG)",
+      "def": "A method where the AI first looks up useful documents and then writes its answer from them. It cuts down on made-up facts."
+    },
+    {
+      "term": "Temperature",
+      "def": "A setting that controls how predictable an AI's answers are. A low setting gives steady answers. A high setting gives more varied and surprising ones."
+    },
+    {
+      "term": "AI bias",
+      "def": "When an AI gives unfair results for some groups of people. It usually happens because the training data was one-sided."
+    },
+    {
+      "term": "Deepfake",
+      "def": "A realistic fake photo, video or voice recording of a real person, made with AI. Deepfakes raise new questions about evidence."
+    },
+    {
+      "term": "Content credentials",
+      "def": "A label attached to a file that records whether and how AI was used to make or change it. Some cameras, apps and websites show it."
+    },
+    {
+      "term": "AGI (artificial general intelligence)",
+      "def": "An AI that could do any thinking task as well as a person. It does not exist yet, and experts disagree about whether or when it will."
+    },
+    {
+      "term": "API",
+      "def": "A set of rules that lets one program ask another program for something. Apps send requests to an AI model's API and get replies back."
+    },
+    {
+      "term": "System prompt",
+      "def": "Instructions given to a model before the conversation starts. They set its role, its tone and its rules."
+    },
+    {
+      "term": "Embedding",
+      "def": "A list of numbers that stands for the meaning of a piece of text. It lets a computer quickly find texts with similar meanings."
+    },
+    {
+      "term": "RLHF (reinforcement learning from human feedback)",
+      "def": "Training a model to give the kinds of answers that people rated as better."
+    },
+    {
+      "term": "Tool use",
+      "def": "When a model asks an app to run a tool, such as a search or a calculator, and then uses the result in its answer. Also called function calling."
+    },
+    {
+      "term": "MCP (Model Context Protocol)",
+      "def": "An open standard for connecting AI apps to tools and information in one standard way."
+    },
+    {
+      "term": "Evaluation set",
+      "def": "A set of test examples used to measure how well an AI system works. Teams run it again after every change. Also called evals."
+    },
+    {
+      "term": "Prompt injection",
+      "def": "Hidden or harmful instructions inside a document, email or web page. They try to make an AI do something it shouldn't."
+    },
+    {
+      "term": "Knowledge cutoff",
+      "def": "The date a model's training data ends. The model knows nothing after that date unless it searches the web or you give it documents."
+    },
+    {
+      "term": "Attorney-client privilege",
+      "def": "A rule of evidence that keeps private communications between a client and lawyer, made to get legal advice, out of court. Sharing them with outsiders can waive it."
+    },
+    {
+      "term": "Confidentiality",
+      "def": "A lawyer's ethical duty to protect all information about a client's matter. That covers far more than privileged communications."
+    },
+    {
+      "term": "Work product",
+      "def": "Materials prepared by or for a lawyer in anticipation of a lawsuit. They are usually protected from the other side in discovery."
+    },
+    {
+      "term": "Informed consent",
+      "def": "A client's agreement after the lawyer has explained the risks and the other options. Some AI uses need it."
+    },
+    {
+      "term": "Technology-assisted review (TAR)",
+      "def": "Using machine learning to sort documents in a lawsuit by how likely they are to be relevant. Also called predictive coding."
+    },
+    {
+      "term": "E-discovery",
+      "def": "Finding, collecting and reviewing electronic information, such as emails and files, for a lawsuit."
+    },
+    {
+      "term": "Citator",
+      "def": "A service, such as Shepard's or KeyCite, that shows whether a case or statute is still good law and which later cases cite it."
+    },
+    {
+      "term": "Standing order",
+      "def": "A judge's own rules for every case before that judge. Some cover how lawyers may use AI."
+    },
+    {
+      "term": "Rule 11",
+      "def": "The federal court rule that makes a lawyer's signature on a filing a promise that its legal arguments are supported by the law after a reasonable inquiry."
+    },
+    {
+      "term": "Candor to the court",
+      "def": "A lawyer's duty not to make false statements of law or fact to a court, and to correct them if made."
+    },
+    {
+      "term": "Ethical wall",
+      "def": "Barriers inside a firm that keep people working on one matter from seeing information about another, to avoid conflicts."
+    },
+    {
+      "term": "ABA Formal Opinion 512",
+      "def": "The American Bar Association's July 2024 ethics opinion on lawyers' use of generative AI. It covers competence, confidentiality, communication, candor, supervision and fees."
+    },
+    {
+      "term": "EU AI Act",
+      "def": "The European Union's law on AI. It sorts AI systems by risk, with the strictest duties for high-risk uses such as hiring and credit."
+    },
+    {
+      "term": "Bias audit",
+      "def": "A test that compares an AI tool's results across groups of people, such as by sex and race, to find unfair differences."
+    }
   ]
 }

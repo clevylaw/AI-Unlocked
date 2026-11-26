@@ -1,9 +1,9 @@
-/* AI Unlocked: the script shared by every page.
+/* AI for Legal Work: the script shared by every page.
    Progress is kept in this browser's localStorage under the same keys and formats the site has always used,
    so returning learners keep their lessons, path and certificates:
      ailearn_progress_v2   { "3_1": true | "known" }   module id _ lesson index (0-based)
      ailearn_path_v1       { id, answers, time }
-     ailearn_certs_v1      [ { id, kind, pathId?, title, date, lessons, known } ]
+     ailearn_certs_v1      [ { id, kind, pathId?, title, date, lessons, known, brand? } ]  brand is new; older certificates show the old name
      ailearn_certname_v1   "Name on the certificate"
      ailearn_rate          read-aloud speed
      ailearn_voice_v1      read-aloud voice ("recorded" or a device voice name)  (new) */
@@ -50,19 +50,18 @@
     if (myPath) {
       const p = PATHS[myPath.id];
       if (p.steps.every(isDone) && !certs.some(c => c.kind === "path" && c.pathId === myPath.id))
-        certs.push({ id: newCertId(), kind: "path", pathId: myPath.id, title: p.name, date: today, lessons: p.steps.length, known: p.steps.filter(isKnown).length });
+        certs.push({ id: newCertId(), brand: "AI for Legal Work", kind: "path", pathId: myPath.id, title: p.name, date: today, lessons: p.steps.length, known: p.steps.filter(isKnown).length });
     }
     if (ALL.every(isDone) && !certs.some(c => c.kind === "course"))
-      certs.push({ id: newCertId(), kind: "course", title: "The complete AI Unlocked course", date: today, lessons: ALL.length, known: ALL.filter(isKnown).length });
+      certs.push({ id: newCertId(), brand: "AI for Legal Work", kind: "course", title: "The complete AI for Legal Work course", date: today, lessons: ALL.length, known: ALL.filter(isKnown).length });
   }
-  // Same rules the site has always used to pick a path from the first three answers.
-  function choosePath(a) {
+    function choosePath(a) {
+    // Paths for the legal course: starter = new to AI, everyday = law students, work = legal practice, builder = legal tech.
     const [use, tech, goal] = a;
-    if (goal === 3 || tech === 3 || (tech === 2 && use >= 2)) return "builder";
-    if (use === 0 && tech <= 1) return "starter";
+    if (goal === 3 || tech === 3) return "builder";
     if (goal === 2) return "work";
-    if (goal === 0 && use <= 1 && tech <= 1) return "starter";
-    return "everyday";
+    if (goal === 1) return "everyday";
+    return "starter";
   }
   const nextStepIndex = p => p.steps.findIndex(r => !isDone(r));
   const firstUnfinished = () => ALL.find(r => !isDone(r)) || null;
@@ -329,7 +328,7 @@
         if (!certName.trim() || !canvas) return;
         const blob = await new Promise(r => canvas.toBlob(r, "image/png"));
         const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob); a.download = `AI Unlocked certificate - ${certName.trim()}.png`.replace(/[\\/:*?"<>|]/g, ""); a.hidden = true;
+        a.href = URL.createObjectURL(blob); a.download = `AI for Legal Work certificate - ${certName.trim()}.png`.replace(/[\\/:*?"<>|]/g, ""); a.hidden = true;
         document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
         $("#cert-note").textContent = "Saved. Look in your Downloads folder.";
       });
@@ -349,7 +348,7 @@
     g.textAlign = "center";
     const line = (s, font, color, y, sp) => { g.font = font; g.fillStyle = color; if (LS) g.letterSpacing = sp || "0px"; g.fillText(s, W / 2, y); if (LS) g.letterSpacing = "0px"; };
     const fit = (s, base, min, max, style) => { let z = base; g.font = style(z); while (g.measureText(s).width > max && z > min) { z -= 2; g.font = style(z); } return g.font; };
-    line("AI UNLOCKED", '700 26px Literata, Georgia, serif', berry, 180, "8px");
+    line((c.brand || "AI Unlocked").toUpperCase(), '700 26px Literata, Georgia, serif', berry, 180, "8px");
     line("Certificate of Completion", '600 92px "EB Garamond", Georgia, serif', plum, 300);
     line("This certifies that", 'italic 400 30px Literata, Georgia, serif', soft, 390);
     const shown = name.trim() || "Your name";
@@ -600,14 +599,14 @@
   const hue = s => ["violet", "magenta", "berry", "coral", "crimson", "plum"][[...s].reduce((a, c) => a + c.charCodeAt(0), 0) % 6];
   const safeUrl = u => (typeof u === "string" && u.startsWith("https://")) ? u : null;
   function renderTools(tools) {
-    const CATS = { chat: "Chatbots", search: "Search", learning: "Learning", writing: "Writing and notes", image: "Pictures and design", video: "Video", audio: "Voices and music", code: "Coding" };
+    const CATS = { legal: "Legal work", chat: "Chatbots", search: "Search", learning: "Learning", writing: "Writing and notes", image: "Pictures and design", video: "Video", audio: "Voices and music", code: "Coding" };
     const isNew = x => { const t = Date.parse(x); return !isNaN(t) && (Date.now() - t) / 864e5 <= 60; };
     let filter = "all";
     const filters = $("#tools-filter");
     const draw = () => {
       const present = Object.keys(CATS).filter(c => tools.some(t => t.cat === c));
       filters.innerHTML = [["all", "All tools"], ...present.map(c => [c, CATS[c]])].map(([c, l]) => `<button class="filter-btn" type="button" data-filter="${c}" aria-pressed="${filter === c}">${l}</button>`).join("");
-      const list = tools.filter(t => t.name && (filter === "all" || t.cat === filter)).sort((a, b) => (isNew(b.addedAt) - isNew(a.addedAt)) || a.name.localeCompare(b.name));
+      const list = tools.filter(t => t.name && (filter === "all" || t.cat === filter)).sort((a, b) => ((b.cat === "legal") - (a.cat === "legal")) || (isNew(b.addedAt) - isNew(a.addedAt)) || a.name.localeCompare(b.name));
       toolsGrid.innerHTML = list.map(t => { const url = safeUrl(t.url); return `<article class="card tool-card">
         <div class="tool-head"><div class="tool-mono c-${hue(t.name)}" aria-hidden="true">${esc(t.name.charAt(0))}</div>
         <div class="tool-title"><h2>${esc(t.name)}${isNew(t.addedAt) ? ' <span class="new-pill">New</span>' : ""}</h2><span class="tool-maker">${esc(t.maker)}</span></div></div>

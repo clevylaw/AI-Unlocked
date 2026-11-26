@@ -2,34 +2,44 @@
 {
   "slug": "when-chatbots-get-it-wrong",
   "title": "When chatbots get it wrong",
-  "intro": "Chatbots can say things that are completely wrong and still sound sure of themselves. This lesson shows what to watch for.",
+  "intro": "Chatbots can invent cases, quotes and facts and still sound sure of themselves. Lawyers have been sanctioned for trusting them.",
   "tryIt": {
-    "tool": "A chatbot that can search the web, such as ChatGPT, Gemini or Perplexity",
-    "prompt": "What are three well-proven health benefits of walking for 30 minutes a day? Give a link to a source for each one."
+    "tool": "ChatGPT, Claude or Gemini",
+    "prompt": "Give me three real U.S. court cases about a landlord's duty to keep common areas safe, with citations. Then, for each case, tell me honestly how confident you are that it exists and says what you claim. (Afterward, look up each case yourself in a legal database or on a court website.)"
   },
   "quiz": {
-    "q": "A chatbot gives you an exact statistic. What should you do?",
+    "q": "What did the court do in Mata v. Avianca (2023)?",
     "opts": [
-      "Trust it, because AI is always right",
-      "Use it only if the AI sounded sure",
-      "Check it against a source you trust before you use it",
-      "Ignore every number an AI ever gives you"
+      "It praised the lawyers for saving time with AI",
+      "It sanctioned the lawyers for filing a brief with fake cases made up by ChatGPT",
+      "It banned all lawyers from using AI",
+      "It ruled that ChatGPT can be sued for bad legal advice"
     ],
-    "correct": 2,
-    "feedback": "Chatbots make the most mistakes with numbers, names, dates and sources. A chatbot can sound sure and still be wrong. Check the number with a source you trust before you use it."
+    "correct": 1,
+    "feedback": "The court fined the lawyers and their firm $5,000. They had cited cases that did not exist and then failed to come clean when the court asked about them."
   },
-  "tech": "Hallucinations happen because training rewards text that sounds likely, and sounding likely is different from being checked and true. Models are also often poor at judging how unsure they are. Some fixes help. One is to base answers on documents the system looks up, with links to the sources. Another is to tell the model plainly that \"I don't know\" is an allowed answer. A third is to give it tools for exact jobs, such as search, a calculator or running code. Teams also test models against answers they already know are correct. When you give a chatbot your own sources, ask it to quote them word for word, then check the quotes."
+  "tech": "Hallucinations happen because training rewards text that sounds likely, and sounding likely is different from being true. Legal research tools reduce this by first searching a database of real cases and then asking the model to answer from what it found. This is called retrieval-augmented generation, or RAG. It helps, but it does not solve the problem. The Stanford study found errors in more than 1 in 6 answers from the legal tools it tested, including answers that cited real cases for points those cases do not make.",
+  "sources": [
+    {"title": "Bloomberg Law: Phony ChatGPT brief leads to $5,000 fine for NY lawyers (Mata v. Avianca)", "url": "https://news.bloomberglaw.com/litigation/chatgpt-phony-legal-filing-case-gets-lawyers-a-5-000-fine"},
+    {"title": "The Volokh Conspiracy: Second Circuit refers lawyer for discipline over AI-made case (Park v. Kim, January 30, 2024)", "url": "https://reason.com/volokh/2024/01/30/second-circuit-refers-lawyer-for-disciplinary-proceedings-based-on-ai-hallucinated-case-in-brief/"},
+    {"title": "NPR: Michael Cohen says he unwittingly sent AI-generated fake cases to his attorney (December 2023)", "url": "https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases"},
+    {"title": "Stanford HAI: AI on trial, legal models hallucinate in 1 out of 6 (or more) benchmarking queries", "url": "https://hai.stanford.edu/news/ai-trial-legal-models-hallucinate-1-out-6-or-more-benchmarking-queries"}
+  ]
 }
 -->
 <h2>What a "hallucination" is</h2>
-<p>When an AI states something false as if it were a fact, people call it a <strong>hallucination</strong>. It might invent a book, get a date wrong or make up a quote. This happens because the AI writes the words that sound most likely, and sometimes the most likely-sounding words are wrong.</p>
-<div class="example"><p class="label">Common examples</p><p>Made-up sources, such as "A 2019 Harvard study found..." when there was no such study. Wrong dates, such as "The Eiffel Tower was finished in 1854" when it was finished in 1889. Quotes from real people who never said them.</p></div>
-<p>Hallucinations happen less often as models improve. Chatbots that search the web and show their sources are also easier to check. But hallucinations still happen.</p>
+<p>When an AI states something false as if it were a fact, people call it a <strong>hallucination</strong>. It might invent a case, put a real case in the wrong court or make up a quote. This happens because the AI writes the words that sound most likely, and sometimes the most likely-sounding words are wrong.</p>
+<h2>Real cases where it went wrong</h2>
+<div class="example"><p class="label">Mata v. Avianca (New York, 2023)</p><p>Lawyers filed a brief in federal court that cited cases ChatGPT had made up. When the court could not find the cases, the lawyers did not come clean right away. In June 2023 the judge fined the lawyers and their firm $5,000.</p></div>
+<div class="example"><p class="label">Park v. Kim (Second Circuit, 2024)</p><p>A lawyer cited a state court decision that did not exist. She said she had used ChatGPT to find it and did not check it. The federal appeals court referred her for possible discipline. It said lawyers must read the authorities they rely on to confirm they exist and support the point.</p></div>
+<div class="example"><p class="label">Michael Cohen (New York, 2023 to 2024)</p><p>Michael Cohen, a former lawyer, gave his own lawyer case citations he had found with Google's Bard chatbot. He thought it was a kind of search engine. The cases were fake and ended up in a court filing. The judge did not impose sanctions but called the lawyer's conduct negligent.</p></div>
+<h2>Legal research tools make mistakes too</h2>
+<p>Tools built for lawyers search real legal databases before they answer, so they invent less. They still make mistakes. A Stanford study published in 2024 tested leading legal research tools. It found wrong or misleading answers in more than 1 in 6 questions.</p>
 <h2>How to protect yourself</h2>
 <ul>
-<li><strong>Check anything important</strong> with a source you trust. This matters most for health, legal and money questions.</li>
-<li><strong>Take extra care with details.</strong> Numbers, names, dates and sources are where mistakes hide.</li>
-<li><strong>Click the source links</strong> when a chatbot gives them. Make sure each page says what the AI claims.</li>
-<li><strong>Use AI for drafts and outlines.</strong> Then fill in facts you have checked yourself.</li>
+<li><strong>Read every case you cite.</strong> Pull it from a trusted legal database or the court's website, and make sure it says what you claim.</li>
+<li><strong>Check that it is still good law,</strong> using a citator service such as Shepard's or KeyCite.</li>
+<li><strong>Check every quote and page number</strong> against the original.</li>
+<li><strong>Use AI for first drafts and ideas.</strong> Then fill in the law yourself, from sources you have read.</li>
 </ul>
-<div class="callout"><p class="label">A good rule</p><p>Treat a chatbot like a coworker who has read a lot but sometimes gets details wrong. It is great for ideas and drafts. Double-check anything important before you send it or rely on it.</p></div>
+<div class="callout"><p class="label">A good rule</p><p>Treat AI research like a note from a new intern who has read a lot but never been to law school. It may point you in a useful direction. It is never the final word.</p></div>
