@@ -1,0 +1,31 @@
+<!--
+{
+  "slug": "tokens-and-context",
+  "title": "Tokens, context and chance",
+  "intro": "Three basic ideas explain most of how a language model behaves, including its odd mistakes.",
+  "tryIt": {
+    "tool": "ChatGPT, Claude or Gemini",
+    "prompt": "How many times does the letter r appear in \"strawberry\"? Then explain, using the idea of tokens, why language models used to find questions like this hard."
+  },
+  "quiz": {
+    "q": "Why can a language model miscount the letters in a word?",
+    "opts": [
+      "It was never shown any English words",
+      "It reads text as tokens, which are chunks of text, and does not see single letters",
+      "Its context window is too small for one word",
+      "Safety rules stop it from counting"
+    ],
+    "correct": 1,
+    "feedback": "Models see tokens. A word like \"strawberry\" may be only two or three tokens, so the model does not see each letter on its own."
+  }
+}
+-->
+<h2>Tokens, not words</h2>
+<p>Models do not read single letters or whole words. Text is split into <strong>tokens</strong>. A common word is usually one token. A rarer word is split into several pieces. In English, 1,000 tokens is about 750 words.</p>
+<pre class="code" data-say="For example, the words unbelievably helpful might be split into four tokens: un, believ, ably, and helpful."><code>"unbelievably helpful"  →  ["un", "believ", "ably", " helpful"]   (a made-up example)</code></pre>
+<p>This explains a well-known mistake. Ask a model how many r's are in "strawberry," and it may count wrong. It sees a few tokens, while you see ten letters. Newer models handle this better, often by working through the word step by step.</p>
+<h2>The context window</h2>
+<p>A model can only consider a limited amount of text at once. That text includes your instructions, the whole conversation, any documents and the answer it is writing. All of it must fit in the model's <strong>context window</strong>, which is measured in tokens. Current models hold from about a hundred thousand to more than a million tokens. When a conversation grows too long, apps drop or shorten the older parts. That is why a long chat can "forget" things from the start.</p>
+<h2>Chance and temperature</h2>
+<p>At each step, the model gives every possible next token a chance of being picked. Then one token is chosen. A setting called <strong>temperature</strong> controls how adventurous that choice is. Near zero, the model almost always takes the most likely token, so its answers stay the same. Higher settings give more variety. That is why the same prompt can give different answers.</p>
+<div class="callout"><p class="label">What this means for cost</p><p>AI services for programmers, called <strong>APIs</strong>, charge by the million tokens. Tokens you send in and tokens the model writes have separate prices. Tokens the model writes usually cost several times more, so long answers cost more than long questions.</p></div>

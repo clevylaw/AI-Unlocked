@@ -1,0 +1,33 @@
+<!--
+{
+  "slug": "how-models-are-trained",
+  "title": "How models are trained",
+  "intro": "A chatbot goes through several stages of training to turn raw text into a helpful assistant.",
+  "tryIt": {
+    "tool": "ChatGPT, Claude or Gemini",
+    "prompt": "What is your knowledge cutoff date? What do you do when I ask about something that happened after it? How can I tell whether your answer used a web search?"
+  },
+  "quiz": {
+    "q": "What does pretraining mainly teach a model?",
+    "opts": [
+      "To follow a company's safety rules",
+      "To search the web for answers",
+      "To predict the next token across a huge amount of text",
+      "To decide which of two answers is better"
+    ],
+    "correct": 2,
+    "feedback": "Pretraining is next-token prediction on a huge scale. Following instructions and matching what people prefer come from the later training stages."
+  }
+}
+-->
+<h2>Stage 1: Pretraining</h2>
+<p>The model learns to predict the next token across trillions of tokens of text and computer code. This takes thousands of special computer chips running for months. The result is a <strong>base model</strong>. It knows a lot, but it only continues text. It does not follow instructions yet.</p>
+<h2>Stage 2: Learning from example chats</h2>
+<p>Next, the base model trains on many example conversations that show helpful answers. This teaches it to act as an assistant. It learns to follow instructions, answer questions and use a steady format.</p>
+<h2>Stage 3: Learning from feedback</h2>
+<p>People compare pairs of answers and pick the better one. The model is then trained to give the kind of answers people picked. This is called <strong>reinforcement learning from human feedback</strong>, or RLHF. Anthropic also uses a written set of principles, which it calls a "constitution," along with feedback written by AI.</p>
+<h2>Stage 4: Learning to reason</h2>
+<p>Thinking models get extra training on problems with answers that can be checked, such as math and code. They are rewarded when the final answer is correct. Over time, this teaches them to work through problems step by step.</p>
+<div class="callout"><p class="label">Knowledge cutoff</p><p>A model only knows what was in its training data. That data stops at a date called the <strong>knowledge cutoff</strong>. Anything newer has to come from a web search or from documents you give it.</p></div>
+<h2>Open and closed models</h2>
+<p>Some companies publish the trained settings of their models, called <strong>weights</strong>. Anyone can then run and change those models. These are called open-weight models. Llama, Mistral, DeepSeek and Qwen are examples. Other companies only let people use their models through their own apps and APIs.</p>

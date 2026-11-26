@@ -1,0 +1,31 @@
+<!--
+{
+  "slug": "how-ai-makes-pictures",
+  "title": "How AI makes pictures",
+  "intro": "You type \"a golden retriever in sunglasses on a beach\" and a picture appears. This lesson explains the steps in between.",
+  "tryIt": {
+    "tool": "ChatGPT or Gemini (both can make pictures for free)",
+    "prompt": "Make a picture of a cozy reading corner by a rainy window, with warm lamp light, in watercolor style. Then make a second version that looks like a 1950s travel poster."
+  },
+  "quiz": {
+    "q": "How does a diffusion picture tool make an image?",
+    "opts": [
+      "It finds a matching picture online and copies it",
+      "It traces over a painting that already exists",
+      "It starts with random dots and cleans them up step by step to match your description",
+      "It glues two photos together"
+    ],
+    "correct": 2,
+    "feedback": "Diffusion tools start with random dots, like TV static. They clean up the dots a little at a time, guided by your words, until a picture appears."
+  },
+  "tech": "Most picture models run diffusion in a squeezed-down version of the image, called a <strong>latent space</strong>, instead of on every pixel. A text encoder turns your words into lists of numbers called <strong>embeddings</strong>. At each clean-up step, a part of the model called cross-attention uses those numbers to steer the picture. A guidance setting trades off how closely the picture follows your words against how varied the results are. Newer tricks cut the number of steps, so pictures can appear in about a second."
+}
+-->
+<h2>From static to a picture</h2>
+<p>Most picture tools use a method called <strong>diffusion</strong>. In training, the AI takes real pictures and adds random dots, like the static on an old TV. It keeps adding dots until nothing is left but static. Then it practices the opposite. It turns static back into a clear picture, a little at a time.</p>
+<div class="callout"><p class="label">Think of it this way</p><p>Picture a sandcastle washing away in the waves, one frame at a time. Now imagine watching that film millions of times. In the end, you could play it backwards and build a castle out of loose sand. Picture AI learned to build pictures out of static in a similar way.</p></div>
+<h2>Where your words come in</h2>
+<p>When you type a description, another AI turns your words into directions. The picture AI then cleans up the static step by step. At each step, it moves closer to a picture that matches your words. The result is new, but it is shaped by the millions of pictures the AI studied.</p>
+<h2>A different picture every time</h2>
+<p>Each try starts from different random static. So the same words give you a different picture each time. That helps when you are exploring ideas. Make a few versions and keep the one you like best.</p>
+<div class="example"><p class="label">Tip for describing a picture</p><p>Say what is in the picture. Then add the style, the light and the mood. "A quiet waterfall in a thick Japanese forest, early morning light, watercolor style" gets a much better result than "a waterfall."</p></div>

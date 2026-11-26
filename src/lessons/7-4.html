@@ -1,0 +1,38 @@
+<!--
+{
+  "slug": "agents-tools-and-testing",
+  "title": "Agents, tools and testing",
+  "intro": "AI agents use tools over and over until a job is done. Teams also need a way to check that an AI system works.",
+  "tryIt": {
+    "tool": "ChatGPT, Claude or Gemini",
+    "prompt": "Design a simple AI agent that sorts my email into urgent, later and newsletters. List the tools it needs and which actions should need my approval. Then write five test emails I could use to check that it works."
+  },
+  "quiz": {
+    "q": "When a model uses a tool, what runs the tool?",
+    "opts": [
+      "The model runs it inside its own settings",
+      "The person using the app runs it by hand each time",
+      "Your app's code runs it and sends the result back to the model",
+      "The AI company runs every tool on its own computers"
+    ],
+    "correct": 2,
+    "feedback": "The model only asks for a tool to be used. Your code decides whether to run it, runs it and sends back the result. That is also where safety limits belong."
+  }
+}
+-->
+<h2>Tools</h2>
+<p>You describe tools to the model. Each description gives the tool's name, what it does and what information it needs. Two examples are <em>search_flights</em> and <em>create_calendar_event</em>. When a tool would help, the model replies with a request to use it. <strong>Your code runs the tool</strong> and sends the result back. Then the model carries on.</p>
+<h2>The agent loop</h2>
+<ol class="flow">
+<li>Goal</li><li>Plan the next step</li><li>Use a tool</li><li>Read the result</li><li>Repeat or finish</li>
+</ol>
+<p>An agent is this loop running until the goal is met. <strong>MCP</strong>, short for Model Context Protocol, is an open standard that Anthropic introduced in 2024. Many companies now support it. It lets AI apps connect to tools and information in one standard way, so each connection does not need custom work.</p>
+<h2>Safety limits</h2>
+<ul>
+<li>Give each agent only the access it needs.</li>
+<li>Have a person approve actions that spend money, send messages or delete things.</li>
+<li>Keep a record of every tool the agent uses, and set limits on time and spending.</li>
+</ul>
+<h2>Testing</h2>
+<p>Before you launch, build a set of test cases, called an <strong>evaluation set</strong>. Each test case is a real example plus a description of a good answer. Check the answers automatically where you can. You can use exact checks, or have a model grade answers against a list of rules. People should also check a sample by hand. Run the tests again every time you change the prompt, the model or the tools. Small changes often have surprising effects.</p>
+<div class="callout"><p class="label">Choosing a model in practice</p><p>Pick the smallest, cheapest model that passes your tests. Move up a size only for the tasks that need it.</p></div>

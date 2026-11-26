@@ -1,0 +1,957 @@
+{
+ "files": {
+  "agents-tools-and-testing/0-2dd8d3c6f2.mp3": {
+   "chars": 26
+  },
+  "agents-tools-and-testing/1-ee7642b2c2.mp3": {
+   "chars": 110
+  },
+  "agents-tools-and-testing/10-24c9535781.mp3": {
+   "chars": 435
+  },
+  "agents-tools-and-testing/11-bab6cc467a.mp3": {
+   "chars": 135
+  },
+  "agents-tools-and-testing/12-12bf32ec07.mp3": {
+   "chars": 286
+  },
+  "agents-tools-and-testing/13-a5e739a42c.mp3": {
+   "chars": 302
+  },
+  "agents-tools-and-testing/2-862cbde976.mp3": {
+   "chars": 6
+  },
+  "agents-tools-and-testing/3-aa4c80d315.mp3": {
+   "chars": 321
+  },
+  "agents-tools-and-testing/4-9026cc1b74.mp3": {
+   "chars": 15
+  },
+  "agents-tools-and-testing/5-58af9af981.mp3": {
+   "chars": 72
+  },
+  "agents-tools-and-testing/6-ac0fc734e8.mp3": {
+   "chars": 293
+  },
+  "agents-tools-and-testing/7-01882bbe4d.mp3": {
+   "chars": 14
+  },
+  "agents-tools-and-testing/8-33b4039a40.mp3": {
+   "chars": 202
+  },
+  "agents-tools-and-testing/9-63fe6641f9.mp3": {
+   "chars": 8
+  },
+  "ai-agents/0-e4b665d21c.mp3": {
+   "chars": 10
+  },
+  "ai-agents/1-e1763cd40b.mp3": {
+   "chars": 106
+  },
+  "ai-agents/10-d591528c73.mp3": {
+   "chars": 310
+  },
+  "ai-agents/11-31717bdeb0.mp3": {
+   "chars": 265
+  },
+  "ai-agents/2-15d84c4560.mp3": {
+   "chars": 15
+  },
+  "ai-agents/3-2fbf70dcff.mp3": {
+   "chars": 196
+  },
+  "ai-agents/4-a0d3329ca7.mp3": {
+   "chars": 208
+  },
+  "ai-agents/5-3524031b0e.mp3": {
+   "chars": 25
+  },
+  "ai-agents/6-a93194e902.mp3": {
+   "chars": 467
+  },
+  "ai-agents/7-53869fba5f.mp3": {
+   "chars": 15
+  },
+  "ai-agents/8-71dbc21d84.mp3": {
+   "chars": 203
+  },
+  "ai-agents/9-17ab7a581a.mp3": {
+   "chars": 440
+  },
+  "ai-and-jobs/0-41141a8e86.mp3": {
+   "chars": 12
+  },
+  "ai-and-jobs/1-350492ba96.mp3": {
+   "chars": 89
+  },
+  "ai-and-jobs/10-2a7a203841.mp3": {
+   "chars": 462
+  },
+  "ai-and-jobs/11-8964fdc33c.mp3": {
+   "chars": 241
+  },
+  "ai-and-jobs/12-5f74a0a3c9.mp3": {
+   "chars": 262
+  },
+  "ai-and-jobs/2-2f5ebb1c33.mp3": {
+   "chars": 20
+  },
+  "ai-and-jobs/3-fdac6f9dcd.mp3": {
+   "chars": 233
+  },
+  "ai-and-jobs/4-f17420d5a1.mp3": {
+   "chars": 238
+  },
+  "ai-and-jobs/5-1373dfb0ae.mp3": {
+   "chars": 31
+  },
+  "ai-and-jobs/6-d63441c970.mp3": {
+   "chars": 152
+  },
+  "ai-and-jobs/7-d594fad943.mp3": {
+   "chars": 206
+  },
+  "ai-and-jobs/8-e6f4b3c98f.mp3": {
+   "chars": 17
+  },
+  "ai-and-jobs/9-21b73f4122.mp3": {
+   "chars": 233
+  },
+  "ai-at-work/0-6f371c6ea6.mp3": {
+   "chars": 11
+  },
+  "ai-at-work/1-9e2727b075.mp3": {
+   "chars": 101
+  },
+  "ai-at-work/10-b01a603469.mp3": {
+   "chars": 259
+  },
+  "ai-at-work/11-60b9b1d818.mp3": {
+   "chars": 255
+  },
+  "ai-at-work/2-6602ac5f87.mp3": {
+   "chars": 25
+  },
+  "ai-at-work/3-098f10a5a6.mp3": {
+   "chars": 381
+  },
+  "ai-at-work/4-17c10131b3.mp3": {
+   "chars": 234
+  },
+  "ai-at-work/5-fa476f31f0.mp3": {
+   "chars": 35
+  },
+  "ai-at-work/6-77a57084f9.mp3": {
+   "chars": 241
+  },
+  "ai-at-work/7-37e816e4a0.mp3": {
+   "chars": 25
+  },
+  "ai-at-work/8-4b8741d8d9.mp3": {
+   "chars": 210
+  },
+  "ai-at-work/9-abfdc68477.mp3": {
+   "chars": 656
+  },
+  "ai-for-learning/0-2c816d8ffb.mp3": {
+   "chars": 16
+  },
+  "ai-for-learning/1-6fe7d7978a.mp3": {
+   "chars": 89
+  },
+  "ai-for-learning/10-8d29f1d52f.mp3": {
+   "chars": 269
+  },
+  "ai-for-learning/11-39aa5d4df1.mp3": {
+   "chars": 136
+  },
+  "ai-for-learning/12-6214166c85.mp3": {
+   "chars": 634
+  },
+  "ai-for-learning/13-62c669b010.mp3": {
+   "chars": 217
+  },
+  "ai-for-learning/14-4a756c298e.mp3": {
+   "chars": 298
+  },
+  "ai-for-learning/2-e88cc6ec6a.mp3": {
+   "chars": 26
+  },
+  "ai-for-learning/3-1afc1aac81.mp3": {
+   "chars": 99
+  },
+  "ai-for-learning/4-91c1900bc7.mp3": {
+   "chars": 216
+  },
+  "ai-for-learning/5-7bffe2de94.mp3": {
+   "chars": 14
+  },
+  "ai-for-learning/6-2e0e665b27.mp3": {
+   "chars": 242
+  },
+  "ai-for-learning/7-20c541fbda.mp3": {
+   "chars": 19
+  },
+  "ai-for-learning/8-724fa9a477.mp3": {
+   "chars": 233
+  },
+  "ai-for-learning/9-62162937bf.mp3": {
+   "chars": 26
+  },
+  "ai-for-writing/0-8b93e1d1f2.mp3": {
+   "chars": 15
+  },
+  "ai-for-writing/1-dfa6f838f2.mp3": {
+   "chars": 79
+  },
+  "ai-for-writing/10-882c836929.mp3": {
+   "chars": 268
+  },
+  "ai-for-writing/11-08b913c168.mp3": {
+   "chars": 265
+  },
+  "ai-for-writing/2-262955ffdf.mp3": {
+   "chars": 24
+  },
+  "ai-for-writing/3-571b2a7017.mp3": {
+   "chars": 193
+  },
+  "ai-for-writing/4-04ca7e5903.mp3": {
+   "chars": 15
+  },
+  "ai-for-writing/5-89d2e02b70.mp3": {
+   "chars": 385
+  },
+  "ai-for-writing/6-559685b196.mp3": {
+   "chars": 272
+  },
+  "ai-for-writing/7-6a43eb2792.mp3": {
+   "chars": 20
+  },
+  "ai-for-writing/8-b1efac6834.mp3": {
+   "chars": 237
+  },
+  "ai-for-writing/9-ccd565e0c4.mp3": {
+   "chars": 523
+  },
+  "ai-in-everyday-life/0-7622486fc2.mp3": {
+   "chars": 20
+  },
+  "ai-in-everyday-life/1-3439582693.mp3": {
+   "chars": 86
+  },
+  "ai-in-everyday-life/10-f121c5c3c5.mp3": {
+   "chars": 86
+  },
+  "ai-in-everyday-life/11-49ad3a6d47.mp3": {
+   "chars": 340
+  },
+  "ai-in-everyday-life/12-084be56b43.mp3": {
+   "chars": 690
+  },
+  "ai-in-everyday-life/13-934d4df0b0.mp3": {
+   "chars": 214
+  },
+  "ai-in-everyday-life/14-015888e94b.mp3": {
+   "chars": 240
+  },
+  "ai-in-everyday-life/2-7e8201227e.mp3": {
+   "chars": 19
+  },
+  "ai-in-everyday-life/3-e2d1503c01.mp3": {
+   "chars": 179
+  },
+  "ai-in-everyday-life/4-b12a6edab1.mp3": {
+   "chars": 156
+  },
+  "ai-in-everyday-life/5-dde9c38012.mp3": {
+   "chars": 181
+  },
+  "ai-in-everyday-life/6-ba75c8b58d.mp3": {
+   "chars": 15
+  },
+  "ai-in-everyday-life/7-aae620e68a.mp3": {
+   "chars": 253
+  },
+  "ai-in-everyday-life/8-fa21f04d43.mp3": {
+   "chars": 168
+  },
+  "ai-in-everyday-life/9-03cf9abd62.mp3": {
+   "chars": 30
+  },
+  "ai-that-sees-and-hears/0-716295ea81.mp3": {
+   "chars": 23
+  },
+  "ai-that-sees-and-hears/1-9ef4506b28.mp3": {
+   "chars": 66
+  },
+  "ai-that-sees-and-hears/10-bb56c2d76d.mp3": {
+   "chars": 239
+  },
+  "ai-that-sees-and-hears/11-130302f759.mp3": {
+   "chars": 254
+  },
+  "ai-that-sees-and-hears/2-982aae47ab.mp3": {
+   "chars": 14
+  },
+  "ai-that-sees-and-hears/3-29a37d52ba.mp3": {
+   "chars": 164
+  },
+  "ai-that-sees-and-hears/4-62b94af65c.mp3": {
+   "chars": 243
+  },
+  "ai-that-sees-and-hears/5-910ae61957.mp3": {
+   "chars": 17
+  },
+  "ai-that-sees-and-hears/6-da10121e03.mp3": {
+   "chars": 221
+  },
+  "ai-that-sees-and-hears/7-58762fae3e.mp3": {
+   "chars": 14
+  },
+  "ai-that-sees-and-hears/8-5f81918243.mp3": {
+   "chars": 385
+  },
+  "ai-that-sees-and-hears/9-0659630dda.mp3": {
+   "chars": 529
+  },
+  "asking-good-questions/0-fff8878eac.mp3": {
+   "chars": 22
+  },
+  "asking-good-questions/1-e5da04d576.mp3": {
+   "chars": 108
+  },
+  "asking-good-questions/10-ccb9a9a41c.mp3": {
+   "chars": 193
+  },
+  "asking-good-questions/11-a6cbbc7cc4.mp3": {
+   "chars": 194
+  },
+  "asking-good-questions/12-1f2903e3e8.mp3": {
+   "chars": 658
+  },
+  "asking-good-questions/13-4904f0cb51.mp3": {
+   "chars": 279
+  },
+  "asking-good-questions/14-abfe86179f.mp3": {
+   "chars": 199
+  },
+  "asking-good-questions/2-0b2b8157fe.mp3": {
+   "chars": 18
+  },
+  "asking-good-questions/3-07b3de1fff.mp3": {
+   "chars": 126
+  },
+  "asking-good-questions/4-c2d0703002.mp3": {
+   "chars": 384
+  },
+  "asking-good-questions/5-14038c1b76.mp3": {
+   "chars": 29
+  },
+  "asking-good-questions/6-2b2ee1802d.mp3": {
+   "chars": 274
+  },
+  "asking-good-questions/7-4b2546bc8e.mp3": {
+   "chars": 28
+  },
+  "asking-good-questions/8-db4b313492.mp3": {
+   "chars": 238
+  },
+  "asking-good-questions/9-2e49a0ee95.mp3": {
+   "chars": 36
+  },
+  "building-with-ai/0-6ece124a96.mp3": {
+   "chars": 17
+  },
+  "building-with-ai/1-871791903b.mp3": {
+   "chars": 90
+  },
+  "building-with-ai/10-1e966cb2de.mp3": {
+   "chars": 288
+  },
+  "building-with-ai/11-9d446a38a0.mp3": {
+   "chars": 237
+  },
+  "building-with-ai/12-d7eb90bbe8.mp3": {
+   "chars": 323
+  },
+  "building-with-ai/13-f32ec43f37.mp3": {
+   "chars": 340
+  },
+  "building-with-ai/2-109262c262.mp3": {
+   "chars": 12
+  },
+  "building-with-ai/3-1cf1acb7aa.mp3": {
+   "chars": 264
+  },
+  "building-with-ai/4-aa737b7684.mp3": {
+   "chars": 169
+  },
+  "building-with-ai/5-1d4c1f368c.mp3": {
+   "chars": 274
+  },
+  "building-with-ai/6-205f58f5c7.mp3": {
+   "chars": 37
+  },
+  "building-with-ai/7-0a53881ea9.mp3": {
+   "chars": 111
+  },
+  "building-with-ai/8-2fbbee3472.mp3": {
+   "chars": 337
+  },
+  "building-with-ai/9-1861278877.mp3": {
+   "chars": 30
+  },
+  "choosing-an-ai-model/0-4a87dba6e5.mp3": {
+   "chars": 21
+  },
+  "choosing-an-ai-model/1-97a53d50f6.mp3": {
+   "chars": 111
+  },
+  "choosing-an-ai-model/10-a106f87208.mp3": {
+   "chars": 25
+  },
+  "choosing-an-ai-model/11-16beb1942e.mp3": {
+   "chars": 423
+  },
+  "choosing-an-ai-model/12-d4ebcfc9d8.mp3": {
+   "chars": 17
+  },
+  "choosing-an-ai-model/13-2cf277ebf3.mp3": {
+   "chars": 487
+  },
+  "choosing-an-ai-model/14-6c211c1c8f.mp3": {
+   "chars": 173
+  },
+  "choosing-an-ai-model/15-170c88c544.mp3": {
+   "chars": 660
+  },
+  "choosing-an-ai-model/16-29fc40a2c7.mp3": {
+   "chars": 328
+  },
+  "choosing-an-ai-model/17-81514ac74a.mp3": {
+   "chars": 277
+  },
+  "choosing-an-ai-model/2-3ce13652ad.mp3": {
+   "chars": 22
+  },
+  "choosing-an-ai-model/3-ac9490ff7a.mp3": {
+   "chars": 264
+  },
+  "choosing-an-ai-model/4-2e9196fc74.mp3": {
+   "chars": 31
+  },
+  "choosing-an-ai-model/5-01435c8cdc.mp3": {
+   "chars": 59
+  },
+  "choosing-an-ai-model/6-70b07b21e1.mp3": {
+   "chars": 311
+  },
+  "choosing-an-ai-model/7-b775fcb06d.mp3": {
+   "chars": 201
+  },
+  "choosing-an-ai-model/8-827c2a24f3.mp3": {
+   "chars": 16
+  },
+  "choosing-an-ai-model/9-e878f34dc2.mp3": {
+   "chars": 304
+  },
+  "how-ai-learns/0-6472083696.mp3": {
+   "chars": 14
+  },
+  "how-ai-learns/1-6937c48369.mp3": {
+   "chars": 88
+  },
+  "how-ai-learns/10-cfc87e55d9.mp3": {
+   "chars": 267
+  },
+  "how-ai-learns/11-3ce7898f7f.mp3": {
+   "chars": 200
+  },
+  "how-ai-learns/12-5fbb618695.mp3": {
+   "chars": 628
+  },
+  "how-ai-learns/13-bce76c47ce.mp3": {
+   "chars": 213
+  },
+  "how-ai-learns/14-d05c40a8af.mp3": {
+   "chars": 210
+  },
+  "how-ai-learns/2-138de1a7b7.mp3": {
+   "chars": 23
+  },
+  "how-ai-learns/3-a2b4cbd1b8.mp3": {
+   "chars": 182
+  },
+  "how-ai-learns/4-0a06e41f34.mp3": {
+   "chars": 215
+  },
+  "how-ai-learns/5-9ec9c74bdd.mp3": {
+   "chars": 200
+  },
+  "how-ai-learns/6-e656e61341.mp3": {
+   "chars": 14
+  },
+  "how-ai-learns/7-6637545f84.mp3": {
+   "chars": 299
+  },
+  "how-ai-learns/8-a679a09ac8.mp3": {
+   "chars": 183
+  },
+  "how-ai-learns/9-9f8daa10da.mp3": {
+   "chars": 28
+  },
+  "how-ai-makes-pictures/0-8d72540993.mp3": {
+   "chars": 22
+  },
+  "how-ai-makes-pictures/1-df3e6c6c4e.mp3": {
+   "chars": 120
+  },
+  "how-ai-makes-pictures/10-f0ec37a6c4.mp3": {
+   "chars": 523
+  },
+  "how-ai-makes-pictures/11-0dbe3a5e42.mp3": {
+   "chars": 268
+  },
+  "how-ai-makes-pictures/12-7da2360487.mp3": {
+   "chars": 306
+  },
+  "how-ai-makes-pictures/2-372616963e.mp3": {
+   "chars": 25
+  },
+  "how-ai-makes-pictures/3-288e3c4e0c.mp3": {
+   "chars": 291
+  },
+  "how-ai-makes-pictures/4-5f49edb5ed.mp3": {
+   "chars": 287
+  },
+  "how-ai-makes-pictures/5-f9f971a292.mp3": {
+   "chars": 25
+  },
+  "how-ai-makes-pictures/6-d3ba23ad9b.mp3": {
+   "chars": 276
+  },
+  "how-ai-makes-pictures/7-161770b34a.mp3": {
+   "chars": 31
+  },
+  "how-ai-makes-pictures/8-92f2563a1c.mp3": {
+   "chars": 196
+  },
+  "how-ai-makes-pictures/9-5bb765eb22.mp3": {
+   "chars": 233
+  },
+  "how-chatbots-work/0-70580e9dc7.mp3": {
+   "chars": 18
+  },
+  "how-chatbots-work/1-ee2102db1f.mp3": {
+   "chars": 124
+  },
+  "how-chatbots-work/10-98ee55add6.mp3": {
+   "chars": 178
+  },
+  "how-chatbots-work/11-dba3424a74.mp3": {
+   "chars": 25
+  },
+  "how-chatbots-work/12-9c68d39a71.mp3": {
+   "chars": 247
+  },
+  "how-chatbots-work/13-000d6e9a14.mp3": {
+   "chars": 567
+  },
+  "how-chatbots-work/14-e95186e24d.mp3": {
+   "chars": 232
+  },
+  "how-chatbots-work/15-598f0fba7a.mp3": {
+   "chars": 273
+  },
+  "how-chatbots-work/2-bb660f1641.mp3": {
+   "chars": 23
+  },
+  "how-chatbots-work/3-edd4020da6.mp3": {
+   "chars": 274
+  },
+  "how-chatbots-work/4-e944c7a145.mp3": {
+   "chars": 82
+  },
+  "how-chatbots-work/5-5245d72b09.mp3": {
+   "chars": 108
+  },
+  "how-chatbots-work/6-7cf1fda7cf.mp3": {
+   "chars": 246
+  },
+  "how-chatbots-work/7-e11b44d5b8.mp3": {
+   "chars": 19
+  },
+  "how-chatbots-work/8-6ceda336fb.mp3": {
+   "chars": 297
+  },
+  "how-chatbots-work/9-50a63bad17.mp3": {
+   "chars": 21
+  },
+  "how-models-are-trained/0-85251ff1d5.mp3": {
+   "chars": 23
+  },
+  "how-models-are-trained/1-4a1df0d1f9.mp3": {
+   "chars": 92
+  },
+  "how-models-are-trained/10-3bba9da275.mp3": {
+   "chars": 198
+  },
+  "how-models-are-trained/11-aa012be764.mp3": {
+   "chars": 23
+  },
+  "how-models-are-trained/12-e49223b6bb.mp3": {
+   "chars": 288
+  },
+  "how-models-are-trained/13-e94d76202c.mp3": {
+   "chars": 230
+  },
+  "how-models-are-trained/14-1ef34657ea.mp3": {
+   "chars": 253
+  },
+  "how-models-are-trained/2-f7618dc676.mp3": {
+   "chars": 21
+  },
+  "how-models-are-trained/3-4c20c542e0.mp3": {
+   "chars": 272
+  },
+  "how-models-are-trained/4-af2b3db4fa.mp3": {
+   "chars": 37
+  },
+  "how-models-are-trained/5-e51dbe0f34.mp3": {
+   "chars": 200
+  },
+  "how-models-are-trained/6-8e36b1c073.mp3": {
+   "chars": 32
+  },
+  "how-models-are-trained/7-11e48740cf.mp3": {
+   "chars": 310
+  },
+  "how-models-are-trained/8-b8822726b8.mp3": {
+   "chars": 28
+  },
+  "how-models-are-trained/9-e2b612530c.mp3": {
+   "chars": 223
+  },
+  "keeping-up/0-3b29e01a18.mp3": {
+   "chars": 11
+  },
+  "keeping-up/1-bacf313a4f.mp3": {
+   "chars": 63
+  },
+  "keeping-up/10-f89bb2a9ab.mp3": {
+   "chars": 211
+  },
+  "keeping-up/11-bcb8130efe.mp3": {
+   "chars": 244
+  },
+  "keeping-up/2-14b2002a0e.mp3": {
+   "chars": 23
+  },
+  "keeping-up/3-66c1f8c292.mp3": {
+   "chars": 221
+  },
+  "keeping-up/4-96368aed7a.mp3": {
+   "chars": 17
+  },
+  "keeping-up/5-d881ab1b48.mp3": {
+   "chars": 323
+  },
+  "keeping-up/6-d102219a54.mp3": {
+   "chars": 190
+  },
+  "keeping-up/7-f9366cede1.mp3": {
+   "chars": 34
+  },
+  "keeping-up/8-6e8c7d5e8f.mp3": {
+   "chars": 247
+  },
+  "keeping-up/9-4428d781e5.mp3": {
+   "chars": 407
+  },
+  "tokens-and-context/0-5adb973646.mp3": {
+   "chars": 27
+  },
+  "tokens-and-context/1-a8d96e6568.mp3": {
+   "chars": 91
+  },
+  "tokens-and-context/10-95d48af5cd.mp3": {
+   "chars": 270
+  },
+  "tokens-and-context/11-5b6cb30cd4.mp3": {
+   "chars": 230
+  },
+  "tokens-and-context/12-0dd32879bf.mp3": {
+   "chars": 305
+  },
+  "tokens-and-context/2-b865ca89e7.mp3": {
+   "chars": 18
+  },
+  "tokens-and-context/3-ab847504e0.mp3": {
+   "chars": 200
+  },
+  "tokens-and-context/4-0fb6845b74.mp3": {
+   "chars": 107
+  },
+  "tokens-and-context/5-98aaac1fc1.mp3": {
+   "chars": 235
+  },
+  "tokens-and-context/6-661c4d48bd.mp3": {
+   "chars": 19
+  },
+  "tokens-and-context/7-cb73aad34b.mp3": {
+   "chars": 459
+  },
+  "tokens-and-context/8-7f3b2dc671.mp3": {
+   "chars": 23
+  },
+  "tokens-and-context/9-ec39fb02e6.mp3": {
+   "chars": 362
+  },
+  "types-of-ai/0-cf1d11d7e5.mp3": {
+   "chars": 12
+  },
+  "types-of-ai/1-381c59572c.mp3": {
+   "chars": 114
+  },
+  "types-of-ai/10-aa8f4e83d2.mp3": {
+   "chars": 297
+  },
+  "types-of-ai/11-c32b7a6a8d.mp3": {
+   "chars": 14
+  },
+  "types-of-ai/12-86ae3f3364.mp3": {
+   "chars": 223
+  },
+  "types-of-ai/13-87353bcff3.mp3": {
+   "chars": 325
+  },
+  "types-of-ai/14-e11203a8da.mp3": {
+   "chars": 541
+  },
+  "types-of-ai/15-708b7731fa.mp3": {
+   "chars": 298
+  },
+  "types-of-ai/16-c5ed314120.mp3": {
+   "chars": 270
+  },
+  "types-of-ai/2-c8d11696eb.mp3": {
+   "chars": 24
+  },
+  "types-of-ai/3-dc5165a8ff.mp3": {
+   "chars": 83
+  },
+  "types-of-ai/4-5b55f772bb.mp3": {
+   "chars": 205
+  },
+  "types-of-ai/5-779d3dd7fe.mp3": {
+   "chars": 24
+  },
+  "types-of-ai/6-9b61de710e.mp3": {
+   "chars": 73
+  },
+  "types-of-ai/7-d049b70321.mp3": {
+   "chars": 17
+  },
+  "types-of-ai/8-cce3a8da02.mp3": {
+   "chars": 182
+  },
+  "types-of-ai/9-d35913796e.mp3": {
+   "chars": 14
+  },
+  "using-generative-ai-responsibly/0-8be42aee7a.mp3": {
+   "chars": 32
+  },
+  "using-generative-ai-responsibly/1-a2b13d3865.mp3": {
+   "chars": 88
+  },
+  "using-generative-ai-responsibly/10-60b02577b1.mp3": {
+   "chars": 224
+  },
+  "using-generative-ai-responsibly/11-9a762d28b5.mp3": {
+   "chars": 21
+  },
+  "using-generative-ai-responsibly/12-32e81dfb2d.mp3": {
+   "chars": 183
+  },
+  "using-generative-ai-responsibly/13-c26aa5e098.mp3": {
+   "chars": 583
+  },
+  "using-generative-ai-responsibly/14-0b19c766b7.mp3": {
+   "chars": 242
+  },
+  "using-generative-ai-responsibly/15-e6f4383895.mp3": {
+   "chars": 294
+  },
+  "using-generative-ai-responsibly/2-8d9e9cef11.mp3": {
+   "chars": 23
+  },
+  "using-generative-ai-responsibly/3-afe7a3d36c.mp3": {
+   "chars": 310
+  },
+  "using-generative-ai-responsibly/4-2cf7ca6e73.mp3": {
+   "chars": 10
+  },
+  "using-generative-ai-responsibly/5-9103af8210.mp3": {
+   "chars": 251
+  },
+  "using-generative-ai-responsibly/6-4d6eef1abb.mp3": {
+   "chars": 270
+  },
+  "using-generative-ai-responsibly/7-dfcfd0e033.mp3": {
+   "chars": 30
+  },
+  "using-generative-ai-responsibly/8-3a5a635340.mp3": {
+   "chars": 152
+  },
+  "using-generative-ai-responsibly/9-251baa1396.mp3": {
+   "chars": 17
+  },
+  "what-generative-ai-makes/0-e2c9ba6ecc.mp3": {
+   "chars": 25
+  },
+  "what-generative-ai-makes/1-e8674d92a5.mp3": {
+   "chars": 110
+  },
+  "what-generative-ai-makes/10-fb6f3aa69c.mp3": {
+   "chars": 211
+  },
+  "what-generative-ai-makes/11-4c42b16a69.mp3": {
+   "chars": 226
+  },
+  "what-generative-ai-makes/2-1f7cf76bb9.mp3": {
+   "chars": 21
+  },
+  "what-generative-ai-makes/3-7128de26b2.mp3": {
+   "chars": 192
+  },
+  "what-generative-ai-makes/4-b8828447bc.mp3": {
+   "chars": 119
+  },
+  "what-generative-ai-makes/5-b5cc759df9.mp3": {
+   "chars": 17
+  },
+  "what-generative-ai-makes/6-8551858ee9.mp3": {
+   "chars": 555
+  },
+  "what-generative-ai-makes/7-dde59b010c.mp3": {
+   "chars": 15
+  },
+  "what-generative-ai-makes/8-51661d81ea.mp3": {
+   "chars": 239
+  },
+  "what-generative-ai-makes/9-c43d4b90f2.mp3": {
+   "chars": 533
+  },
+  "when-ai-is-unfair/0-dabf263ab0.mp3": {
+   "chars": 18
+  },
+  "when-ai-is-unfair/1-082e8513f2.mp3": {
+   "chars": 108
+  },
+  "when-ai-is-unfair/10-4d584f401b.mp3": {
+   "chars": 219
+  },
+  "when-ai-is-unfair/11-694c97ed0f.mp3": {
+   "chars": 261
+  },
+  "when-ai-is-unfair/2-27ef9015a3.mp3": {
+   "chars": 22
+  },
+  "when-ai-is-unfair/3-367426dac5.mp3": {
+   "chars": 216
+  },
+  "when-ai-is-unfair/4-45e379ecb7.mp3": {
+   "chars": 276
+  },
+  "when-ai-is-unfair/5-dde59b010c.mp3": {
+   "chars": 15
+  },
+  "when-ai-is-unfair/6-4c3717471b.mp3": {
+   "chars": 218
+  },
+  "when-ai-is-unfair/7-7cd71b65d7.mp3": {
+   "chars": 31
+  },
+  "when-ai-is-unfair/8-ec5b290bdc.mp3": {
+   "chars": 283
+  },
+  "when-ai-is-unfair/9-2500ad1538.mp3": {
+   "chars": 627
+  },
+  "when-chatbots-get-it-wrong/0-e2507de9d2.mp3": {
+   "chars": 27
+  },
+  "when-chatbots-get-it-wrong/1-bcc7047852.mp3": {
+   "chars": 122
+  },
+  "when-chatbots-get-it-wrong/10-908607af46.mp3": {
+   "chars": 235
+  },
+  "when-chatbots-get-it-wrong/11-79336ace7a.mp3": {
+   "chars": 275
+  },
+  "when-chatbots-get-it-wrong/2-42ab341f4d.mp3": {
+   "chars": 26
+  },
+  "when-chatbots-get-it-wrong/3-6bd5737291.mp3": {
+   "chars": 273
+  },
+  "when-chatbots-get-it-wrong/4-0141f6c403.mp3": {
+   "chars": 222
+  },
+  "when-chatbots-get-it-wrong/5-1761ffef96.mp3": {
+   "chars": 162
+  },
+  "when-chatbots-get-it-wrong/6-c087c06688.mp3": {
+   "chars": 24
+  },
+  "when-chatbots-get-it-wrong/7-1e7b52dbab.mp3": {
+   "chars": 368
+  },
+  "when-chatbots-get-it-wrong/8-601e6650ef.mp3": {
+   "chars": 197
+  },
+  "when-chatbots-get-it-wrong/9-edc655ddc2.mp3": {
+   "chars": 663
+  },
+  "your-privacy/0-bc6b6edb50.mp3": {
+   "chars": 13
+  },
+  "your-privacy/1-51ffa42ac5.mp3": {
+   "chars": 112
+  },
+  "your-privacy/10-bdf6496072.mp3": {
+   "chars": 329
+  },
+  "your-privacy/11-bc48c82598.mp3": {
+   "chars": 298
+  },
+  "your-privacy/2-535853c53d.mp3": {
+   "chars": 33
+  },
+  "your-privacy/3-c35ed0abcc.mp3": {
+   "chars": 245
+  },
+  "your-privacy/4-8a2dd73e03.mp3": {
+   "chars": 210
+  },
+  "your-privacy/5-ebdc01c6b9.mp3": {
+   "chars": 18
+  },
+  "your-privacy/6-17148e40c5.mp3": {
+   "chars": 166
+  },
+  "your-privacy/7-60902f6ba8.mp3": {
+   "chars": 25
+  },
+  "your-privacy/8-951b84f225.mp3": {
+   "chars": 200
+  },
+  "your-privacy/9-a4c26c6ddd.mp3": {
+   "chars": 528
+  }
+ },
+ "model": "simba-3.5",
+ "voice": "harper_32"
+}
