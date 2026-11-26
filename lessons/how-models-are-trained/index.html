@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Courier+Prime&display=swap">
-<link rel="stylesheet" href="../../assets/site.css?v=eb620a8c">
+<link rel="stylesheet" href="../../assets/site.css?v=ccf0864e">
 </head>
 <body data-page="lessons" data-root="../../" data-ref="7-2">
 <a class="skip" href="#main">Skip to main content</a>
@@ -29,17 +29,16 @@
   </div>
 </header>
 <main id="main" class="wrap narrow page"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../../lessons/">Lessons</a></li><li><a href="../../modules/how-ai-works-inside/">Module 7: How AI works inside</a></li><li><span aria-current="page">How models are trained</span></li></ol></nav>
-<div class="lesson-meta c-violet"><span class="lesson-pill">Lesson 2 of 4</span><span><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3 minutes to read, 3 minutes to practice</span></div>
-<div class="path-strip" id="path-strip"></div>
-<header class="page-head lesson-head"><h1 id="page-title" tabindex="-1" data-r="0">How models are trained</h1><p class="page-intro" data-r="1">A chatbot goes through several stages of training to turn raw text into a helpful assistant. Each stage explains a strength or a weakness.</p></header>
-<div class="listen" id="listen" hidden></div>
+<header class="page-head lesson-head"><p class="eyebrow">Module 7 · Lesson 2 of 4</p><h1 id="page-title" tabindex="-1" data-r="0">How models are trained</h1><p class="page-intro" data-r="1">A chatbot goes through several stages of training to turn raw text into a helpful assistant. Each stage explains a strength or a weakness.</p></header>
+<div class="lesson-bar"><div class="listen" id="listen" hidden></div><span class="lesson-time-note"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3 min read · 3 min practice</span></div>
+<p class="path-strip" id="path-strip"></p>
 <script type="application/json" id="read-data">{"blocks": [{"t": "How models are trained.", "a": "../../audio/how-models-are-trained/0-85251ff1d5.mp3"}, {"t": "A chatbot goes through several stages of training to turn raw text into a helpful assistant. Each stage explains a strength or a weakness.", "a": "../../audio/how-models-are-trained/1-458c7b9a48.mp3"}, {"t": "Stage 1: Pretraining.", "a": "../../audio/how-models-are-trained/2-f7618dc676.mp3"}, {"t": "The model learns to predict the next token across trillions of tokens of text and computer code. This takes thousands of special computer chips running for months. The result is a base model. It knows a lot, but it only continues text. It does not follow instructions yet.", "a": "../../audio/how-models-are-trained/3-4c20c542e0.mp3"}, {"t": "Stage 2: Learning from example chats.", "a": "../../audio/how-models-are-trained/4-af2b3db4fa.mp3"}, {"t": "Next, the base model trains on many example conversations that show helpful answers. This teaches it to act as an assistant. It learns to follow instructions, answer questions and use a steady format.", "a": "../../audio/how-models-are-trained/5-e51dbe0f34.mp3"}, {"t": "Stage 3: Learning from feedback.", "a": "../../audio/how-models-are-trained/6-8e36b1c073.mp3"}, {"t": "People compare pairs of answers and pick the better one. The model is then trained to give the kind of answers people picked. This is called reinforcement learning from human feedback, or RLHF. It makes answers more helpful and polite. It can also make the model eager to please, so it may give an answer when it should say \"I don't know.\"", "a": "../../audio/how-models-are-trained/7-a42720c224.mp3"}, {"t": "Stage 4: Learning to reason.", "a": "../../audio/how-models-are-trained/8-b8822726b8.mp3"}, {"t": "Thinking models get extra training on problems with answers that can be checked, such as math and code. They are rewarded when the final answer is correct. This helps with multi-step problems. Legal answers are harder to check automatically, so this training helps less with legal judgment.", "a": "../../audio/how-models-are-trained/9-fb4351b17c.mp3"}, {"t": "Knowledge cutoff. A model only knows what was in its training data. That data stops at a date called the knowledge cutoff. A new statute, rule change or appeals decision after that date has to come from a search, a legal database or documents you give it.", "a": "../../audio/how-models-are-trained/10-9ad760908f.mp3"}, {"t": "Open and closed models.", "a": "../../audio/how-models-are-trained/11-aa012be764.mp3"}, {"t": "Some companies publish the trained settings of their models, called weights. Anyone can then run and change those models. These are called open-weight models, such as Llama, Mistral, DeepSeek and Qwen. An organization can run them on its own computers, which keeps client data inside. Other companies only offer their models through their own apps and services.", "a": "../../audio/how-models-are-trained/12-397d86eb60.mp3"}, {"t": "Try it yourself. Open ChatGPT, Claude or Gemini, and paste in this prompt. What is your knowledge cutoff date? If I ask about a court decision or a statute change from after that date, what will you do? How can I tell whether your answer used a web search?", "a": "../../audio/how-models-are-trained/13-10c230f30f.mp3"}, {"t": "Check what you learned. Why might a chatbot not know about a court decision from last month? The choices are: Courts block AI from reading decisions. Its training data stops at a knowledge cutoff, so newer events must come from a search or from documents you give it. It only learns about state courts. Or, it forgets everything each night.", "a": "../../audio/how-models-are-trained/14-c03d427926.mp3"}], "voiceName": "Harper"}</script>
 <article class="lesson-body"><h2 data-r="2">Stage 1: Pretraining</h2>
 <p data-r="3">The model learns to predict the next token across trillions of tokens of text and computer code. This takes thousands of special computer chips running for months. The result is a <strong>base model</strong>. It knows a lot, but it only continues text. It does not follow instructions yet.</p>
 <h2 data-r="4">Stage 2: Learning from example chats</h2>
 <p data-r="5">Next, the base model trains on many example conversations that show helpful answers. This teaches it to act as an assistant. It learns to follow instructions, answer questions and use a steady format.</p>
 <h2 data-r="6">Stage 3: Learning from feedback</h2>
-<p data-r="7">People compare pairs of answers and pick the better one. The model is then trained to give the kind of answers people picked. This is called <strong>reinforcement learning from human feedback</strong>, or RLHF. It makes answers more helpful and polite. It can also make the model eager to please, so it may give an answer when it should say "I don't know."</p>
+<p data-r="7">People compare pairs of answers and pick the better one. The model is then trained to give the kind of answers people picked. This is called <strong>reinforcement learning from human feedback</strong>, or RLHF. It makes answers more helpful and polite. It can also make the model eager to please, so it may give an answer when it should say “I don’t know.”</p>
 <h2 data-r="8">Stage 4: Learning to reason</h2>
 <p data-r="9">Thinking models get extra training on problems with answers that can be checked, such as math and code. They are rewarded when the final answer is correct. This helps with multi-step problems. Legal answers are harder to check automatically, so this training helps less with legal judgment.</p>
 <div data-r="10" class="callout"><p class="label">Knowledge cutoff</p><p>A model only knows what was in its training data. That data stops at a date called the <strong>knowledge cutoff</strong>. A new statute, rule change or appeals decision after that date has to come from a search, a legal database or documents you give it.</p></div>
@@ -51,14 +50,14 @@
 
 <div class="lesson-end">
   <p class="done-note" id="done-note" hidden><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> You finished this lesson.</p>
-  <a class="btn-main" id="done-btn" href="../../lessons/building-with-ai/">Mark as done and go to the next lesson →</a>
+  <a class="btn-main" id="done-btn" href="../../lessons/building-with-ai/">Done, next lesson →</a>
   <nav class="pager" aria-label="Lessons"><a class="prev" href="../../lessons/tokens-and-context/" data-pager="prev"><span class="pager-dir">← Previous lesson</span><strong>Tokens, context and chance</strong></a><a class="next" href="../../lessons/building-with-ai/" data-pager="next"><span class="pager-dir">Next lesson →</span><strong>Building with AI</strong></a></nav>
 </div></main>
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div>
       <a class="logo" href="../../">AI for <span>Legal Work</span></a>
-      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Your progress is saved only in this browser.</p>
+      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Content last reviewed November 2026. Your progress is saved only in this browser.</p>
       <div class="reset">
         <button class="link-btn" type="button" data-reset>Start over</button>
         <div class="reset-confirm" id="reset-confirm" hidden>
@@ -74,7 +73,7 @@
     </ul>
   </div>
 </footer>
-<script src="../../assets/course.js?v=eb620a8c"></script>
-<script src="../../assets/app.js?v=eb620a8c"></script>
+<script src="../../assets/course.js?v=ccf0864e"></script>
+<script src="../../assets/app.js?v=ccf0864e"></script>
 </body>
 </html>

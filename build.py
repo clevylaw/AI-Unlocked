@@ -23,6 +23,7 @@ BASE_PATH = "/AI-Unlocked/"          # used only by 404.html, which can be serve
 TAGLINE = "A free course on AI for legal work, in plain English"
 VOICE_ID, VOICE_NAME, TTS_MODEL = "harper_32", "Harper", "simba-3.5"
 REDIRECTS = {"ai-in-everyday-life": "ai-in-legal-work", "using-generative-ai-responsibly": "copyright-and-deepfakes", "ai-for-writing": "ai-for-legal-writing", "ai-for-learning": "ai-for-law-school", "ai-and-jobs": "ai-and-legal-jobs"}
+REVIEWED = "November 2026"  # shown on the home page and footer; update after each content review
 GENERATED = ["path", "certificate", "lessons", "modules", "tools", "models", "glossary", "about"]
 
 esc = lambda s: html.escape(str(s), quote=True)
@@ -100,7 +101,7 @@ def parse(src):
 def text_of(n):
     if isinstance(n, str):
         return n
-    if n.tag in ("svg", "script", "style"):
+    if n.tag in ("svg", "script", "style", "sup"):
         return ""
     return "".join(text_of(c) for c in n.children)
 
@@ -158,6 +159,9 @@ def spoken(n):
             for c in x.children:
                 if not isinstance(c, Node):
                     continue
+                if c.tag == "p" and c.attrs.get("data-say"):
+                    parts.append(sentence(c.attrs["data-say"]))
+                    continue
                 if c.tag == "p":
                     t = clean(text_of(c))
                     if "label" in c.cls() and t.lower() in QUIET_LABELS:
@@ -182,6 +186,37 @@ def add_read_ids(body, start_at):
         texts.append(spoken(b))
     out.append(body[last:])
     return "".join(out), texts
+
+# ---------------------------------------------------------------- typography
+def smart_text(t):
+    """Curly quotes and apostrophes for display text (spoken text keeps straight quotes)."""
+    t = re.sub(r"(\w)'(\w)", "\\1\u2019\\2", t)
+    t = re.sub(r"(^|[\s(\[\u2014-])\"", "\\1\u201c", t)
+    t = t.replace('"', "\u201d")
+    t = re.sub(r"(^|[\s(\[])'", "\\1\u2018", t)
+    return t.replace("'", "\u2019")
+
+def smart_html(h):
+    out, skip = [], 0
+    for part in re.split(r"(<[^>]+>)", h):
+        if part.startswith("<"):
+            m = re.match(r"</?(pre|code|script|style|textarea)\b", part, re.I)
+            if m:
+                skip += -1 if part.startswith("</") else 1
+            out.append(part)
+        elif skip or not part:
+            out.append(part)
+        else:
+            raw = part.replace("&quot;", '"').replace("&#x27;", "'").replace("&#39;", "'")
+            out.append(smart_text(raw))
+    return "".join(out)
+
+def cite_html(title):
+    """Source titles use *asterisks* for italic case names."""
+    return re.sub(r"\*(.+?)\*", r"<em>\1</em>", esc(title))
+
+def footnote_refs(h):
+    return re.sub(r"\[\[(\d+)\]\]", lambda m: f'<sup class="ref"><a href="#src-{m.group(1)}" aria-label="Source {m.group(1)}">{m.group(1)}</a></sup>', h)
 
 # ---------------------------------------------------------------- page template
 ICONS = {
@@ -225,6 +260,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
     attrs = " ".join(f'data-{k}="{esc(v)}"' for k, v in (data or {}).items())
     main = (f'{hero or ""}<main id="main" class="wrap{"" if wide else " narrow"} page">{crumb_html}{head_html}{body}</main>')
     canonical = SITE_URL + rel
+    main = smart_html(main)
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -260,7 +296,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
   <div class="wrap footer-inner">
     <div>
       <a class="logo" href="{root}">AI for <span>Legal Work</span></a>
-      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Your progress is saved only in this browser.</p>
+      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Content last reviewed {REVIEWED}. Your progress is saved only in this browser.</p>
       <div class="reset">
         <button class="link-btn" type="button" data-reset>Start over</button>
         <div class="reset-confirm" id="reset-confirm" hidden>
@@ -321,7 +357,7 @@ def lesson_page(course, l, flat, manifest):
     prev_l, next_l = (flat[k - 1] if k else None), (flat[k + 1] if k + 1 < len(flat) else None)
     rel = f"lessons/{l['slug']}/"
     root = "../../"
-    body, texts = add_read_ids(resolve_links(l["body"], root, course), 2)
+    body, texts = add_read_ids(footnote_refs(resolve_links(l["body"], root, course)), 2)
     blocks = [{"t": sentence(l["title"])}, {"t": sentence(l["intro"])}] + [{"t": t} for t in texts]
     tech_html = try_html = quiz_html = ""
     if l.get("tech"):
@@ -348,9 +384,9 @@ def lesson_page(course, l, flat, manifest):
                      + f'</div><p class="quiz-feedback" role="status" aria-live="polite" data-feedback="{esc(q["feedback"])}"></p></section>')
     sources_html = ""
     if l.get("sources"):
-        sources_html = ('<section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>'
-                        + "".join(f'<li><a href="{esc(x["url"])}" target="_blank" rel="noopener">{esc(x["title"])}<span class="sr-only"> (opens in a new tab)</span></a></li>' for x in l["sources"])
-                        + '</ul><p class="muted">Links go to other websites. Some may need a subscription. Check the original documents before relying on them.</p></section>')
+        sources_html = ('<section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ol>'
+                        + "".join(f'<li id="src-{i}">{cite_html(x["title"])}. <a href="{esc(x["url"])}" target="_blank" rel="noopener">Open source<span class="sr-only"> {i} (opens in a new tab)</span></a></li>' for i, x in enumerate(l["sources"], 1))
+                        + '</ol><p class="muted">Links go to other websites. Some may need a subscription. Check the original documents before relying on them.</p></section>')
     # Link recordings whose text still matches what the page says.
     have = manifest.get("files", {})
     for i, b in enumerate(blocks):
@@ -360,17 +396,16 @@ def lesson_page(course, l, flat, manifest):
     read_json = json.dumps({"blocks": blocks, "voiceName": VOICE_NAME}, ensure_ascii=False).replace("</", "<\\/")
     nxt = next_l
     after = f"{root}lessons/{nxt['slug']}/" if nxt and nxt["module"] is m else f"{root}modules/{m['slug']}/review/"
-    after_label = f"Mark as done and go to the next lesson" if nxt and nxt["module"] is m else "Mark as done and review this module"
+    after_label = "Done, next lesson" if nxt and nxt["module"] is m else "Done, review this module"
     pager = ""
     if prev_l:
         pager += f'<a class="prev" href="{root}lessons/{prev_l["slug"]}/" data-pager="prev"><span class="pager-dir">← Previous lesson</span><strong>{esc(prev_l["title"])}</strong></a>'
     if next_l:
         pager += f'<a class="next" href="{root}lessons/{next_l["slug"]}/" data-pager="next"><span class="pager-dir">Next lesson →</span><strong>{esc(next_l["title"])}</strong></a>'
     content = f'''
-<div class="lesson-meta c-{m["color"]}"><span class="lesson-pill">Lesson {l["index"] + 1} of {len(m["lessons"])}</span><span>{icon("clock", "ico-sm")} {mins(l["read"])} to read, {mins(l["practice"])} to practice</span></div>
-<div class="path-strip" id="path-strip"></div>
-<header class="page-head lesson-head"><h1 id="page-title" tabindex="-1" data-r="0">{esc(l["title"])}</h1><p class="page-intro" data-r="1">{esc(l["intro"])}</p></header>
-<div class="listen" id="listen" hidden></div>
+<header class="page-head lesson-head"><p class="eyebrow">Module {m["id"]} · Lesson {l["index"] + 1} of {len(m["lessons"])}</p><h1 id="page-title" tabindex="-1" data-r="0">{esc(l["title"])}</h1><p class="page-intro" data-r="1">{esc(l["intro"])}</p></header>
+<div class="lesson-bar"><div class="listen" id="listen" hidden></div><span class="lesson-time-note">{icon("clock", "ico-sm")} {l["read"]} min read · {l["practice"]} min practice</span></div>
+<p class="path-strip" id="path-strip"></p>
 <script type="application/json" id="read-data">{read_json}</script>
 <article class="lesson-body">{body}</article>
 {tech_html}
@@ -398,7 +433,7 @@ def lesson_list(m, root, compact=False):
 def module_card(m, root, heading="h2"):
     total = sum(l["time"] for l in m["lessons"])
     return (f'<article class="card module-card c-{m["color"]}" data-module="{m["id"]}">'
-            f'<div class="module-top"><div class="module-icon">{icon(m["icon"])}</div><span class="module-num">Module {m["id"]}<span class="level">{esc(m["level"])}</span></span>'
+            f'<div class="module-top"><span class="module-numeral" aria-hidden="true">{m["id"]}</span><span class="module-num"><span class="sr-only">Module {m["id"]}, </span><span class="level">{esc(m["level"])}</span></span>'
             f'<span class="done-pill" hidden>{icon("check", "ico-sm")} Done</span></div>'
             f'<{heading}><a href="{root}modules/{m["slug"]}/">{esc(m["title"])}</a></{heading}><p>{esc(m["desc"])}</p>'
             f'<div class="bar" aria-hidden="true"><span></span></div>'
@@ -428,7 +463,19 @@ def build_pages(course):
 <li><strong>Read or listen to each lesson</strong>Each one takes about {avg} minutes.</li>
 <li><strong>Try it, then check yourself</strong>Try the idea in a real AI tool, then answer one question.</li>
 </ol></section>
-</div>'''
+</div>
+<section class="section" aria-labelledby="learn-h"><h2 id="learn-h">What you'll learn</h2>
+<ol class="module-toc">{"".join(f'<li><a href="modules/{m["slug"]}/"><span class="toc-num">{m["id"]}</span><span class="toc-text"><strong>{esc(m["title"])}</strong><span>{esc(m["desc"])}</span></span></a></li>' for m in course["modules"])}</ol></section>
+<section class="section sources-strip" aria-labelledby="src-h"><h2 id="src-h">Built on primary sources</h2>
+<p class="section-intro">Lessons cite the documents lawyers rely on, and each lesson lists its sources. Examples include:</p>
+<ul class="cite-list">
+<li>ABA Comm. on Ethics &amp; Pro. Resp., Formal Op. 512, <em>Generative Artificial Intelligence Tools</em> (2024)</li>
+<li><em>Mata v. Avianca, Inc.</em>, 678 F. Supp. 3d 443 (S.D.N.Y. 2023)</li>
+<li><em>United States v. Heppner</em>, No. 25-cr-503 (S.D.N.Y. Feb. 17, 2026)</li>
+<li>N.D. Tex. Local Civil Rule 7.2(f), disclosure of generative AI use</li>
+<li>Regulation (EU) 2024/1689, the Artificial Intelligence Act</li>
+</ul>
+<p class="muted">Content last reviewed {REVIEWED}. General education, not legal advice.</p></section>'''
     out[""] = page("", key="home", title=SITE_NAME, hero=hero, body=body,
                    desc=f"{TAGLINE}. {total_lessons} short lessons with real legal examples, covering ethics duties, confidentiality, fake citations and legal AI tools. Free, with no account.")
 
@@ -548,6 +595,12 @@ def build_pages(course):
     out["404"] = page("404", key="none", title="Page not found", body=body, root=BASE_PATH, desc="This page could not be found.")
     return out
 
+def _smart_data(x):
+    if isinstance(x, str): return smart_text(x)
+    if isinstance(x, list): return [_smart_data(v) for v in x]
+    if isinstance(x, dict): return {k: (v if k in ("slug", "id", "color", "steps", "correct", "minutes") else _smart_data(v)) for k, v in x.items()}
+    return x
+
 def course_js(course):
     data = {
         "modules": [{"id": m["id"], "slug": m["slug"], "title": m["title"], "color": m["color"], "level": m["level"],
@@ -555,6 +608,7 @@ def course_js(course):
                     for m in course["modules"]],
         "paths": course["paths"], "questions": course["questions"],
     }
+    data = _smart_data(data)
     return "window.COURSE = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
 
 def asset_version():

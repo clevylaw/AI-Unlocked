@@ -377,9 +377,7 @@
     let target = doneBtn.getAttribute("href");
     if (inPath) {
       const p = PATHS[myPath.id], k = p.steps.indexOf(r), d = p.steps.filter(isDone).length;
-      strip.innerHTML = `<span>Your path: <strong>${esc(p.name)}</strong>, step ${k + 1} of ${p.steps.length}</span>
-        <span class="bar" role="progressbar" aria-label="Lessons done in your path" aria-valuemin="0" aria-valuemax="${p.steps.length}" aria-valuenow="${d}"><span style="width:${(d / p.steps.length) * 100}%"></span></span>
-        <a href="${ROOT}path/">Back to your path</a>`;
+      strip.innerHTML = `Your path: <strong>${esc(p.name)}</strong>, step ${k + 1} of ${p.steps.length} (${d} done) · <a href="${ROOT}path/">Back to your path</a>`;
       const prev = $('[data-pager="prev"]'), next = $('[data-pager="next"]'), pager = $(".pager");
       const setLink = (a, cls, dir, rr) => {
         if (!rr) { if (a) a.remove(); return; }
@@ -390,13 +388,13 @@
       setLink(next, "next", "Next in your path →", p.steps[k + 1]);
       const last = k === p.steps.length - 1;
       target = last ? `${ROOT}path/` : lessonUrl(p.steps[k + 1]);
-      doneBtn.textContent = last ? "Mark as done and finish your path →" : "Mark as done and go to the next lesson →";
+      doneBtn.textContent = last ? "Done, finish your path →" : "Done, next lesson →";
     } else if (myPath) {
-      strip.innerHTML = `<span>This lesson is not in your path (${esc(PATHS[myPath.id].name)}).</span><a href="${ROOT}path/">Back to your path</a>`;
+      strip.innerHTML = `This lesson is not in your path (${esc(PATHS[myPath.id].name)}). <a href="${ROOT}path/">Back to your path</a>`;
     }
     if (isDone(r)) {
       $("#done-note").hidden = false;
-      doneBtn.textContent = doneBtn.textContent.replace("Mark as done and go", "Go").replace("Mark as done and review", "Review").replace("Mark as done and finish", "Finish");
+      doneBtn.textContent = doneBtn.textContent.replace("Done, next lesson", "Next lesson").replace("Done, review", "Review").replace("Done, finish", "Finish");
     }
     doneBtn.href = target;
     doneBtn.addEventListener("click", () => { if (progress[key(m.id, i)] !== true) { progress[key(m.id, i)] = true; save(); } });
