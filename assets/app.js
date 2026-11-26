@@ -114,6 +114,11 @@
     }
   });
 
+  // ---------- Print ----------
+  document.addEventListener("click", e => { if (e.target.closest("[data-print]")) window.print(); });
+  addEventListener("beforeprint", () => { $$("details").forEach(d => { if (!d.open) { d.dataset.printOpened = "1"; d.open = true; } }); });
+  addEventListener("afterprint", () => { $$("details[data-print-opened]").forEach(d => { d.open = false; d.removeAttribute("data-print-opened"); }); });
+
   // ---------- Copy buttons ----------
   document.addEventListener("click", async e => {
     const b = e.target.closest("[data-copy]"); if (!b) return;
@@ -597,23 +602,34 @@
   const hue = s => ["violet", "magenta", "berry", "coral", "crimson", "plum"][[...s].reduce((a, c) => a + c.charCodeAt(0), 0) % 6];
   const safeUrl = u => (typeof u === "string" && u.startsWith("https://")) ? u : null;
   function renderTools(tools) {
+    // Two groups (legal and general) plus a menu for the kind of tool. Shown as a list of rows, not cards.
     const CATS = { legal: "Legal work", chat: "Chatbots", search: "Search", learning: "Learning", writing: "Writing and notes", image: "Pictures and design", video: "Video", audio: "Voices and music", code: "Coding" };
     const isNew = x => { const t = Date.parse(x); return !isNaN(t) && (Date.now() - t) / 864e5 <= 60; };
-    let filter = "all";
+    const curly = v => typeof v === "string" ? v.replace(/(\w)'(\w)/g, "$1\u2019$2").replace(/(^|[\s(])"/g, "$1\u201c").replace(/"/g, "\u201d").replace(/'/g, "\u2019") : v;
+    const live = tools.filter(t => t.name).map(t => ({ ...t, desc: curly(t.desc), bestFor: curly(t.bestFor), start: curly(t.start) }));
+    const legal = live.filter(t => t.cat === "legal"), general = live.filter(t => t.cat !== "legal");
+    let group = "legal", kind = "all";
     const filters = $("#tools-filter");
+    const row = t => { const url = safeUrl(t.url); return `<article class="tool-row tool-card">
+        <div class="tool-id"><h3>${esc(t.name)}</h3><p class="tool-maker">${esc(t.maker)}${isNew(t.addedAt) ? ' <span class="new-pill">New</span>' : ""}</p>
+          <p class="tool-tags"><span>${esc(CATS[t.cat] || t.cat)}</span><span>${esc(t.price || "")}</span></p></div>
+        <div class="tool-body"><p class="tool-desc">${esc(t.desc)}</p>
+          <dl class="tool-facts">${t.bestFor ? `<div><dt>Good for</dt><dd>${esc(t.bestFor)}</dd></div>` : ""}${t.start ? `<div><dt>Try first</dt><dd>${esc(t.start)}</dd></div>` : ""}</dl>
+          ${url ? `<a class="tool-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Visit ${esc(t.name)}<span class="sr-only"> (opens in a new tab)</span> ${icon("ext")}</a>` : ""}</div>
+      </article>`; };
+    const sorted = arr => [...arr].sort((a, b) => (isNew(b.addedAt) - isNew(a.addedAt)) || a.name.localeCompare(b.name));
+    const section = (id, title, arr) => arr.length ? `<section class="tool-group" aria-labelledby="tg-${id}"><h2 id="tg-${id}">${title} <span class="count">(${arr.length})</span></h2>${sorted(arr).map(row).join("")}</section>` : "";
     const draw = () => {
-      const present = Object.keys(CATS).filter(c => tools.some(t => t.cat === c));
-      filters.innerHTML = [["all", "All tools"], ...present.map(c => [c, CATS[c]])].map(([c, l]) => `<button class="filter-btn" type="button" data-filter="${c}" aria-pressed="${filter === c}">${l}</button>`).join("");
-      const list = tools.filter(t => t.name && (filter === "all" || t.cat === filter)).sort((a, b) => ((b.cat === "legal") - (a.cat === "legal")) || (isNew(b.addedAt) - isNew(a.addedAt)) || a.name.localeCompare(b.name));
-      toolsGrid.innerHTML = list.map(t => { const url = safeUrl(t.url); return `<article class="card tool-card">
-        <div class="tool-head"><div class="tool-mono c-${hue(t.name)}" aria-hidden="true">${esc(t.name.charAt(0))}</div>
-        <div class="tool-title"><h2>${esc(t.name)}${isNew(t.addedAt) ? ' <span class="new-pill">New</span>' : ""}</h2><span class="tool-maker">${esc(t.maker)}</span></div></div>
-        <p class="tool-desc">${esc(t.desc)}</p>
-        <dl class="tool-facts">${t.bestFor ? `<div><dt>Good for</dt><dd>${esc(t.bestFor)}</dd></div>` : ""}${t.price ? `<div><dt>Cost</dt><dd>${esc(t.price)}</dd></div>` : ""}${t.start ? `<div><dt>Try first</dt><dd>${esc(t.start)}</dd></div>` : ""}</dl>
-        ${url ? `<a class="tool-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Open ${esc(t.name)}<span class="sr-only"> (opens in a new tab)</span> ${icon("ext")}</a>` : ""}
-      </article>`; }).join("") || '<p class="empty">No tools of this kind yet.</p>';
+      const kinds = [...new Set(general.map(t => t.cat))].filter(c => CATS[c]);
+      filters.innerHTML = `<div class="seg" role="group" aria-label="Which tools to show">${[["legal", `Legal AI tools (${legal.length})`], ["general", `General AI tools (${general.length})`], ["all", "All"]].map(([g, l]) => `<button class="seg-btn filter-btn" type="button" data-group="${g}" aria-pressed="${group === g}">${l}</button>`).join("")}</div>
+        ${group !== "legal" ? `<label class="kind-pick">Kind of tool <select id="tools-kind"><option value="all">All kinds</option>${kinds.map(c => `<option value="${c}"${kind === c ? " selected" : ""}>${CATS[c]}</option>`).join("")}</select></label>` : ""}`;
+      const g2 = general.filter(t => kind === "all" || t.cat === kind);
+      toolsGrid.innerHTML = (group === "legal" ? section("legal", "Legal AI tools", legal)
+        : group === "general" ? section("general", "General AI tools", g2)
+        : section("legal", "Legal AI tools", legal) + section("general", "General AI tools", g2)) || '<p class="empty">No tools of this kind yet.</p>';
     };
-    filters.addEventListener("click", e => { const b = e.target.closest("[data-filter]"); if (!b) return; filter = b.dataset.filter; draw(); $(`[data-filter="${filter}"]`, filters)?.focus(); });
+    filters.addEventListener("click", e => { const b = e.target.closest("[data-group]"); if (!b) return; group = b.dataset.group; kind = "all"; draw(); $(`[data-group="${group}"]`, filters)?.focus(); });
+    filters.addEventListener("change", e => { if (e.target.id !== "tools-kind") return; kind = e.target.value; draw(); $("#tools-kind")?.focus(); });
     draw();
   }
   function renderModels(models) {

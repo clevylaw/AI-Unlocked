@@ -553,3 +553,60 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
 /* Dark mode: a softer lilac main button instead of bright pink */
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-main { background: var(--plum); color: #22091f; } }
 :root[data-theme="dark"] .btn-main { background: var(--plum); color: #22091f; }
+
+/* Tools page: a list of rows grouped into legal and general tools */
+.filters { align-items: center; gap: 12px 20px; }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1.5px solid var(--border2); border-radius: 10px; overflow: hidden; }
+.seg-btn { border: 0 !important; border-radius: 0 !important; border-right: 1.5px solid var(--border2) !important; padding: 9px 16px; min-height: 44px; background: transparent; }
+.seg-btn:last-child { border-right: 0 !important; }
+.kind-pick { display: inline-flex; align-items: center; gap: 8px; font-size: .95rem; color: var(--ink2); }
+.kind-pick select { padding: 8px 10px; border-radius: 8px; border: 1.5px solid var(--border2); background: var(--surface); color: var(--ink); min-height: 42px; }
+.tool-group { margin-top: 8px; }
+.tool-group + .tool-group { margin-top: 40px; }
+.tool-group h2 { font-size: 1.5rem; padding-bottom: 10px; border-bottom: 1px solid var(--ink); }
+.tool-group h2 .count { font-family: var(--font-body); font-size: .95rem; font-weight: 400; color: var(--ink3); }
+.tool-row { display: grid; gap: 8px 32px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+@media (min-width: 760px) { .tool-row { grid-template-columns: minmax(180px, 1fr) 2.6fr; } }
+.tool-id h3 { font-size: 1.35rem; }
+.tool-id .tool-maker { margin-top: 2px; }
+.tool-tags { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: .88rem; color: var(--ink3); }
+.tool-tags span + span::before { content: "· "; }
+.tool-body .tool-facts { border: 0; padding: 0; margin: 10px 0; }
+.tool-body .tool-desc { color: var(--ink); }
+
+
+/* Logo mark: the same seal as the tab icon and the certificate */
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { width: 30px; height: 30px; flex: none; }
+.site-footer .logo-mark { width: 26px; height: 26px; }
+
+/* Lesson tools: print and corrections */
+.lesson-tools { margin-top: 22px; font-size: .95rem; color: var(--ink3); }
+.lesson-tools .link-btn { font-size: inherit; }
+.print-only { display: none; }
+
+@media print {
+  @page { margin: 18mm 16mm; }
+  :root, :root:not([data-theme="light"]), :root[data-theme="light"], :root[data-theme="dark"] { color-scheme: light; --bg: #fff; --bg2: #f4f4f4; --surface: #fff; --ink: #000; --ink2: #1a1a1a; --ink3: #444; --border: #bbb; --border2: #888; --accent: #000; --plum: #000; }
+  html, body { background: #fff !important; color: #000 !important; font-size: 11pt; }
+  .site-header, .site-footer, .skip, .crumbs, .lesson-bar, .listen, .path-strip, .lesson-end, .lesson-tools, .copy-btn, .try-note, .nw, [data-demo], .review-score { display: none !important; }
+  .print-only { display: block !important; }
+  .print-head { font-size: 9pt; color: #444; border-bottom: 1px solid #888; padding-bottom: 6px; margin-bottom: 14px; }
+  .wrap, .wrap.narrow { max-width: none; padding: 0; }
+  .page { padding: 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; }
+  a { color: #000; }
+  .callout, .example, .try-it, .quiz-block, .tech-note, .sources li, .kinds div, figure { break-inside: avoid; }
+  .quiz-opt { border: 1px solid #888 !important; background: #fff !important; }
+  .quiz-feedback { display: none !important; }
+  .quiz-answer { margin-top: 8px; font-style: italic; }
+  .sources a::after { content: " " attr(href); font-size: 9pt; }
+  .sources li { overflow-wrap: anywhere; }
+  .try-it, .quiz-block, .callout { background: #fff !important; }
+  .sources .sr-only { display: none; }
+  sup.ref a { color: #000; }
+  details.tech-note > summary { list-style: none; }
+}
+
+.logo .logo-text { color: var(--ink); }
+.logo .logo-text span { color: var(--accent); }

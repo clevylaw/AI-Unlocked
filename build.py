@@ -218,6 +218,16 @@ def cite_html(title):
 def footnote_refs(h):
     return re.sub(r"\[\[(\d+)\]\]", lambda m: f'<sup class="ref"><a href="#src-{m.group(1)}" aria-label="Source {m.group(1)}">{m.group(1)}</a></sup>', h)
 
+LOGO_MARK = ('<svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="31" fill="#2a1030"/>'
+             '<circle cx="32" cy="32" r="26" fill="none" stroke="#ffb3cd" stroke-width="2"/>'
+             '<text x="32" y="41.5" text-anchor="middle" font-family="EB Garamond, Georgia, serif" font-size="25" font-weight="600" fill="#ffb3cd">AI</text></svg>')
+REPO_ISSUES = "https://github.com/clevylaw/AI-Unlocked/issues/new"
+
+def correction_url(title, url):
+    import urllib.parse
+    body = f"Page: {url}\n\nWhat needs correcting:\n\n\nSource for the correction, if you have one:\n"
+    return REPO_ISSUES + "?" + urllib.parse.urlencode({"title": f"Correction: {title}", "body": body})
+
 # ---------------------------------------------------------------- page template
 ICONS = {
     "bulb": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
@@ -274,7 +284,12 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
 <meta property="og:title" content="{esc(full_title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canonical}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{SITE_URL}assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI for Legal Work: a free course on AI for legal work, in plain English">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
 <meta name="theme-color" content="#2a1030">
 <link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,7 +301,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="logo" href="{root}"{logo_cur}>AI for <span>Legal Work</span></a>
+    <a class="logo" href="{root}"{logo_cur}>{LOGO_MARK}<span class="logo-text">AI for <span>Legal Work</span></span></a>
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main"><ul>{nav}</ul></nav>
   </div>
@@ -295,7 +310,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div>
-      <a class="logo" href="{root}">AI for <span>Legal Work</span></a>
+      <a class="logo" href="{root}">{LOGO_MARK}<span class="logo-text">AI for <span>Legal Work</span></span></a>
       <p>A free course on AI for legal work, in plain English. General education, not legal advice. Content last reviewed {REVIEWED}. Your progress is saved only in this browser.</p>
       <div class="reset">
         <button class="link-btn" type="button" data-reset>Start over</button>
@@ -308,7 +323,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
       </div>
     </div>
     <ul class="footer-links" aria-label="More pages">
-      <li><a href="{root}lessons/">All lessons</a></li><li><a href="{root}glossary/">Glossary</a></li><li><a href="{root}about/">About this site</a></li>
+      <li><a href="{root}lessons/">All lessons</a></li><li><a href="{root}glossary/">Glossary</a></li><li><a href="{root}about/">About this site</a></li><li><a href="{esc(correction_url(title, canonical))}" target="_blank" rel="noopener">Report a correction<span class="sr-only"> (opens GitHub in a new tab)</span></a></li>
     </ul>
   </div>
 </footer>
@@ -381,7 +396,8 @@ def lesson_page(course, l, flat, manifest):
         quiz_html = (f'<section class="quiz-block" data-r="{n}" data-correct="{q["correct"]}" aria-labelledby="quiz-h">'
                      f'<p class="label">Check what you learned</p><h2 id="quiz-h">{esc(q["q"])}</h2><div class="quiz-options">'
                      + "".join(f'<button class="quiz-opt" type="button" data-opt="{i}"><span class="opt-letter" aria-hidden="true">{chr(65 + i)}</span><span>{esc(o)}</span></button>' for i, o in enumerate(opts))
-                     + f'</div><p class="quiz-feedback" role="status" aria-live="polite" data-feedback="{esc(q["feedback"])}"></p></section>')
+                     + f'</div><p class="quiz-feedback" role="status" aria-live="polite" data-feedback="{esc(q["feedback"])}"></p>'
+                     + f'<p class="print-only quiz-answer">Answer: {chr(65 + q["correct"])}. {esc(q["feedback"])}</p></section>')
     sources_html = ""
     if l.get("sources"):
         sources_html = ('<section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ol>'
@@ -403,6 +419,7 @@ def lesson_page(course, l, flat, manifest):
     if next_l:
         pager += f'<a class="next" href="{root}lessons/{next_l["slug"]}/" data-pager="next"><span class="pager-dir">Next lesson →</span><strong>{esc(next_l["title"])}</strong></a>'
     content = f'''
+<p class="print-only print-head">{SITE_NAME} · {SITE_URL}{rel} · Content last reviewed {REVIEWED}</p>
 <header class="page-head lesson-head"><p class="eyebrow">Module {m["id"]} · Lesson {l["index"] + 1} of {len(m["lessons"])}</p><h1 id="page-title" tabindex="-1" data-r="0">{esc(l["title"])}</h1><p class="page-intro" data-r="1">{esc(l["intro"])}</p></header>
 <div class="lesson-bar"><div class="listen" id="listen" hidden></div><span class="lesson-time-note">{icon("clock", "ico-sm")} {l["read"]} min read · {l["practice"]} min practice</span></div>
 <p class="path-strip" id="path-strip"></p>
@@ -412,6 +429,7 @@ def lesson_page(course, l, flat, manifest):
 {try_html}
 {quiz_html}
 {sources_html}
+<p class="lesson-tools"><button class="link-btn" type="button" data-print>Print this lesson or save it as a PDF</button> · <a href="{esc(correction_url(l["title"], SITE_URL + rel))}" target="_blank" rel="noopener">Report a correction<span class="sr-only"> (opens GitHub in a new tab)</span></a></p>
 <div class="lesson-end">
   <p class="done-note" id="done-note" hidden>{icon("check", "ico-sm")} You finished this lesson.</p>
   <a class="btn-main" id="done-btn" href="{after}">{after_label} →</a>
@@ -546,7 +564,7 @@ def build_pages(course):
 
     # Tools
     body = '''<div class="filters" id="tools-filter" role="group" aria-label="Show tools of one kind"></div>
-<div class="tools-grid" id="tools-grid"><p class="empty">Loading the list of tools…</p></div>'''
+<div class="tools-list" id="tools-grid"><p class="empty">Loading the list of tools…</p></div>'''
     out["tools/"] = page("tools/", key="tools", title="AI tools", body=body,
                          intro='AI tools built for legal work, plus popular general tools. Each one shows what it is good for, what it costs and something to try first. A listing is not a recommendation. Use only tools your employer or school has approved for client or graded work. <span class="status-pill catalog-status"></span>',
                          desc="A plain-English guide to legal AI tools and popular general AI tools: what each is good for, what it costs and a first thing to try. Checked every week.")
@@ -583,6 +601,8 @@ def build_pages(course):
 <h2>Not legal advice</h2>
 <p>The lessons are general education. They are not legal advice, and they do not create a lawyer-client relationship. Most examples come from the United States. Ethics rules, court rules and AI laws differ by country, state and court, and they change often. Check the current rules that apply to you.</p>
 <p>Completing the course does not earn continuing legal education (CLE) credit.</p>
+<h2>Corrections</h2>
+<p>If you spot a mistake or an out-of-date rule, use <strong>Report a correction</strong> at the end of any lesson or at the bottom of any page. It opens a short form on GitHub, which needs a free GitHub account. Please include a source if you have one.</p>
 <h2>Sources</h2>
 <p>Lessons that describe court cases, ethics opinions, laws or studies end with a list of sources. Some sources need a subscription. Check the original documents before relying on them.</p>
 </div>'''
