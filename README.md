@@ -13,7 +13,7 @@ Every page is generated. Edit the files in `src/`, then run the build.
 | Page template and all page text outside lessons | `build.py` |
 | Look and layout | `assets/site.css` |
 | Progress, paths, quizzes, read-aloud, certificates | `assets/app.js` |
-| AI tools and AI models lists | `catalog.json` (updated every Monday by a scheduled task) |
+| AI tools and AI models lists | `catalog.json`, updated every Monday by a cloud routine that follows `docs/weekly-update.md` and checks its work with `scripts/check_catalog.py` |
 | Recorded read-aloud audio | `audio/` (made by `make_audio.py`) |
 
 ```bash
