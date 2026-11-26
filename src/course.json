@@ -183,7 +183,7 @@
       "color": "berry",
       "level": "For legal professionals",
       "title": "Your professional duties",
-      "desc": "How the ethics rules apply to AI: competence, confidentiality and privilege, courts and candor, and checking AI research.",
+      "desc": "How the ethics rules on competence, confidentiality, privilege and candor to courts apply to AI, and how to check AI research.",
       "recap": [
         "ABA Formal Opinion 512 and state bar guidance apply the existing ethics rules to AI. Check your own state's rules.",
         "Get informed consent when required before putting client information into an AI tool, and read the tool's terms.",
@@ -199,7 +199,7 @@
           "Delete the case from your own copy"
         ],
         "correct": 1,
-        "feedback": "The duty of candor requires correcting false statements made to a court. Courts have been harsher on lawyers who hid mistakes than on those who fixed them."
+        "feedback": "The duty of candor requires correcting false statements made to a court. In Mata v. Avianca, standing by the fake cases after the court questioned them made things worse for the lawyers."
       }
     },
     {

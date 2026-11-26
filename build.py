@@ -124,7 +124,7 @@ def lower_first(s):
     return s[:1].lower() + s[1:]
 
 # Labels that only decorate a box; reading them aloud sounds robotic, so they are skipped.
-QUIET_LABELS = {"key idea", "example", "real examples", "common examples", "good to know", "important"}
+QUIET_LABELS = {"key idea", "example", "real examples", "common examples", "good to know", "important", "definition", "comparison"}
 
 def spoken(n):
     """What the narrator says for one top-level block of a lesson."""
@@ -488,7 +488,7 @@ def build_pages(course):
 </div></section>'''
     body = f'''<div class="home-grid">
 <section class="card" aria-labelledby="who-h"><h2 id="who-h">Who it's for</h2>
-<p>Law students, lawyers, paralegals, legal staff and legal technologists. Maybe you have never used a chatbot. Maybe you use one every day and want to use it safely with client work. The lessons start simple, use real legal examples and build up to your professional duties.</p></section>
+<p>Law students, lawyers, paralegals, legal staff and legal technologists, whether you have never used a chatbot or use one every day. The lessons start simple, use real legal examples and build up to your professional duties and client work.</p></section>
 <section class="card" aria-labelledby="how-h"><h2 id="how-h">How it works</h2><ol class="steps-list">
 <li><strong>Answer 4 short questions</strong>We suggest the lessons that fit you, in order.</li>
 <li><strong>Read or listen to each lesson</strong>Each one takes about {avg} minutes.</li>
@@ -604,7 +604,7 @@ def build_pages(course):
 <div class="glossary-grid" id="glossary-grid">{items}</div>
 <p class="empty" id="glossary-empty" hidden>No terms match. Try a shorter word.</p>'''
     out["glossary/"] = page("glossary/", key="glossary", title="Glossary", body=body,
-                            intro="Every AI word used in this course, explained simply.",
+                            intro="Every AI and legal term used in this course, in plain English.",
                             desc=f"Plain-English meanings of {len(terms)} AI words, from AI agent to token.")
 
     # Resources

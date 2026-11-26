@@ -431,7 +431,7 @@
         ${opts ? `<p class="nw-label" id="nw-h">What the model guesses next. Pick a word to add it.</p>
         <div class="nw-bars" role="group" aria-labelledby="nw-h">${opts.map(([w, p]) => `<button class="nw-bar" type="button" data-w="${esc(w)}" aria-label="${w === "." ? "full stop" : esc(w)}, ${p} percent"><span class="nw-word">${w === "." ? "(full stop)" : esc(w)}</span><span class="nw-track" aria-hidden="true"><span style="width:${p * 2}%"></span></span><span class="nw-pct" aria-hidden="true">${p}%</span></button>`).join("")}</div>
         <p class="nw-note">A chatbot usually picks a likely word, with a little chance mixed in. That is why answers don't always come out the same.</p>`
-        : `<p class="nw-note">That is the whole trick, repeated for every word of every answer. A real model weighs tens of thousands of possible next words each time.</p>
+        : `<p class="nw-note">The model repeats this step for every word of every answer. A real model weighs tens of thousands of possible next words each time.</p>
         <button class="btn-secondary nw-reset" type="button">Start again</button>`}
       </div>`;
       if (focus) $(opts ? ".nw-bar" : ".nw-reset", host)?.focus();
