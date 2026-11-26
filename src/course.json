@@ -613,5 +613,143 @@
       "term": "Bias audit",
       "def": "A test that compares an AI tool's results across groups of people, such as by sex and race, to find unfair differences."
     }
-  ]
+  ],
+  "author": {
+    "name": "Colin S. Levy",
+    "bio": "an author, educator and general counsel focused on legal technology, AI and the future of legal practice",
+    "url": "https://www.colinslevy.com/guides"
+  },
+  "guides": {
+    "ai-agents-for-lawyers": {
+      "title": "AI Agents for Lawyers",
+      "url": "https://www.colinslevy.com/post/ai-agents-for-lawyers",
+      "desc": "How AI agents run multi-step legal work, and why the lawyer designs the workflow."
+    },
+    "ai-client-value": {
+      "title": "AI & Client Value",
+      "url": "https://www.colinslevy.com/post/ai-client-value",
+      "desc": "How firms can talk about the value of AI beyond cost cutting and the billable hour."
+    },
+    "ai-governance-guide": {
+      "title": "AI Governance Guide",
+      "url": "https://www.colinslevy.com/post/ai-governance-guide",
+      "desc": "Closing the gap between a written AI policy and how AI is used, with ABA Opinion 512, NIST, the EU AI Act and Colorado."
+    },
+    "ai-in-litigation-practice": {
+      "title": "AI in Litigation Practice",
+      "url": "https://www.colinslevy.com/post/ai-in-litigation-practice",
+      "desc": "AI across the life of a case, from the preservation letter to post-trial motions."
+    },
+    "guide-to-ai-adoption-by-law-firms": {
+      "title": "Guide to AI Adoption by Law Firms",
+      "url": "https://www.colinslevy.com/post/guide-to-ai-adoption-by-law-firms",
+      "desc": "A plain-English start on what AI can and cannot do in a firm, and how to begin."
+    },
+    "addressing-ai-concerns": {
+      "title": "Addressing AI Concerns",
+      "url": "https://www.colinslevy.com/post/addressing-ai-concerns",
+      "desc": "Answers to lawyers' common objections to AI, grounded in professional duties."
+    },
+    "ai-and-human-judgement": {
+      "title": "AI and Human Judgement",
+      "url": "https://www.colinslevy.com/post/ai-and-human-judgement",
+      "desc": "Why AI changes how information is processed but not the core of legal judgment."
+    },
+    "a-guide-to-ai-implementation": {
+      "title": "A Guide to AI Implementation",
+      "url": "https://www.colinslevy.com/post/a-guide-to-ai-implementation",
+      "desc": "A roadmap from needs assessment to governed AI use in specific workflows."
+    },
+    "ai-in-the-courtroom": {
+      "title": "AI in the Courtroom",
+      "url": "https://www.colinslevy.com/post/ai-in-the-courtroom",
+      "desc": "AI failures in court, judicial AI errors, and the standing orders and disclosure rules that followed."
+    },
+    "a-guide-to-legal-tech-resources": {
+      "title": "A Guide to Legal Tech Resources",
+      "url": "https://www.colinslevy.com/post/a-guide-to-legal-tech-resources",
+      "desc": "A map of people, publications, events and tools in legal technology."
+    },
+    "ai-agents-and-data-handling": {
+      "title": "AI Agents and Data Handling",
+      "url": "https://www.colinslevy.com/post/ai-agents-and-data-handling",
+      "desc": "Why AI agents create data-access and contract risks that standard software terms do not cover."
+    },
+    "contracting-with-ai-vendors": {
+      "title": "Contracting with AI Vendors",
+      "url": "https://www.colinslevy.com/post/contracting-with-ai-vendors",
+      "desc": "A negotiation framework for AI vendor agreements, with sample clauses and checklists."
+    },
+    "ai-for-lawyers": {
+      "title": "AI For Lawyers",
+      "url": "https://www.colinslevy.com/post/ai-for-lawyers",
+      "desc": "A practical roadmap for using AI in drafting, research, review and knowledge management."
+    },
+    "managing-ai-hallucinations": {
+      "title": "Managing AI Hallucinations",
+      "url": "https://www.colinslevy.com/post/managing-ai-hallucinations",
+      "desc": "Why AI makes up citations and holdings, and how to manage that risk."
+    }
+  },
+  "further_reading": {
+    "1-1": [
+      "guide-to-ai-adoption-by-law-firms",
+      "ai-for-lawyers"
+    ],
+    "3-3": [
+      "managing-ai-hallucinations"
+    ],
+    "4-1": [
+      "ai-for-lawyers"
+    ],
+    "4-3": [
+      "ai-client-value",
+      "guide-to-ai-adoption-by-law-firms"
+    ],
+    "5-3": [
+      "ai-and-human-judgement"
+    ],
+    "6-1": [
+      "ai-agents-for-lawyers",
+      "ai-agents-and-data-handling"
+    ],
+    "6-3": [
+      "a-guide-to-legal-tech-resources"
+    ],
+    "7-4": [
+      "ai-agents-for-lawyers"
+    ],
+    "8-1": [
+      "ai-governance-guide",
+      "addressing-ai-concerns"
+    ],
+    "8-2": [
+      "contracting-with-ai-vendors"
+    ],
+    "8-3": [
+      "ai-in-the-courtroom"
+    ],
+    "8-4": [
+      "managing-ai-hallucinations"
+    ],
+    "9-1": [
+      "a-guide-to-legal-tech-resources",
+      "ai-for-lawyers"
+    ],
+    "9-2": [
+      "contracting-with-ai-vendors",
+      "a-guide-to-ai-implementation"
+    ],
+    "9-3": [
+      "ai-governance-guide"
+    ],
+    "10-1": [
+      "ai-in-litigation-practice",
+      "ai-in-the-courtroom"
+    ],
+    "10-3": [
+      "ai-governance-guide",
+      "contracting-with-ai-vendors"
+    ]
+  }
 }

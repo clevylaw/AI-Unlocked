@@ -406,6 +406,15 @@ def lesson_page(course, l, flat, manifest):
         sources_html = ('<section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ol>'
                         + "".join(f'<li id="src-{i}">{cite_html(x["title"])}. <a href="{esc(x["url"])}" target="_blank" rel="noopener">Open source<span class="sr-only"> {i} (opens in a new tab)</span></a></li>' for i, x in enumerate(l["sources"], 1))
                         + '</ol><p class="muted">Links go to other websites. Some may need a subscription. Check the original documents before relying on them.</p></section>')
+    further_html = ""
+    picks = course.get("further_reading", {}).get(l["ref"], [])
+    if picks:
+        au, gd = course["author"], course["guides"]
+        further_html = ('<section class="further" aria-labelledby="fr-h"><h2 id="fr-h">Further reading</h2>'
+                        f'<p class="further-by">In-depth guides by <a href="{esc(au["url"])}" target="_blank" rel="noopener">{esc(au["name"])}<span class="sr-only"> (opens in a new tab)</span></a>, '
+                        f'the author of this course and {esc(au["bio"])}.</p><ul>'
+                        + "".join(f'<li><a href="{esc(gd[k]["url"])}" target="_blank" rel="noopener">{esc(gd[k]["title"])}<span class="sr-only"> (opens in a new tab)</span></a> <span class="further-desc">{esc(gd[k]["desc"])}</span></li>' for k in picks)
+                        + '</ul></section>')
     # Link recordings whose text still matches what the page says.
     have = manifest.get("files", {})
     for i, b in enumerate(blocks):
@@ -432,6 +441,7 @@ def lesson_page(course, l, flat, manifest):
 {try_html}
 {quiz_html}
 {sources_html}
+{further_html}
 <p class="lesson-tools"><button class="link-btn" type="button" data-print>Print this lesson or save it as a PDF</button> · <a href="{esc(correction_url(l["title"], SITE_URL + rel))}" target="_blank" rel="noopener">Report a correction<span class="sr-only"> (opens GitHub in a new tab)</span></a></p>
 <div class="lesson-end">
   <p class="done-note" id="done-note" hidden>{icon("check", "ico-sm")} You finished this lesson.</p>
