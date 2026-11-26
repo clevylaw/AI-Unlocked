@@ -18,12 +18,24 @@
     "correct": 1,
     "feedback": "The court fined the lawyers and their firm $5,000. They had cited cases that did not exist and then failed to come clean when the court asked about them."
   },
-  "tech": "Hallucinations happen because training rewards text that sounds likely, and sounding likely is different from being true. Legal research tools reduce this by first searching a database of real cases and then asking the model to answer from what it found. This is called retrieval-augmented generation, or RAG. It helps, but it does not solve the problem. The Stanford study found errors in more than 1 in 6 answers from the legal tools it tested, including answers that cited real cases for points those cases do not make.",
+  "tech": "Hallucinations happen because training rewards text that sounds likely, and sounding likely is different from being true. Legal research tools reduce this by first searching a database of real cases and then asking the model to answer from what it found. This is called retrieval-augmented generation, or RAG. It helps, but it does not solve the problem. The Stanford study found that the legal tools it tested gave false or misleading answers between 17 and 33 percent of the time, including answers that cited real cases for points those cases do not make.",
   "sources": [
-    {"title": "Bloomberg Law: Phony ChatGPT brief leads to $5,000 fine for NY lawyers (Mata v. Avianca)", "url": "https://news.bloomberglaw.com/litigation/chatgpt-phony-legal-filing-case-gets-lawyers-a-5-000-fine"},
-    {"title": "The Volokh Conspiracy: Second Circuit refers lawyer for discipline over AI-made case (Park v. Kim, January 30, 2024)", "url": "https://reason.com/volokh/2024/01/30/second-circuit-refers-lawyer-for-disciplinary-proceedings-based-on-ai-hallucinated-case-in-brief/"},
-    {"title": "NPR: Michael Cohen says he unwittingly sent AI-generated fake cases to his attorney (December 2023)", "url": "https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases"},
-    {"title": "Stanford HAI: AI on trial, legal models hallucinate in 1 out of 6 (or more) benchmarking queries", "url": "https://hai.stanford.edu/news/ai-trial-legal-models-hallucinate-1-out-6-or-more-benchmarking-queries"}
+    {
+      "title": "Mata v. Avianca, Inc., No. 22-cv-1461, Opinion and Order on Sanctions (S.D.N.Y. June 22, 2023)",
+      "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54"
+    },
+    {
+      "title": "Report with excerpts: Park v. Kim, No. 22-2057 (2d Cir. Jan. 30, 2024) (The Volokh Conspiracy)",
+      "url": "https://reason.com/volokh/2024/01/30/second-circuit-refers-lawyer-for-disciplinary-proceedings-based-on-ai-hallucinated-case-in-brief/"
+    },
+    {
+      "title": "United States v. Cohen, No. 18-cr-602, letter from Cohen's counsel explaining the Google Bard citations (S.D.N.Y. Dec. 28, 2023, Document 104)",
+      "url": "https://www.courthousenews.com/wp-content/uploads/2023/12/Cohen-declaration.pdf"
+    },
+    {
+      "title": "Magesh et al., Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools (Stanford, 2024)",
+      "url": "https://arxiv.org/abs/2405.20362"
+    }
   ]
 }
 -->
@@ -34,7 +46,7 @@
 <div class="example"><p class="label">Park v. Kim (Second Circuit, 2024)</p><p>A lawyer cited a state court decision that did not exist. She said she had used ChatGPT to find it and did not check it. The federal appeals court referred her for possible discipline. It said lawyers must read the authorities they rely on to confirm they exist and support the point.</p></div>
 <div class="example"><p class="label">Michael Cohen (New York, 2023 to 2024)</p><p>Michael Cohen, a former lawyer, gave his own lawyer case citations he had found with Google's Bard chatbot. He thought it was a kind of search engine. The cases were fake and ended up in a court filing. The judge did not impose sanctions but called the lawyer's conduct negligent.</p></div>
 <h2>Legal research tools make mistakes too</h2>
-<p>Tools built for lawyers search real legal databases before they answer, so they invent less. They still make mistakes. A Stanford study published in 2024 tested leading legal research tools. It found wrong or misleading answers in more than 1 in 6 questions.</p>
+<p>Tools built for lawyers search real legal databases before they answer, so they invent less. They still make mistakes. A Stanford study published in 2024 tested leading legal research tools. It found that they gave false or misleading answers between 17 and 33 percent of the time.</p>
 <h2>How to protect yourself</h2>
 <ul>
 <li><strong>Read every case you cite.</strong> Pull it from a trusted legal database or the court's website, and make sure it says what you claim.</li>
