@@ -12,7 +12,18 @@
         "AI is software that learns patterns from examples. Nobody writes all its rules by hand.",
         "Courts have accepted some AI for years, such as technology-assisted review in e-discovery.",
         "AI has no duties and cannot be disciplined. The lawyer stays responsible for the work."
-      ]
+      ],
+      "scenario": {
+        "q": "Your firm's e-discovery vendor says it \"uses AI\" to rank documents. Which question best tells you whether you can rely on it?",
+        "opts": [
+          "Is it the newest kind of AI?",
+          "How was it trained on this matter, and how was its accuracy checked on a sample of our documents?",
+          "Does it use a chatbot?",
+          "How much does it cost?"
+        ],
+        "correct": 1,
+        "feedback": "What matters is how the tool learned from this matter's documents and how its results were checked. Testing on a sample is how courts and parties judge review tools."
+      }
     },
     {
       "id": 2,
@@ -26,7 +37,18 @@
         "Generative AI makes new text, pictures, sound and video. A fast draft is only useful once someone checks it.",
         "AI can make fake photos, voices and videos that look real. Ask where any file came from before relying on it.",
         "Courts are still deciding who owns AI-made work and what AI may train on. Confirm payment changes by calling a number you already have."
-      ]
+      ],
+      "scenario": {
+        "q": "A client sends you a video that appears to show the other driver admitting fault. What do you do before relying on it?",
+        "opts": [
+          "Use it, because videos cannot be faked",
+          "Ask a chatbot whether it is real",
+          "Ask where it came from, get the original file and its details, and consider an expert if it matters",
+          "Post it online to see what people think"
+        ],
+        "correct": 2,
+        "feedback": "AI can make realistic fake video. Where the file came from, the original file and, when the stakes are high, an expert are what count."
+      }
     },
     {
       "id": 3,
@@ -41,7 +63,18 @@
         "Good prompts give your role, the place, the task and the format, and leave client details out.",
         "Lawyers have been sanctioned for filing fake AI citations. Read every case you cite.",
         "Legal research tools are better than general chatbots for finding authority, but they still make mistakes."
-      ]
+      ],
+      "scenario": {
+        "q": "Late at night, a chatbot gives you three cases that perfectly support a motion due in the morning. What do you do?",
+        "opts": [
+          "File them, because they look right",
+          "Ask the chatbot whether the cases are real",
+          "Cite them with \"see generally\"",
+          "Find and read each case in a trusted database before citing it, and drop any you cannot find"
+        ],
+        "correct": 3,
+        "feedback": "This is how the lawyers in Mata v. Avianca got into trouble. Only reading the case from a trusted source shows that it exists and says what you need."
+      }
     },
     {
       "id": 4,
@@ -55,7 +88,18 @@
         "Let AI write a first draft, then check every fact and legal point and rewrite it in your own words.",
         "In law school, follow your school's rules and use AI to test yourself, not to skip the reading.",
         "At work, use only approved tools for client information, bill honestly and supervise others' AI use."
-      ]
+      ],
+      "scenario": {
+        "q": "A senior associate asks you to paste a client's draft merger agreement into a free chatbot to sum it up. What do you do?",
+        "opts": [
+          "Use the firm's approved tool for client documents, or remove identifying details, and follow the firm's AI policy",
+          "Paste it in, because a senior associate asked",
+          "Paste it in and delete the chat afterward",
+          "Refuse to help with the summary at all"
+        ],
+        "correct": 0,
+        "feedback": "Client documents belong only in tools approved for them. Deleting a chat afterward does not undo sharing it."
+      }
     },
     {
       "id": 5,
@@ -69,7 +113,18 @@
         "AI can repeat unfair patterns. Courts and lawmakers have set limits on tools like risk scores and hiring screens.",
         "AI chats may be saved, read or handed over. A court has held a client's own AI chats were not privileged.",
         "Routine review and drafting are changing most. Judgment, advocacy and client care matter more."
-      ]
+      ],
+      "scenario": {
+        "q": "Your client wrote notes about their case using a consumer chatbot, on their own. The other side asks for them in discovery. What is the main risk?",
+        "opts": [
+          "None, because all AI chats are privileged",
+          "Only the AI company can be asked for them",
+          "A court may find they are not privileged or work product, as the court did in United States v. Heppner",
+          "Chatbots delete everything after a day"
+        ],
+        "correct": 2,
+        "feedback": "In Heppner, a federal judge held that a defendant's own AI chats were not privileged or work product. Warn clients early."
+      }
     },
     {
       "id": 6,
@@ -83,7 +138,18 @@
         "AI agents carry out tasks with many steps, so your duty to supervise covers their work.",
         "AI can read scans and transcribe speech. Check recording laws and treat transcripts as drafts.",
         "Keep up by knowing your bar's guidance, your courts' rules and your employer's policy."
-      ]
+      ],
+      "scenario": {
+        "q": "An AI agent at your firm drafted a settlement offer and was about to email it to opposing counsel on its own. What safeguard was missing?",
+        "opts": [
+          "A rule that a person approves anything sent to a client, a court or the other side",
+          "A faster AI model",
+          "A longer prompt",
+          "Nothing was missing"
+        ],
+        "correct": 0,
+        "feedback": "Agents need firm limits. A person should approve anything sent outside the firm, filed or paid."
+      }
     },
     {
       "id": 7,
@@ -97,7 +163,18 @@
         "Models read and write tokens, only see what fits in the context window, and pick each token by chance.",
         "Training gives a model knowledge up to a cutoff date. Feedback training makes it helpful, and sometimes too eager to answer.",
         "Most legal AI tools combine a model with search over real legal sources. Test them on your own kind of work."
-      ]
+      ],
+      "scenario": {
+        "q": "A vendor says its legal research tool \"cannot hallucinate because it uses RAG.\" What is the best response?",
+        "opts": [
+          "Accept the claim",
+          "Ask the tool whether the claim is true",
+          "Turn off the retrieval feature",
+          "Ask for the vendor's test results and run your own test set, because retrieval reduces errors but does not remove them"
+        ],
+        "correct": 3,
+        "feedback": "Looking up real sources first helps, but the Stanford study found leading legal tools still gave false or misleading answers 17 to 33 percent of the time."
+      }
     },
     {
       "id": 8,
@@ -112,7 +189,18 @@
         "Get informed consent when required before putting client information into an AI tool, and read the tool's terms.",
         "Check the court's local rules and the judge's standing orders on AI before every filing.",
         "Find, read and check every authority yourself. Never ask the AI to check itself."
-      ]
+      ],
+      "scenario": {
+        "q": "After filing a brief, you find that one case you cited does not say what you claimed. What should you do?",
+        "opts": [
+          "Wait to see if anyone notices",
+          "Promptly correct the record with the court",
+          "Blame the AI tool in a footnote",
+          "Delete the case from your own copy"
+        ],
+        "correct": 1,
+        "feedback": "The duty of candor requires correcting false statements made to a court. Courts have been harsher on lawyers who hid mistakes than on those who fixed them."
+      }
     },
     {
       "id": 9,
@@ -126,7 +214,43 @@
         "Legal AI tools ground answers in real sources and protect data better, but they still make mistakes.",
         "Choose a tool for a specific task, get data promises in the contract and test it on your own work.",
         "The EU AI Act sorts AI by risk. U.S. rules come from existing laws, states, cities, courts and bars."
-      ]
+      ],
+      "scenario": {
+        "q": "Your firm wants to buy a legal AI drafting tool. What should come first?",
+        "opts": [
+          "Buy the most popular tool",
+          "Let each lawyer choose a different tool",
+          "Choose a specific task, check the vendor's data terms and run a trial on work like your own",
+          "Ask the tool's chatbot for a discount"
+        ],
+        "correct": 2,
+        "feedback": "A specific task, written data promises and your own trial are the best evidence that a tool will help."
+      }
+    },
+    {
+      "id": 10,
+      "slug": "practice-areas",
+      "icon": "compass",
+      "color": "coral",
+      "level": "For legal professionals",
+      "title": "AI by practice area",
+      "desc": "How AI shows up in litigation and discovery, in contracts and deals, and on in-house legal teams.",
+      "recap": [
+        "Litigators can use AI for review, summaries and drafts, but must check every citation and quote and follow court rules on AI.",
+        "Transactional lawyers can speed up contract review, but should check a sample by hand and decide the hard calls themselves.",
+        "In-house teams use AI and also set the company's AI rules, including for high-risk uses such as hiring."
+      ],
+      "scenario": {
+        "q": "You want to load documents produced under a protective order into an AI review tool. What do you check first?",
+        "opts": [
+          "Whether the protective order allows it, and whether the tool is approved and keeps the data secure",
+          "Whether the tool is fast",
+          "Whether opposing counsel uses AI",
+          "Nothing, because review tools are always allowed"
+        ],
+        "correct": 0,
+        "feedback": "A protective order limits how produced documents may be used and shared. Check it before loading the documents into any tool."
+      }
     }
   ],
   "questions": [
@@ -239,7 +363,7 @@
     },
     "work": {
       "name": "Legal practice",
-      "summary": "For lawyers, paralegals and legal staff. Your duties, client confidentiality, courts' AI rules, checking research and choosing tools.",
+      "summary": "For lawyers, paralegals and legal staff. Your duties, client confidentiality, courts' AI rules, checking research, your practice area and choosing tools.",
       "steps": [
         "1-3",
         "3-1",
@@ -252,6 +376,9 @@
         "4-1",
         "4-3",
         "5-2",
+        "10-1",
+        "10-2",
+        "10-3",
         "9-1",
         "9-2",
         "6-1",
@@ -271,6 +398,7 @@
         "7-3",
         "9-1",
         "9-2",
+        "10-3",
         "6-1",
         "7-4",
         "3-3",

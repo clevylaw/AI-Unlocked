@@ -24,7 +24,7 @@ TAGLINE = "A free course on AI for legal work, in plain English"
 VOICE_ID, VOICE_NAME, TTS_MODEL = "harper_32", "Harper", "simba-3.5"
 REDIRECTS = {"ai-in-everyday-life": "ai-in-legal-work", "using-generative-ai-responsibly": "copyright-and-deepfakes", "ai-for-writing": "ai-for-legal-writing", "ai-for-learning": "ai-for-law-school", "ai-and-jobs": "ai-and-legal-jobs"}
 REVIEWED = "November 2026"  # shown on the home page and footer; update after each content review
-GENERATED = ["path", "certificate", "lessons", "modules", "tools", "models", "glossary", "about"]
+GENERATED = ["path", "certificate", "lessons", "modules", "tools", "models", "glossary", "about", "resources", "search"]
 
 esc = lambda s: html.escape(str(s), quote=True)
 
@@ -247,10 +247,10 @@ ICONS = {
 def icon(name, cls="ico"):
     return f'<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[name]}</svg>'
 
-NAV = [("path", "path/", "Your path"), ("lessons", "lessons/", "Lessons"), ("tools", "tools/", "AI tools"),
+NAV = [("path", "path/", "Your path"), ("lessons", "lessons/", "Lessons"), ("resources", "resources/", "Resources"), ("tools", "tools/", "AI tools"),
        ("models", "models/", "AI models"), ("glossary", "glossary/", "Glossary"), ("about", "about/", "About")]
 
-def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, crumbs=None, intro=None, eyebrow=None, root=None, wide=True, show_head=True):
+def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, crumbs=None, intro=None, eyebrow=None, root=None, wide=True, show_head=True, scripts=()):
     """rel: the page's folder relative to the site root ('' for home, 'lessons/x/' for a lesson)."""
     if root is None:
         root = "../" * rel.count("/")
@@ -258,6 +258,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
     cur = ' aria-current="page"'
     nav = "".join(f'<li><a href="{root}{href}"{cur if k == key else ""}>{label}</a></li>' for k, href, label in NAV)
     logo_cur = cur if key == "home" else ""
+    search_cur = cur if key == "search" else ""
     crumb_html = ""
     if crumbs:
         items = "".join(f'<li><a href="{root}{h}">{esc(t)}</a></li>' if h is not None else f'<li><span aria-current="page">{esc(t)}</span></li>' for t, h in crumbs)
@@ -302,6 +303,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="logo" href="{root}"{logo_cur}>{LOGO_MARK}<span class="logo-text">AI for <span>Legal Work</span></span></a>
+    <a class="search-link" href="{root}search/" aria-label="Search"{search_cur}>{icon("search", "ico-sm")}<span class="search-text">Search</span></a>
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main"><ul>{nav}</ul></nav>
   </div>
@@ -328,6 +330,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
   </div>
 </footer>
 <script src="{root}assets/course.js?v={ASSET_V}"></script>
+{"".join(f'<script src="{root}{x}?v={ASSET_V}"></script>' for x in scripts)}
 <script src="{root}assets/app.js?v={ASSET_V}"></script>
 </body>
 </html>
@@ -515,7 +518,7 @@ def build_pages(course):
     body = (f'<div class="actions" id="lessons-action" style="margin-bottom:28px"></div>'
             f'<div class="modules-grid">{"".join(module_card(m, root) for m in course["modules"])}</div>')
     out["lessons/"] = page("lessons/", key="lessons", title="Lessons", body=body,
-                           intro=f"{total_lessons} lessons in {len(course['modules'])} modules. Modules 1 to 6 build on each other. Module 7 is for technical readers. Modules 8 and 9 cover professional duties, legal tools and AI law.",
+                           intro=f"{total_lessons} lessons in {len(course['modules'])} modules. Modules 1 to 6 build on each other. Module 7 is for technical readers. Modules 8 to 10 cover professional duties, legal tools, AI law and practice areas.",
                            desc=f"All {total_lessons} lessons of {SITE_NAME}, a free course on AI for legal work, in plain English.")
 
     # Modules and reviews
@@ -544,16 +547,21 @@ def build_pages(course):
             + "".join(f'<button class="quiz-opt" type="button" data-opt="{k}"><span class="opt-letter" aria-hidden="true">{chr(65 + k)}</span><span>{esc(o)}</span></button>' for k, o in enumerate(l["quiz"]["opts"]))
             + f'</div><p class="quiz-feedback" role="status" aria-live="polite" data-feedback="{esc(l["quiz"]["feedback"])}"></p></section>'
             for j, l in enumerate(m["lessons"]))
+        sc = m.get("scenario")
+        if sc:
+            quizzes += (f'<section class="quiz-block scenario" data-correct="{sc["correct"]}" data-shuffle aria-labelledby="rqs"><p class="label">Scenario</p><h3 id="rqs">{esc(sc["q"])}</h3><div class="quiz-options">'
+                        + "".join(f'<button class="quiz-opt" type="button" data-opt="{k}"><span class="opt-letter" aria-hidden="true">{chr(65 + k)}</span><span>{esc(o)}</span></button>' for k, o in enumerate(sc["opts"]))
+                        + f'</div><p class="quiz-feedback" role="status" aria-live="polite" data-feedback="{esc(sc["feedback"])}"></p></section>')
         action = (f'<a class="btn-main" href="{root3}modules/{nxt["slug"]}/">{"Extra module" if nxt["level"] == "Technical" else "Next module"}: {esc(nxt["title"])} →</a>'
                   if nxt else f'<a class="btn-main" href="{root3}path/">Back to your path →</a>')
         body = f'''<section aria-labelledby="recap-h"><h2 id="recap-h" class="sr-only">What you learned</h2><ul class="recap">{"".join(f"<li>{esc(r)}</li>" for r in m["recap"])}</ul></section>
 <section class="review" data-review aria-labelledby="quiz-h"><h2 id="quiz-h" style="font-size:1.5rem">Review quiz</h2>
-<p class="muted" style="margin:6px 0 4px">These are the questions from each lesson, with the answers in a new order.</p>{quizzes}
+<p class="muted" style="margin:6px 0 4px">One question from each lesson, with the answers in a new order, then a real-world scenario. If you miss one, you get a second try.</p>{quizzes}
 <p class="review-score" role="status" aria-live="polite"></p></section>
 <div class="lesson-end">{action}<nav class="pager" aria-label="Lessons"><a class="prev" href="{root3}lessons/{m["lessons"][-1]["slug"]}/"><span class="pager-dir">← Last lesson</span><strong>{esc(m["lessons"][-1]["title"])}</strong></a></nav></div>'''
         out[f"modules/{m['slug']}/review/"] = page(f"modules/{m['slug']}/review/", key="lessons", title=f"Review: {m['title']}", body=body, wide=False,
                                                    data={"module": m["id"]}, eyebrow=f"Module {m['id']} review",
-                                                   intro="A short recap of the module, then one question from each lesson. Answering again later helps you remember.",
+                                                   intro="A short recap of the module, a question from each lesson and a scenario to apply what you learned. Answering again later helps you remember.",
                                                    crumbs=[("Home", ""), ("Lessons", "lessons/"), (f"Module {m['id']}", f"modules/{m['slug']}/"), ("Review", None)],
                                                    desc=f"Recap and review quiz for module {m['id']} of {SITE_NAME}: {m['title']}.")
 
@@ -575,14 +583,56 @@ def build_pages(course):
 
     # Glossary
     terms = sorted(course["glossary"], key=lambda g: g["term"].lower())
-    items = "".join(f'<div class="card glossary-item"><dt>{esc(g["term"])}</dt><dd>{esc(g["def"])}</dd></div>' for g in terms)
+    groups = {}
+    for g in terms:
+        groups.setdefault(g["term"][0].upper(), []).append(g)
+    items = "".join(f'<section class="gloss-group" aria-labelledby="gl-{k}"><h2 id="gl-{k}">{k}</h2><dl>'
+                    + "".join(f'<div class="glossary-item" id="{gloss_id(g["term"])}"><dt>{esc(g["term"])}</dt><dd>{esc(g["def"])}</dd></div>' for g in v)
+                    + '</dl></section>' for k, v in groups.items())
     body = f'''<div class="search">{icon("search", "ico-sm")}<label class="sr-only" for="glossary-search">Search the glossary</label><input type="search" id="glossary-search" placeholder="Search, for example: prompt" autocomplete="off"></div>
 <p class="muted" id="glossary-count" role="status">{len(terms)} terms</p>
-<dl class="glossary-grid" id="glossary-grid">{items}</dl>
+<div class="glossary-grid" id="glossary-grid">{items}</div>
 <p class="empty" id="glossary-empty" hidden>No terms match. Try a shorter word.</p>'''
     out["glossary/"] = page("glossary/", key="glossary", title="Glossary", body=body,
                             intro="Every AI word used in this course, explained simply.",
                             desc=f"Plain-English meanings of {len(terms)} AI words, from AI agent to token.")
+
+    # Resources
+    resources = load_resources()
+    rows = "".join(f'<li><a href="{r["slug"]}/"><span class="toc-text"><strong>{esc(r["title"])}</strong><span>{esc(r["intro"])}</span></span></a></li>' for r in resources)
+    body = f'<ul class="module-toc resource-list">{rows}</ul><p class="muted" style="margin-top:18px">Each resource has a Print button and prints cleanly on one or two pages. They are general education, not legal advice. Adapt them to your own rules.</p>'
+    out["resources/"] = page("resources/", key="resources", title="Resources", body=body,
+                             intro="Printable checklists and templates for using AI in legal work.",
+                             desc="Free printable resources for AI in legal work: an AI use checklist, a citation checking worksheet, vendor questions, a sample AI policy and links to bar guidance.")
+    for r in resources:
+        rel = f"resources/{r['slug']}/"
+        rbody = (f'<p class="lesson-tools no-print-top"><button class="link-btn" type="button" data-print>Print or save as a PDF</button> · '
+                 f'<a href="{esc(correction_url(r["title"], SITE_URL + rel))}" target="_blank" rel="noopener">Report a correction<span class="sr-only"> (opens GitHub in a new tab)</span></a></p>'
+                 f'<p class="print-only print-head">{SITE_NAME} · {SITE_URL}{rel} · Content last reviewed {REVIEWED}</p>'
+                 f'<div class="prose resource">{resolve_links(r["body"], "../../", course)}</div>')
+        out[rel] = page(rel, key="resources", title=r["title"], body=rbody, wide=False, intro=esc(r["intro"]),
+                        crumbs=[("Home", ""), ("Resources", "resources/"), (r["title"], None)], desc=r["desc"])
+
+    # Search
+    entries = []
+    for mm in course["modules"]:
+        entries.append({"t": f"Module {mm['id']}: {mm['title']}", "u": f"modules/{mm['slug']}/", "k": "Module", "d": mm["desc"], "x": " ".join(mm["recap"])})
+        for l in mm["lessons"]:
+            entries.append({"t": l["title"], "u": f"lessons/{l['slug']}/", "k": "Lesson", "m": f"Module {mm['id']}: {mm['title']}", "d": l["intro"],
+                            "x": plain(l["body"]) + " " + plain(l.get("tech", "")) + " " + l["quiz"]["q"] + " " + " ".join(x["title"].replace("*", "") for x in l.get("sources", []))})
+    for r in resources:
+        entries.append({"t": r["title"], "u": f"resources/{r['slug']}/", "k": "Resource", "d": r["intro"], "x": plain(r["body"])})
+    for g in terms:
+        entries.append({"t": g["term"], "u": f"glossary/#{gloss_id(g['term'])}", "k": "Glossary", "d": g["def"], "x": ""})
+    global SEARCH_INDEX
+    SEARCH_INDEX = [{k: (smart_text(v) if isinstance(v, str) and k != "u" else v) for k, v in e.items()} for e in entries]
+    body = f'''<form class="search big-search" role="search" action="./" onsubmit="return false">{icon("search", "ico-sm")}<label class="sr-only" for="site-search">Search lessons, resources and the glossary</label><input type="search" id="site-search" name="q" placeholder="Try: privilege, Rule 11, hallucination" autocomplete="off"></form>
+<p class="muted" id="search-count" role="status" aria-live="polite"></p>
+<ol class="search-results" id="search-results"></ol>
+<noscript><p>Search needs JavaScript. You can browse the <a href="../lessons/">Lessons</a> and <a href="../glossary/">Glossary</a> pages instead.</p></noscript>'''
+    out["search/"] = page("search/", key="search", title="Search", body=body, wide=False, scripts=("assets/search-index.js",),
+                          intro="Search every lesson, resource and glossary term.",
+                          desc=f"Search all lessons, resources and glossary terms in {SITE_NAME}.")
 
     # About
     body = f'''<div class="prose">
@@ -621,10 +671,29 @@ def _smart_data(x):
     if isinstance(x, dict): return {k: (v if k in ("slug", "id", "color", "steps", "correct", "minutes") else _smart_data(v)) for k, v in x.items()}
     return x
 
+def load_resources():
+    out = []
+    folder = os.path.join(SRC, "resources")
+    for f in sorted(os.listdir(folder)):
+        if not f.endswith(".html"):
+            continue
+        raw = open(os.path.join(folder, f), encoding="utf-8").read()
+        m = re.match(r"\s*<!--(.*?)-->(.*)", raw, re.S)
+        meta = json.loads(m.group(1)); meta["body"] = m.group(2).strip()
+        out.append(meta)
+    return out
+
+def plain(h):
+    h = re.sub(r"\[\[\d+\]\]", "", h)
+    return clean(html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style|svg|sup)[\s\S]*?</\1>", " ", h))))
+
+def gloss_id(term):
+    return "term-" + re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-")
+
 def course_js(course):
     data = {
         "modules": [{"id": m["id"], "slug": m["slug"], "title": m["title"], "color": m["color"], "level": m["level"],
-                     "lessons": [{"slug": l["slug"], "title": l["title"], "time": l["time"], "quiz": l["quiz"]} for l in m["lessons"]]}
+                     "lessons": [{"slug": l["slug"], "title": l["title"], "time": l["time"], "quiz": l["quiz"]} for l in m["lessons"]], "scenario": m.get("scenario")}
                     for m in course["modules"]],
         "paths": course["paths"], "questions": course["questions"],
     }
@@ -648,6 +717,7 @@ def main():
     write("assets/course.js", course_js(course))
     ASSET_V = asset_version()
     pages = build_pages(course)
+    write("assets/search-index.js", "window.SEARCH_INDEX = " + json.dumps(SEARCH_INDEX, ensure_ascii=False, separators=(",", ":")) + ";\n")
     for rel, text in pages.items():
         write("404.html" if rel == "404" else rel + "index.html", text)
     # Lesson addresses that changed when the course was refocused on legal work. Old links keep working.
@@ -663,5 +733,6 @@ def main():
     return course
 
 ASSET_V = "0"
+SEARCH_INDEX = []
 if __name__ == "__main__":
     main()

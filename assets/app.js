@@ -90,26 +90,34 @@
     const opts = [...box.children], order = shuffled(opts.length);
     order.forEach((o, pos) => { const b = opts[o]; $(".opt-letter", b).textContent = String.fromCharCode(65 + pos); box.appendChild(b); });
   });
+  // A wrong first answer gets a second try; the right answer and explanation appear after a right answer or a second miss.
   document.addEventListener("click", e => {
-    const b = e.target.closest(".quiz-opt"); if (!b) return;
+    const b = e.target.closest(".quiz-opt"); if (!b || b.disabled) return;
     const block = b.closest(".quiz-block"); if (block.dataset.answered) return;
-    block.dataset.answered = "1";
     const correct = +block.dataset.correct, chosen = +b.dataset.opt, right = chosen === correct;
-    block.dataset.result = right ? "right" : "wrong";
+    const tries = (+block.dataset.tries || 0) + 1; block.dataset.tries = tries;
+    if (tries === 1) block.dataset.result = right ? "right" : "wrong";
+    const fb = $(".quiz-feedback", block), label = o => o.innerText.split("\n").pop();
+    if (!right && tries < 2) {
+      b.disabled = true; b.classList.add("wrong"); b.setAttribute("aria-label", `${label(b)} (not this one)`);
+      fb.textContent = "Not quite. Try another answer."; fb.className = "quiz-feedback bad";
+      return;
+    }
+    block.dataset.answered = "1";
+    let letter = "";
     $$(".quiz-opt", block).forEach(o => {
       o.disabled = true;
-      if (+o.dataset.opt === correct) { o.classList.add("correct"); o.setAttribute("aria-label", `${o.innerText.split("\n").pop()} (the right answer)`); }
-      else if (o === b) { o.classList.add("wrong"); o.setAttribute("aria-label", `${o.innerText.split("\n").pop()} (your answer)`); }
+      if (+o.dataset.opt === correct) { o.classList.add("correct"); o.setAttribute("aria-label", `${label(o)} (the right answer)`); letter = $(".opt-letter", o).textContent; }
+      else if (o === b) { o.classList.add("wrong"); o.setAttribute("aria-label", `${label(o)} (your answer)`); }
     });
-    const fb = $(".quiz-feedback", block);
-    fb.textContent = (right ? "Right. " : "Not quite. ") + fb.dataset.feedback;
+    fb.textContent = (right ? (tries === 1 ? "Right. " : "Right, on your second try. ") : `Not quite. The answer is ${letter}. `) + fb.dataset.feedback;
     fb.className = `quiz-feedback ${right ? "ok" : "bad"}`;
     const review = block.closest("[data-review]");
     if (review) {
       const blocks = $$(".quiz-block", review), done = blocks.filter(x => x.dataset.answered);
       if (done.length === blocks.length) {
         const n = blocks.filter(x => x.dataset.result === "right").length;
-        $(".review-score", review).textContent = n === blocks.length ? `${n} of ${n} right. You know this module well.` : `${n} of ${blocks.length} right. Look back at the lessons for the ones you missed, then carry on.`;
+        $(".review-score", review).textContent = n === blocks.length ? `${n} of ${n} right on the first try. You know this module well.` : `${n} of ${blocks.length} right on the first try. Look back at the lessons for the ones you missed, then carry on.`;
       }
     }
   });
@@ -601,11 +609,11 @@
   }
   const hue = s => ["violet", "magenta", "berry", "coral", "crimson", "plum"][[...s].reduce((a, c) => a + c.charCodeAt(0), 0) % 6];
   const safeUrl = u => (typeof u === "string" && u.startsWith("https://")) ? u : null;
+  const curly = v => typeof v === "string" ? v.replace(/(\w)'(\w)/g, "$1\u2019$2").replace(/(^|[\s(])"/g, "$1\u201c").replace(/"/g, "\u201d").replace(/'/g, "\u2019") : v;
   function renderTools(tools) {
     // Two groups (legal and general) plus a menu for the kind of tool. Shown as a list of rows, not cards.
     const CATS = { legal: "Legal work", chat: "Chatbots", search: "Search", learning: "Learning", writing: "Writing and notes", image: "Pictures and design", video: "Video", audio: "Voices and music", code: "Coding" };
     const isNew = x => { const t = Date.parse(x); return !isNaN(t) && (Date.now() - t) / 864e5 <= 60; };
-    const curly = v => typeof v === "string" ? v.replace(/(\w)'(\w)/g, "$1\u2019$2").replace(/(^|[\s(])"/g, "$1\u201c").replace(/"/g, "\u201d").replace(/'/g, "\u2019") : v;
     const live = tools.filter(t => t.name).map(t => ({ ...t, desc: curly(t.desc), bestFor: curly(t.bestFor), start: curly(t.start) }));
     const legal = live.filter(t => t.cat === "legal"), general = live.filter(t => t.cat !== "legal");
     let group = "legal", kind = "all";
@@ -647,7 +655,41 @@
       <div class="models-row">${g.items.map(m => `<article class="card model-card${m.current ? " is-current" : ""}">
         <div class="model-badges">${m.current ? '<span class="model-badge current">In use today</span>' : ""}<span class="model-badge">${esc(KIND[m.kind] || m.kind)}</span></div>
         <h3 class="model-name">${esc(m.name)}</h3><p class="model-maker">${esc(m.maker)} · ${esc(m.year)}</p>
-        <p class="model-desc">${esc(m.desc)}</p></article>`).join("")}</div></section>`).join("");
+        <p class="model-desc">${esc(curly(m.desc))}</p></article>`).join("")}</div></section>`).join("");
+  }
+
+  // ---------- Site search (index built by build.py, loaded only on the search page) ----------
+  const siteSearch = $("#site-search");
+  if (siteSearch && window.SEARCH_INDEX) {
+    const IDX = window.SEARCH_INDEX.map(e => ({ ...e, lt: e.t.toLowerCase(), ld: (e.d || "").toLowerCase(), lx: (e.x || "").toLowerCase() }));
+    const out = $("#search-results"), count = $("#search-count");
+    const mark = (text, words) => { let h = esc(text); words.forEach(w => { h = h.replace(new RegExp(`(${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"), "<mark>$1</mark>"); }); return h; };
+    const snippet = (e, words) => {
+      const src = e.lx && words.some(w => e.lx.includes(w)) && !words.every(w => e.ld.includes(w)) ? e.x : e.d;
+      const low = src.toLowerCase(), first = Math.min(...words.map(w => { const i = low.indexOf(w); return i < 0 ? Infinity : i; }));
+      const at = isFinite(first) ? Math.max(0, first - 70) : 0;
+      const cut = src.slice(at, at + 220);
+      return (at > 0 ? "…" : "") + mark(cut, words) + (at + 220 < src.length ? "…" : "");
+    };
+    const run = () => {
+      const q = siteSearch.value.trim().toLowerCase(), words = q.split(/\s+/).filter(w => w.length > 1);
+      try { history.replaceState(null, "", q ? `?q=${encodeURIComponent(siteSearch.value.trim())}` : location.pathname); } catch (e) {}
+      if (!words.length) { out.innerHTML = ""; count.textContent = ""; return; }
+      const hits = IDX.map(e => {
+        if (!words.every(w => e.lt.includes(w) || e.ld.includes(w) || e.lx.includes(w))) return null;
+        let sc = 0; words.forEach(w => { if (e.lt.includes(w)) sc += 10; if (e.ld.includes(w)) sc += 4; sc += Math.min(5, e.lx.split(w).length - 1); });
+        if (e.lt === q) sc += 20;
+        return { e, sc };
+      }).filter(Boolean).sort((a, b) => b.sc - a.sc).slice(0, 30);
+      count.textContent = hits.length ? `${hits.length} result${hits.length > 1 ? "s" : ""} for \u201c${siteSearch.value.trim()}\u201d` : `No results for \u201c${siteSearch.value.trim()}\u201d. Try a shorter or different word.`;
+      out.innerHTML = hits.map(({ e }) => `<li><p class="result-kind">${esc(e.k)}${e.m ? ` · ${esc(e.m)}` : ""}</p><a href="${ROOT}${e.u}">${mark(e.t, words)}</a><p class="result-snip">${snippet(e, words)}</p></li>`).join("");
+    };
+    const q0 = new URLSearchParams(location.search).get("q");
+    if (q0) siteSearch.value = q0;
+    let t = null;
+    siteSearch.addEventListener("input", () => { clearTimeout(t); t = setTimeout(run, 120); });
+    run();
+    if (!q0) siteSearch.focus();
   }
 
   // ---------- Glossary search ----------
@@ -657,6 +699,7 @@
     gs.addEventListener("input", () => {
       const q = gs.value.trim().toLowerCase(); let shown = 0;
       items.forEach(el => { const hit = !q || el.textContent.toLowerCase().includes(q); el.hidden = !hit; if (hit) shown++; });
+      $$(".gloss-group").forEach(gr => { gr.hidden = !$$(".glossary-item", gr).some(x => !x.hidden); });
       $("#glossary-count").textContent = q ? `${shown} of ${total} terms` : `${total} terms`;
       $("#glossary-empty").hidden = shown > 0;
     });

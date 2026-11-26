@@ -1,0 +1,45 @@
+<!--
+{
+  "slug": "ai-in-litigation",
+  "title": "AI in litigation and discovery",
+  "intro": "Litigators use AI to review documents, sum up testimony and draft. Each use comes with its own risks and rules.",
+  "tryIt": {
+    "tool": "ChatGPT, Claude or Gemini",
+    "prompt": "Use this made-up deposition excerpt. Q: When did you first see the crack in the ceiling? A: Maybe March. Or April. I told the manager right away. Q: In writing? A: No, I just told him. Make a short summary with page-line placeholders, list any statements that seem inconsistent, and list follow-up questions. Mark anything you are guessing."
+  },
+  "quiz": {
+    "q": "A colleague used AI to sum up a 300-page deposition. What should happen before the summary is used in a brief?",
+    "opts": [
+      "Nothing, since AI summaries are reliable",
+      "Each statement relied on is checked against the transcript, with page and line cites from the transcript itself",
+      "The summary is run through a second AI tool",
+      "The summary is shortened"
+    ],
+    "correct": 1,
+    "feedback": "AI summaries can misstate testimony or invent page cites. Anything relied on in a filing must be checked against the transcript itself."
+  },
+  "tech": "Technology-assisted review is usually checked with sampling. A team reviews a random sample of the documents the tool marked as not relevant to estimate how many relevant documents were missed, and reports measures such as recall. Generative review tools that read each document and explain their call can be checked the same way. Parties often agree on the review method, the validation steps and how results will be reported in an ESI protocol, the plan for handling electronically stored information.",
+  "sources": [
+    {"title": "*Da Silva Moore v. Publicis Groupe*, 287 F.R.D. 182 (S.D.N.Y. 2012)", "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2011cv01279/375665/96"},
+    {"title": "*Mata v. Avianca, Inc.*, 678 F. Supp. 3d 443 (S.D.N.Y. 2023) (opinion and order on sanctions)", "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54"},
+    {"title": "N.D. Tex. Loc. Civ. R. 7.2(f) (Local Civil Rules, eff. Sept. 1, 2026)", "url": "https://www.txnd.uscourts.gov/sites/default/files/documents/CIVRULES.pdf"}
+  ]
+}
+-->
+<h2>Where AI helps litigators</h2>
+<ul>
+<li><strong>Document review.</strong> Tools rank or sort documents by how likely they are to be relevant or privileged. Courts have accepted this kind of review since <em>Da Silva Moore</em> in 2012.[[1]]</li>
+<li><strong>Summaries.</strong> Deposition transcripts, hearing transcripts and large email sets can be summed up quickly.</li>
+<li><strong>Timelines and chronologies.</strong> Pulling dates and events from many documents into one table.</li>
+<li><strong>Drafting.</strong> First drafts of routine motions, discovery requests and letters to opposing counsel.</li>
+</ul>
+<h2>The risks that matter most</h2>
+<ul>
+<li><strong>Invented or misread authority.</strong> The sanctions in <em>Mata v. Avianca</em> came from a brief.[[2]] Every citation in a filing must be found and read.</li>
+<li><strong>Misstated testimony.</strong> A summary can put words in a witness's mouth or give the wrong page and line.</li>
+<li><strong>Missed documents.</strong> A review tool can miss relevant or privileged documents. Check its work with sampling, and agree on the method with the other side where needed.</li>
+<li><strong>Confidential and protected material.</strong> Documents produced under a protective order may only be used and shared as the order allows. Check before loading them into any AI tool.</li>
+</ul>
+<div class="callout"><p class="label">Court rules on AI</p><p>Some courts now require a disclosure when a brief was prepared using generative AI. One example is the Northern District of Texas's Local Civil Rule 7.2(f).[[3]] Check the local rules and the judge's standing orders before every filing.</p></div>
+<h2>Discovery about AI</h2>
+<p>AI also shows up as evidence. Parties may ask for the prompts and outputs someone created, or for information about how a company's AI tool made a decision. Think early about where your client's AI chats are stored and whether they need to be preserved.</p>
