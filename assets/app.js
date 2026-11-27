@@ -85,6 +85,49 @@
     }
   });
 
+  // ---------- Move progress to another device (About page) ----------
+  if ($("[data-move]")) {
+    const PREFIX = "AILW1.", status = $("#move-status");
+    const say = (msg, ok) => { status.textContent = msg; status.classList.toggle("bad", !ok); };
+    const toCode = obj => { const bytes = new TextEncoder().encode(JSON.stringify(obj)); let s = ""; bytes.forEach(b => s += String.fromCharCode(b)); return PREFIX + btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); };
+    const fromCode = code => {
+      code = code.replace(/\s+/g, "");
+      if (!code.startsWith(PREFIX)) throw new Error("prefix");
+      let b = code.slice(PREFIX.length).replace(/-/g, "+").replace(/_/g, "/"); while (b.length % 4) b += "=";
+      const s = atob(b); return JSON.parse(new TextDecoder().decode(Uint8Array.from(s, c => c.charCodeAt(0))));
+    };
+    $("#move-copy").addEventListener("click", async () => {
+      const out = $("#move-out");
+      out.value = toCode({ p: progress, path: myPath, certs, name: certName, rate: load("ailearn_rate", null), voice: load("ailearn_voice_v1", null) });
+      out.hidden = false; out.focus(); out.select();
+      let copied = false;
+      try { await navigator.clipboard.writeText(out.value); copied = true; } catch (e) {}
+      const n = Object.keys(progress).length;
+      say(`${copied ? "Copied." : "Select the code and copy it."} It holds ${n} finished lesson${n === 1 ? "" : "s"} and ${certs.length} certificate${certs.length === 1 ? "" : "s"}. Paste it into this page on your other device.`, true);
+    });
+    $("#move-load").addEventListener("click", () => {
+      let d;
+      try { d = fromCode($("#move-in").value); } catch (e) { say("That doesn't look like a progress code. Copy the whole code and try again.", false); return; }
+      if (!d || typeof d !== "object") { say("That doesn't look like a progress code. Copy the whole code and try again.", false); return; }
+      let added = 0;
+      const valid = new Set(MODULES.flatMap(m => m.lessons.map((l, i) => key(m.id, i))));
+      Object.entries(d.p || {}).forEach(([k, v]) => {
+        if (!valid.has(k) || (v !== true && v !== "known")) return;
+        if (!progress[k]) added++;
+        if (progress[k] !== true) progress[k] = v;
+      });
+      if (!myPath && d.path && PATHS[d.path.id]) myPath = d.path;
+      const have = new Set(certs.map(c => c.id));
+      (Array.isArray(d.certs) ? d.certs : []).forEach(c => { if (c && typeof c.id === "string" && typeof c.title === "string" && !have.has(c.id)) { certs.push(c); have.add(c.id); } });
+      if (!certName && typeof d.name === "string") certName = d.name.slice(0, 80);
+      if (typeof d.rate === "number") store("ailearn_rate", d.rate);
+      if (d.voice === null || typeof d.voice === "string") store("ailearn_voice_v1", d.voice);
+      save();
+      say(`Done. Added ${added} lesson${added === 1 ? "" : "s"} to this browser. You now have ${Object.keys(progress).length} finished and ${certs.length} certificate${certs.length === 1 ? "" : "s"}.`, true);
+      $("#move-in").value = "";
+    });
+  }
+
   // ---------- Quizzes (lesson pages and module reviews) ----------
   $$("[data-shuffle] .quiz-options").forEach(box => {
     const opts = [...box.children], order = shuffled(opts.length);

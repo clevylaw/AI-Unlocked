@@ -167,6 +167,8 @@ def spoken(n):
                     if "label" in c.cls() and t.lower() in QUIET_LABELS:
                         continue
                     parts.append(sentence(t))
+                elif c.tag == "li":
+                    parts.append(sentence(clean(text_of(c))))
                 else:
                     walk(c)
         walk(n)
@@ -313,7 +315,7 @@ def page(rel, *, key, title, desc, body, data=None, head_title=None, hero=None, 
   <div class="wrap footer-inner">
     <div>
       <a class="logo" href="{root}">{LOGO_MARK}<span class="logo-text">AI for <span>Legal Work</span></span></a>
-      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Content last reviewed {REVIEWED}. Your progress is saved only in this browser.</p>
+      <p>A free course on AI for legal work, in plain English. General education, not legal advice. Content last reviewed {REVIEWED}. Your progress is saved only in this browser. <a href="{root}about/#move">Move it to another device</a>.</p>
       <div class="reset">
         <button class="link-btn" type="button" data-reset>Start over</button>
         <div class="reset-confirm" id="reset-confirm" hidden>
@@ -652,10 +654,21 @@ def build_pages(course):
 <p>You can follow one of 4 learning paths, or read the lessons in any order. A short placement check lets you skip lessons you already know. When you finish a path, or the whole course, you can save a certificate.</p>
 <h2>How it stays up to date</h2>
 <p>Every week, the lists on the <a href="../tools/">AI tools</a> and <a href="../models/">AI models</a> pages are checked for new releases and changes. Each change has to be confirmed by the company's own announcement or by two trusted news sites. The "last checked" date on those pages shows when the last check happened. <span class="status-pill catalog-status"></span></p>
-<p>The weekly check also flags lessons that may be out of date, so they can be fixed.</p>
+<p>The weekly check also flags lessons that may be out of date, so they can be fixed. Once a month, a second check looks at the court rulings, court rules, ethics opinions and laws the lessons rely on and reports any changes, so the lessons can be updated.</p>
 <h2>Your progress stays in your browser</h2>
-<p>Your progress, your learning path, your certificates and your read-aloud settings are saved in this browser, on this device. They are not sent to anyone. If you clear your browser data, or use another device or browser, your progress will not be there.</p>
+<p>Your progress, your learning path, your certificates and your read-aloud settings are saved in this browser, on this device. They are not sent to anyone. If you clear your browser data, or use another device or browser, your progress will not be there unless you move it with a progress code.</p>
 <p>To clear your progress yourself, use <strong>Start over</strong> at the bottom of any page.</p>
+<h2 id="move">Move your progress to another device</h2>
+<p>A progress code is a line of text that holds your progress, path, certificates and settings. Copy it here, send it to yourself, for example by email, and paste it into this page on your other device. The code is not stored anywhere except where you put it.</p>
+<div class="move-box" data-move>
+<div class="move-step"><button class="btn-secondary" type="button" id="move-copy">Copy my progress code</button>
+<label class="sr-only" for="move-out">Your progress code</label><textarea id="move-out" class="move-code" rows="3" readonly hidden></textarea></div>
+<div class="move-step"><label for="move-in"><strong>Paste a progress code from another device</strong></label>
+<textarea id="move-in" class="move-code" rows="3" spellcheck="false" autocomplete="off"></textarea>
+<button class="btn-secondary" type="button" id="move-load">Add this progress</button></div>
+<p class="move-status" id="move-status" role="status" aria-live="polite"></p>
+<p class="muted">Adding a code keeps what this browser already has and adds the lessons and certificates from the code.</p>
+</div>
 <p>The fonts on this site come from Google Fonts, so your browser asks Google's servers for them. Links to AI tools take you to other companies' websites, which have their own privacy rules.</p>
 <h2>Listening to lessons</h2>
 <p>Every lesson has a Listen button. The recorded voice ({VOICE_NAME}) was made with Speechify, a text-to-speech service. You can also choose one of the voices built into your device. Voices with names like Natural, Neural, Premium, Enhanced or Siri usually sound the most human.</p>

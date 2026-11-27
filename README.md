@@ -14,6 +14,7 @@ Every page is generated. Edit the files in `src/`, then run the build.
 | Look and layout | `assets/site.css` |
 | Progress, paths, quizzes, read-aloud, certificates | `assets/app.js` |
 | AI tools and AI models lists | `catalog.json`, updated every Monday by a cloud routine that follows `docs/weekly-update.md` and checks its work with `scripts/check_catalog.py` |
+| Monthly check of the laws, rules and cases the lessons rely on | A cloud routine that follows `docs/law-check.md` and writes its findings to `docs/law-check-report.md`. It never changes lessons. |
 | Recorded read-aloud audio | `audio/` (made by `make_audio.py`) |
 
 ```bash

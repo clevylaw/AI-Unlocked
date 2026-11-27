@@ -234,11 +234,13 @@
       "color": "coral",
       "level": "For legal professionals",
       "title": "AI by practice area",
-      "desc": "How AI shows up in litigation and discovery, in contracts and deals, and on in-house legal teams.",
+      "desc": "How AI shows up in litigation, contracts and deals, in-house teams, evidence in court, and in the courts and legal aid.",
       "recap": [
         "Litigators can use AI for review, summaries and drafts, but must check every citation and quote and follow court rules on AI.",
         "Transactional lawyers can speed up contract review, but should check a sample by hand and decide the hard calls themselves.",
-        "In-house teams use AI and also set the company's AI rules, including for high-risk uses such as hiring."
+        "In-house teams use AI and also set the company's AI rules, including for high-risk uses such as hiring.",
+        "AI evidence must still be shown to be real and reliable. Keep original files, and challenge suspected fakes with a basis.",
+        "Courts are writing their own AI rules, and people without lawyers use AI too. Check every case and rule an AI gives against official sources."
       ],
       "scenario": {
         "q": "You want to load documents produced under a protective order into an AI review tool. What do you check first?",
@@ -358,6 +360,7 @@
         "8-3",
         "8-4",
         "5-3",
+        "10-5",
         "6-3"
       ]
     },
@@ -377,8 +380,10 @@
         "4-3",
         "5-2",
         "10-1",
+        "10-4",
         "10-2",
         "10-3",
+        "10-5",
         "9-1",
         "9-2",
         "6-1",
@@ -612,6 +617,18 @@
     {
       "term": "Bias audit",
       "def": "A test that compares an AI tool's results across groups of people, such as by sex and race, to find unfair differences."
+    },
+    {
+      "term": "Authentication",
+      "def": "Showing a court that a piece of evidence, such as a photo, recording or email, is what you say it is."
+    },
+    {
+      "term": "Self-represented litigant",
+      "def": "A person who goes to court without a lawyer. Also called pro se."
+    },
+    {
+      "term": "Unauthorized practice of law",
+      "def": "Giving legal advice or doing legal work for others without a law license. Most states forbid it."
     }
   ],
   "author": {
@@ -750,6 +767,10 @@
     "10-3": [
       "ai-governance-guide",
       "contracting-with-ai-vendors"
+    ],
+    "10-4": [
+      "ai-in-the-courtroom",
+      "ai-in-litigation-practice"
     ]
   }
 }
