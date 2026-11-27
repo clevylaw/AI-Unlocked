@@ -18,7 +18,10 @@
     "correct": 1,
     "feedback": "A language model guesses the next word, or part of a word, adds it, and repeats. Unless it is connected to a database, it is not looking anything up."
   },
-  "tech": "Chat models are a kind of <strong>Transformer</strong>. Each layer uses a step called <strong>self-attention</strong> to let every word piece look at the others, then passes the result through a small network. The last layer gives a probability for every possible next piece. A model's list of pieces, its vocabulary, usually holds about 100,000 to 200,000 of them. The model writes one piece at a time. Legal research tools add a search step before the model writes, which is covered in the lesson <a href=\"lesson:building-with-ai\">Building with AI</a>."
+  "tech": "Chat models are a kind of <strong>Transformer</strong>. Each layer uses a step called <strong>self-attention</strong> to let every word piece look at the others, then passes the result through a small network. The last layer gives a probability for every possible next piece. A model's list of pieces, its vocabulary, usually holds about 100,000 to 200,000 of them. The model writes one piece at a time. Legal research tools add a search step before the model writes, which is covered in the lesson <a href=\"lesson:building-with-ai\">Building with AI</a>.",
+  "sources": [
+    {"title": "Ashish Vaswani et al., *Attention Is All You Need*, 30 Advances in Neural Information Processing Systems (2017)", "url": "https://proceedings.neurips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html"}
+  ]
 }
 -->
 <h2>Guessing the next word</h2>

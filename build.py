@@ -497,14 +497,15 @@ def build_pages(course):
 </div>
 <section class="section" aria-labelledby="learn-h"><h2 id="learn-h">What you'll learn</h2>
 <ol class="module-toc">{"".join(f'<li><a href="modules/{m["slug"]}/"><span class="toc-num">{m["id"]}</span><span class="toc-text"><strong>{esc(m["title"])}</strong><span>{esc(m["desc"])}</span></span></a></li>' for m in course["modules"])}</ol></section>
-<section class="section sources-strip" aria-labelledby="src-h"><h2 id="src-h">Built on primary sources</h2>
-<p class="section-intro">Lessons cite the documents lawyers rely on, and each lesson lists its sources. Examples include:</p>
+<section class="section sources-strip" aria-labelledby="src-h"><h2 id="src-h">Built on primary and academic sources</h2>
+<p class="section-intro">Lessons cite court rulings, rules, bar opinions and peer-reviewed research, and each lesson lists its sources. A company's own pages are used only to describe that company's product. Examples include:</p>
 <ul class="cite-list">
 <li>ABA Comm. on Ethics &amp; Pro. Resp., Formal Op. 512, <em>Generative Artificial Intelligence Tools</em> (2024)</li>
 <li><em>Mata v. Avianca, Inc.</em>, 678 F. Supp. 3d 443 (S.D.N.Y. 2023)</li>
 <li><em>United States v. Heppner</em>, No. 25-cr-503 (S.D.N.Y. Feb. 17, 2026)</li>
 <li>N.D. Tex. Local Civil Rule 7.2(f), disclosure of generative AI use</li>
 <li>Regulation (EU) 2024/1689, the Artificial Intelligence Act</li>
+<li>Varun Magesh et al., <em>Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools</em>, 22 J. Empirical Legal Stud. 216 (2025)</li>
 </ul>
 <p class="muted">Content last reviewed {REVIEWED}. General education, not legal advice.</p></section>'''
     out[""] = page("", key="home", title=SITE_NAME, hero=hero, body=body,
